@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfmhdvi6re8px"]
+
+[ext_resource type="Script" uid="uid://nh5uycdcfuji" path="res://Cenas/area_morte.gd" id="1_uyrdr"]
+
+[node name="area_morte" type="Area2D"]
+script = ExtResource("1_uyrdr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.056
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
