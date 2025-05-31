@@ -1,0 +1,12 @@
+res://Cenas/Areas/node_2d.tscn
+res://inventory/players_inv.tres
+res://inventory/inv_ui_slot.gd
+res://inventory/items/heart.tres
+res://Cenas/character_body_2d.tscn
+res://Cenas/placas.tscn
+res://Cenas/key.tscn
+res://Cenas/plataforma.tscn
+res://Cenas/area_morte.tscn
+res://inventory/inn_ui.tscn
+res://inventory/inv_ui_slot.tscn
+res://Cenas/Areas/area_2.tscn

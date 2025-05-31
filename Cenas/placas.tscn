@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlu75gsrwm4nq"]
+
+[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Sprites/Dungeon Tile Set.png" id="1_8xh3x"]
+[ext_resource type="Script" uid="uid://v7ye7i0nsa60" path="res://Cenas/placas1.gd" id="1_b5l15"]
+[ext_resource type="AudioStream" uid="uid://dqwnbwxkfmbct" path="res://Sprites/sounds/explosion.wav" id="3_8xh3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mflt"]
+size = Vector2(12, 7.75)
+
+[node name="placas" type="Area2D"]
+script = ExtResource("1_b5l15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -2)
+scale = Vector2(0.633333, 0.561458)
+texture = ExtResource("1_8xh3x")
+region_enabled = true
+region_rect = Rect2(112.624, 160.375, 15.8276, 16.4211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -3.875)
+shape = SubResource("RectangleShape2D_5mflt")
+one_way_collision_margin = 1.2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8xh3x")
+bus = &"sounds"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

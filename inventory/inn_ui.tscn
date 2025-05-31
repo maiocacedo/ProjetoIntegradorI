@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmlklnbensrua"]
+
+[ext_resource type="Script" uid="uid://csxywoa7ii4w3" path="res://inventory/inn_ui.gd" id="1_gdni8"]
+[ext_resource type="Texture2D" uid="uid://dp0xkujmo4ksk" path="res://Sprites/sprites/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/HotkeyBox_34x34.png" id="2_dl28b"]
+[ext_resource type="PackedScene" uid="uid://dwp84ilsfwdpi" path="res://inventory/inv_ui_slot.tscn" id="3_dl28b"]
+
+[node name="Inv_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 62.0
+offset_bottom = 24.0
+script = ExtResource("1_gdni8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 24.0
+texture = ExtResource("2_dl28b")
+patch_margin_left = 9
+patch_margin_top = 9
+patch_margin_right = 9
+patch_margin_bottom = 9
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -4.5
+offset_right = 21.5
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="inv_ui_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dl28b")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dl28b")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dl28b")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_dl28b")]
+layout_mode = 2
