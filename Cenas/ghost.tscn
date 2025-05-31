@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://durn1jaddvq3j"]
+
+[ext_resource type="Script" uid="uid://5ymluixygy" path="res://Scripts/Armadilhas/ghost_follow.gd" id="1_ysyse"]
+[ext_resource type="Texture2D" uid="uid://bn4h46cbd3rqf" path="res://Sprites/sprites/Armadilhas/transparent-particles.png" id="2_m07c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhfb5"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkvrq"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htjlt"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6xni"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irp1t"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53vuu"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlf0j"]
+atlas = ExtResource("2_m07c3")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rupxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhfb5")
+}],
+"loop": false,
+"name": &"hide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkvrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htjlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irp1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53vuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlf0j")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysyse"]
+radius = 6.08276
+
+[node name="ghost" type="CharacterBody2D"]
+script = ExtResource("1_ysyse")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.125, 6.25)
+scale = Vector2(0.503906, 0.445313)
+sprite_frames = SubResource("SpriteFrames_rupxb")
+animation = &"moving"
+
+[node name="ReturnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="colision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 7)
+shape = SubResource("CircleShape2D_ysyse")
+
+[connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

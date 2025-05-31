@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+Marker2D
+Timer
+AnimatedSprite2D
+CharacterBody2D
+VisibleOnScreenEnabler2D
+Sprite2D
+TileMapLayer
+TileMap
+Node
+Label
+Panel
+CenterContainer
