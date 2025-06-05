@@ -1,0 +1,5 @@
+res://Cenas/Areas/node_2d.tscn
+res://inventory/players_inv.tres
+res://inventory/inv_ui_slot.gd
+res://inventory/items/heart.tres
+res://Cenas/ghost.tscn
