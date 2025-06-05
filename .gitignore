@@ -1,0 +1,49 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos de backup do editor
+*.import/
+.import/
+
+# Arquivos de cache do Godot
+*.translation
+*.moc
+*.converted.res
+*.converted.scn
+
+# Diretórios específicos do Godot
+.export/
+.export_presets.cfg
+
+# Arquivos temporários
+*.tmp
+
+# Arquivos de sistema de OSs comuns
+ehthumbs.db
+Icon?
+._*
+*.swp
+*~
+
+# Builds exportadas (edite se quiser incluir elas)
+bin/
+build/
+dist/
+*.exe
+*.apk
+*.zip
+*.pck
+*.x86_64
+*.x86
+*.osx
+*.dmg
+
+# Projetos VSCode ou JetBrains (caso use)
+.vscode/
+.idea/
+
+# Arquivos de log
+logs/
+*.log
