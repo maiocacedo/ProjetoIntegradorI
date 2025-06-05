@@ -3,11 +3,7 @@ extends Area2D
 @export var label_path : NodePath
 @onready var label: Label = null
 
-
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
-
-
 
 func _ready():
 	if label_path != null and has_node(label_path):

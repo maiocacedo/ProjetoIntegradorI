@@ -2,7 +2,6 @@ extends Area2D
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@export var item: InvItem
 var player = null
 
 func _on_body_entered(body: Node2D) -> void:
@@ -14,5 +13,3 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		tween.tween_property(self , "modulate:a" ,0 , 0.5)
 		tween.tween_callback(self.queue_free)
-		
-		player.collect(item)

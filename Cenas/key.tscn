@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwa3pyhv3v5gt"]
+[gd_scene load_steps=29 format=3 uid="uid://bwa3pyhv3v5gt"]
 
 [ext_resource type="Script" uid="uid://cfeixhluegwpy" path="res://Cenas/key.gd" id="1_p0yg6"]
 [ext_resource type="Texture2D" uid="uid://dsls2iho2outq" path="res://Sprites/key_32x32_24f.png" id="1_up4cr"]
-[ext_resource type="Resource" uid="uid://bt21lmwyterct" path="res://inventory/items/heart.tres" id="2_y3xus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0yg6"]
 atlas = ExtResource("1_up4cr")
@@ -185,7 +184,6 @@ radius = 4.12311
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_p0yg6")
-item = ExtResource("2_y3xus")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5.96046e-08, -2.38419e-07)

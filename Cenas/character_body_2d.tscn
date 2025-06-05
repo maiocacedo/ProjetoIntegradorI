@@ -1,10 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bq72xujbqyik1"]
+[gd_scene load_steps=24 format=3 uid="uid://bq72xujbqyik1"]
 
 [ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Cenas/character_body_2d.gd" id="1_ifqbm"]
-[ext_resource type="Resource" uid="uid://bwyeak6m6211s" path="res://inventory/players_inv.tres" id="2_gwfya"]
 [ext_resource type="Texture2D" uid="uid://b8okrk53o6oow" path="res://Sprites/sprites/AnimationSheet_Character.png" id="3_gwfya"]
 [ext_resource type="AudioStream" uid="uid://conrbyxaaqnw6" path="res://Sprites/sounds/jump.wav" id="3_ndeso"]
-[ext_resource type="PackedScene" uid="uid://bmlklnbensrua" path="res://inventory/inn_ui.tscn" id="5_ch4yf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch4yf"]
 atlas = ExtResource("3_gwfya")
@@ -158,7 +156,6 @@ height = 12.0
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_ifqbm")
-inv = ExtResource("2_gwfya")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
@@ -176,9 +173,3 @@ shape = SubResource("CapsuleShape2D_ndeso")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -1)
 stream = ExtResource("3_ndeso")
-
-[node name="Inv_UI" parent="." instance=ExtResource("5_ch4yf")]
-offset_left = -31.0
-offset_top = -37.0
-offset_right = 31.0
-offset_bottom = -13.0
