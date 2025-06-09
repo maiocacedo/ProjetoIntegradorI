@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://bycx5btccname"]
+
+[ext_resource type="Script" uid="uid://cv14lpvs4ctll" path="res://Cenas/HUD/menu_de_pausa.gd" id="1_e7xrw"]
+[ext_resource type="Theme" uid="uid://dd6uh1qsm5jv7" path="res://Cenas/HUD/botao_menu_de_pausa.tres" id="1_t1u7a"]
+
+[node name="menu_de_pausa" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_e7xrw")
+
+[node name="fundo_transparente" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0823529, 0.0823529, 0.0823529, 0.32549)
+
+[node name="menu_1_container" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -120.0
+offset_right = 166.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="retomar" type="Button" parent="menu_1_container"]
+layout_mode = 2
+theme = ExtResource("1_t1u7a")
+text = "Retomar"
+
+[node name="opcoes" type="Button" parent="menu_1_container"]
+layout_mode = 2
+theme = ExtResource("1_t1u7a")
+text = "Opções"
+
+[node name="sair" type="Button" parent="menu_1_container"]
+layout_mode = 2
+theme = ExtResource("1_t1u7a")
+text = "Sair do jogo"
+
+[connection signal="pressed" from="menu_1_container/retomar" to="." method="_on_retomar_pressed"]
+[connection signal="pressed" from="menu_1_container/opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="menu_1_container/sair" to="." method="_on_sair_pressed"]

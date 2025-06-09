@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwp84ilsfwdpi"]
+
+[ext_resource type="Texture2D" uid="uid://dl2rtyxmbqgw0" path="res://Assets/sprites/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/CharacterBox_56x57.png" id="1_dfngl"]
+[ext_resource type="Script" uid="uid://b3026m6f4qsds" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="3_jagxy"]
+
+[node name="inv_ui_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(8, 8)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_fcwim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.142857, 0.140351)
+texture = ExtResource("1_dfngl")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Iten_display" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(14, 8)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 15.0
+offset_bottom = 10.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("3_jagxy")
+theme_override_font_sizes/font_size = 8
+text = "99"
+horizontal_alignment = 2

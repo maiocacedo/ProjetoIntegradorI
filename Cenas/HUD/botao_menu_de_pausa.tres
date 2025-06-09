@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dd6uh1qsm5jv7"]
+
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_02ym6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4156"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dyc1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_txbx5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fa45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5y50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cj448"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7hug"]
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.340339, 0.340339, 0.340339, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_02ym6")
+Button/styles/disabled = SubResource("StyleBoxEmpty_v4156")
+Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_3dyc1")
+Button/styles/focus = SubResource("StyleBoxEmpty_txbx5")
+Button/styles/hover = SubResource("StyleBoxEmpty_4fa45")
+Button/styles/normal = SubResource("StyleBoxEmpty_n5y50")
+Button/styles/pressed = SubResource("StyleBoxEmpty_cj448")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_t7hug")

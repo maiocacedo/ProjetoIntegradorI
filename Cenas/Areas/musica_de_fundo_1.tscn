@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://vikay5y5c5xs"]
+
+[ext_resource type="AudioStream" uid="uid://b128o4ok3rx20" path="res://Assets/music/tema_level_1.wav" id="1_0hs22"]
+[ext_resource type="Script" uid="uid://co3fq5kior2hk" path="res://Cenas/Areas/musica_de_fundo_1.gd" id="2_gjvo8"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_0hs22")
+autoplay = true
+script = ExtResource("2_gjvo8")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

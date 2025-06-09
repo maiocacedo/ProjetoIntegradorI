@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bt21lmwyterct"]
+
+[ext_resource type="Script" uid="uid://d3egatjrab8i7" path="res://inventory/inventario.gd" id="1_302jj"]
+[ext_resource type="Texture2D" uid="uid://bx718molctent" path="res://Assets/sprites/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/CornerKnot_14x14.png" id="2_302jj"]
+
+[resource]
+script = ExtResource("1_302jj")
+name = "heart"
+texture = ExtResource("2_302jj")
+metadata/_custom_type_script = "uid://d3egatjrab8i7"
