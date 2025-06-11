@@ -1,32 +1,30 @@
 extends CharacterBody2D
 
-@export_group("Patrol Propeties")
-@export var point_a: Marker2D
-@export var point_b: Marker2D
-@export var point_c: Marker2D # aq
+@export_group("Patrol Properties")
+@export var pointA: Marker2D
+@export var pointB: Marker2D
+@export var pointC: Marker2D
 
+@export var usePatrol: bool = true
+@export var patrolSpeed: float = 80.0
 
-@export var use_patrol: bool = true
-@export var patrol_speed: float = 80.0
+var patrolTarget: Marker2D
+enum State { PATROLLING, CHASING, HIDING }
+var state: State = State.PATROLLING
 
-var patrol_target: Marker2D
-enum State { PATROLLING, CHASING, HIDING } # status do fantasma
-var state: State = State.PATROLLING # inicia patrulhando
-
-var player: CharacterBody2D # Quem ele tem que seguir
+var player: CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
-var patrol_direction: int = 1 # direção
+var patrolDirection: int = 1
 
 func _ready() -> void:
-	player = get_tree().get_first_node_in_group("player") # se o player foi atribuido
-	if use_patrol: # se a booleana estiver ativado
-		patrol_target = point_b
+	player = get_tree().get_first_node_in_group("player")
+	if usePatrol:
+		patrolTarget = pointB
 
-func has_passed_limits() -> bool:
-	# Considerando apenas o eixo X, ajuste se também usar Y
-	var min_x = min(point_a.global_position.x, point_b.global_position.x)
-	var max_x = max(point_a.global_position.x, point_b.global_position.x)
-	return global_position.x < min_x or global_position.x > max_x
+func hasPassedLimits() -> bool:
+	var minX = min(pointA.global_position.x, pointB.global_position.x)
+	var maxX = max(pointA.global_position.x, pointB.global_position.x)
+	return global_position.x < minX or global_position.x > maxX
 
 func _physics_process(delta: float) -> void:
 	if not player:
@@ -34,107 +32,88 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.PATROLLING:
 			patrol(delta)
-			if is_player_inside_patrol_area() and not is_player_looking_at_me():
+			if isPlayerInsidePatrolArea() and not isPlayerLookingAtMe():
 				state = State.CHASING
 				$ReturnTimer.stop()
 
-
 		State.CHASING:
-			# Verifica se passou do point_a ou point_b
-			if has_passed_limits():
+			if hasPassedLimits():
 				state = State.PATROLLING
 				return
 			
-			if is_player_looking_at_me():
+			if isPlayerLookingAtMe():
 				state = State.HIDING
 				$ReturnTimer.start()
 			else:
-				chase_player(delta)
+				chasePlayer(delta)
 				$ReturnTimer.stop()
 		
 		State.HIDING:
-			hide_face()
-			if not is_player_looking_at_me():
+			hideFace()
+			if not isPlayerLookingAtMe():
 				state = State.CHASING
 				$ReturnTimer.stop()
 			elif not $ReturnTimer.is_stopped():
 				pass
 
 func patrol(delta):
-	if global_position.distance_to(patrol_target.global_position) < 8.0:
-		if patrol_target == point_b:
-			patrol_target = point_a
-		else:
-			patrol_target = point_b
+	if global_position.distance_to(patrolTarget.global_position) < 8.0:
+		patrolTarget = pointA if patrolTarget == pointB else pointB
 	
-	var to_target = patrol_target.global_position - global_position
-	var direction = to_target.normalized()
-	velocity = direction * (patrol_speed -40.0)
+	var toTarget = patrolTarget.global_position - global_position
+	var direction = toTarget.normalized()
+	velocity = direction * patrolSpeed
 
-	# Impedir que suba além do point_c
-	if (global_position.y + velocity.y * delta) < point_c.global_position.y:
+	if (global_position.y + velocity.y * delta) < pointC.global_position.y:
 		velocity.y = 0
 
 	move_and_slide()
-	
-	$anim.play("moving")
-	if abs(velocity.x) >  0.1:
-		patrol_direction = sign(velocity.x)
-		
-	$anim.flip_h = patrol_direction < 0
-	move_and_slide()
-	
-	$anim.play("moving")
-	if abs(velocity.x) >  0.1:
-		patrol_direction = sign(velocity.x)
-		
-	$anim.flip_h = patrol_direction < 0
 
-func chase_player(delta):
-	var to_player = (player.global_position - global_position).normalized()
-	velocity = to_player * patrol_speed
+	$anim.play("moving")
+	if abs(velocity.x) > 0.1:
+		patrolDirection = sign(velocity.x)
+	$anim.flip_h = patrolDirection < 0
 
-	# Impedir que suba além do point_c
-	if (global_position.y + velocity.y * delta) < point_c.global_position.y:
+func chasePlayer(delta):
+	var toPlayer = (player.global_position - global_position).normalized()
+	velocity = toPlayer * patrolSpeed
+
+	if (global_position.y + velocity.y * delta) < pointC.global_position.y:
 		velocity.y = 0
 
 	move_and_slide()
 	
 	if abs(velocity.x) > 0.1:
-		patrol_direction = sign(velocity.x)
+		patrolDirection = sign(velocity.x)
 		
-	$anim.flip_h = patrol_direction < 0
+	$anim.flip_h = patrolDirection < 0
 	$anim.play("moving")
 
-	
-func hide_face():
+func hideFace():
 	velocity = Vector2.ZERO
 	$anim.play("hide")
-	
-func is_player_looking_at_me() -> bool:
-	var to_enemy = (global_position - player.global_position).normalized()
-	var player_facing_dir = player.facing_dir
-	var dot = to_enemy.dot(player_facing_dir)
-	return dot > 0.5
-	
 
+func isPlayerLookingAtMe() -> bool:
+	var toEnemy = (global_position - player.global_position).normalized()
+	var playerFacingDir = player.facingDir
+	var dot = toEnemy.dot(playerFacingDir)
+	return dot > 0.5
 
 func _on_return_timer_timeout() -> void:
 	state = State.PATROLLING
 
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		get_tree().reload_current_scene()
-		
-func is_player_inside_patrol_area() -> bool:
-	var min_x = min(point_a.global_position.x, point_b.global_position.x)
-	var max_x = max(point_a.global_position.x, point_b.global_position.x)
-	var max_y = point_c.global_position.y
 
-	var player_pos = player.global_position
+func isPlayerInsidePatrolArea() -> bool:
+	var minX = min(pointA.global_position.x, pointB.global_position.x)
+	var maxX = max(pointA.global_position.x, pointB.global_position.x)
+	var minY = pointC.global_position.y
+
+	var playerPos = player.global_position
 
 	return (
-		player_pos.x >= min_x and player_pos.x <= max_x and
-		player_pos.y <= max_y
+		playerPos.x >= minX and playerPos.x <= maxX and
+		playerPos.y >= minY  # Agora checa se está ABAIXO de pointC
 	)

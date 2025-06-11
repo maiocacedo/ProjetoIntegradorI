@@ -581,24 +581,28 @@ position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 metadata/_edit_lock_ = true
 
-[node name="ghost" parent="." node_paths=PackedStringArray("point_a", "point_b", "point_c") instance=ExtResource("9_enyly")]
-position = Vector2(127.5, 241)
-point_a = NodePath("../point_a")
-point_b = NodePath("../point_b")
-point_c = NodePath("../point_c")
-
-[node name="point_a" type="Marker2D" parent="."]
-position = Vector2(129, 247)
-
-[node name="point_b" type="Marker2D" parent="."]
-position = Vector2(218, 246)
-
-[node name="point_c" type="Marker2D" parent="."]
-position = Vector2(157, 217)
-
 [node name="espinho" type="Node" parent="."]
 
 [node name="spike-area" parent="espinho" instance=ExtResource("11_oiyed")]
 position = Vector2(769, 511)
 
 [node name="monstro" type="Node" parent="."]
+
+[node name="ghost" parent="monstro" node_paths=PackedStringArray("pointA", "pointB", "pointC") instance=ExtResource("9_enyly")]
+position = Vector2(261, 479)
+scale = Vector2(2, 2)
+pointA = NodePath("../point_a")
+pointB = NodePath("../point_b")
+pointC = NodePath("../point_c")
+
+[node name="point_a" type="Marker2D" parent="monstro"]
+position = Vector2(260, 486)
+scale = Vector2(2, 2)
+
+[node name="point_b" type="Marker2D" parent="monstro"]
+position = Vector2(436, 484)
+scale = Vector2(2, 2)
+
+[node name="point_c" type="Marker2D" parent="monstro"]
+position = Vector2(314, 434)
+scale = Vector2(2, 2)

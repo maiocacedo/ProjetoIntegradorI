@@ -8,11 +8,11 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var facing_dir := Vector2.RIGHT # DO GHOST
+var facingDir := Vector2.RIGHT # DO GHOST
 func _physics_process(delta: float) -> void:
 	# DO GHOST
 	if abs(velocity.x) > 0.1:
-		facing_dir = Vector2.RIGHT if velocity.x > 0 else Vector2.LEFT
+		facingDir = Vector2.RIGHT if velocity.x > 0 else Vector2.LEFT
 	
 	# Add the gravity.
 	if not is_on_floor():
