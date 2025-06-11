@@ -5,5 +5,5 @@ res://inventory/items/heart.tres
 res://Cenas/Armadilhas/ghost.tscn
 res://Cenas/character_body_2d.tscn
 res://Cenas/Armadilhas/plataforma_cai.tscn
-res://Scripts/Armadilhas/plataforma_cai.gd
-res://Cenas/character_body_2d.gd
+res://Cenas/Armadilhas/spike_area.tscn
+res://Scripts/Armadilhas/ghost_follow.gd

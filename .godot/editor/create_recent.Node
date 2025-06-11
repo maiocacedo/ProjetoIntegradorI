@@ -1,9 +1,10 @@
+Marker2D
+Node
 Sprite2D
-CollisionShape2D
 Area2D
+CollisionShape2D
 RigidBody2D
 VisibleOnScreenEnabler2D
-Marker2D
 AnimatedSprite2D
 AnimationPlayer
 Timer
@@ -11,4 +12,3 @@ AnimatableBody2D
 CharacterBody2D
 TileMapLayer
 TileMap
-Node

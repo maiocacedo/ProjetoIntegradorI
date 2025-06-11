@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://8u5btptcigf6"]
+
+[ext_resource type="Script" uid="uid://qb7xfbpdtwl6" path="res://Scripts/Armadilhas/spike_area.gd" id="1_w1prt"]
+[ext_resource type="Texture2D" uid="uid://b2osewbxs44vs" path="res://Sprites/sprites/Armadilhas/Spike.png" id="2_ic8w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wkgv"]
+size = Vector2(140, 2)
+
+[node name="spike-area" type="Area2D"]
+position = Vector2(383, 255)
+collision_layer = 2
+script = ExtResource("1_w1prt")
+
+[node name="spikes" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(4, -1)
+scale = Vector2(0.437503, 0.421874)
+texture = ExtResource("2_ic8w2")
+region_enabled = true
+region_rect = Rect2(0, 8, 320, 8)
+
+[node name="colision" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_3wkgv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export_group("Patrol Propeties")
 @export var point_a: Marker2D
 @export var point_b: Marker2D
+@export var point_c: Marker2D # aq
+
+
 @export var use_patrol: bool = true
 @export var patrol_speed: float = 80.0
 
@@ -31,9 +34,10 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.PATROLLING:
 			patrol(delta)
-			if not is_player_looking_at_me():
+			if is_player_inside_patrol_area() and not is_player_looking_at_me():
 				state = State.CHASING
 				$ReturnTimer.stop()
+
 
 		State.CHASING:
 			# Verifica se passou do point_a ou point_b
@@ -65,7 +69,19 @@ func patrol(delta):
 	
 	var to_target = patrol_target.global_position - global_position
 	var direction = to_target.normalized()
-	velocity = direction * patrol_speed
+	velocity = direction * (patrol_speed -40.0)
+
+	# Impedir que suba além do point_c
+	if (global_position.y + velocity.y * delta) < point_c.global_position.y:
+		velocity.y = 0
+
+	move_and_slide()
+	
+	$anim.play("moving")
+	if abs(velocity.x) >  0.1:
+		patrol_direction = sign(velocity.x)
+		
+	$anim.flip_h = patrol_direction < 0
 	move_and_slide()
 	
 	$anim.play("moving")
@@ -77,13 +93,19 @@ func patrol(delta):
 func chase_player(delta):
 	var to_player = (player.global_position - global_position).normalized()
 	velocity = to_player * patrol_speed
+
+	# Impedir que suba além do point_c
+	if (global_position.y + velocity.y * delta) < point_c.global_position.y:
+		velocity.y = 0
+
 	move_and_slide()
 	
 	if abs(velocity.x) > 0.1:
-		patrol_direction - sign(velocity.x)
+		patrol_direction = sign(velocity.x)
 		
 	$anim.flip_h = patrol_direction < 0
 	$anim.play("moving")
+
 	
 func hide_face():
 	velocity = Vector2.ZERO
@@ -104,3 +126,15 @@ func _on_return_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		get_tree().reload_current_scene()
+		
+func is_player_inside_patrol_area() -> bool:
+	var min_x = min(point_a.global_position.x, point_b.global_position.x)
+	var max_x = max(point_a.global_position.x, point_b.global_position.x)
+	var max_y = point_c.global_position.y
+
+	var player_pos = player.global_position
+
+	return (
+		player_pos.x >= min_x and player_pos.x <= max_x and
+		player_pos.y <= max_y
+	)

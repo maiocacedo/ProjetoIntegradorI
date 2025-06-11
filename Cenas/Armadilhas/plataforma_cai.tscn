@@ -21,10 +21,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_u5uav"]
-resource_name = "tremor"
-length = 0.4
-
 [sub_resource type="Animation" id="Animation_hplj4"]
 resource_name = "quake"
 length = 0.4
@@ -40,6 +36,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_u5uav"]
+resource_name = "tremor"
+length = 0.4
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hplj4"]
 _data = {
