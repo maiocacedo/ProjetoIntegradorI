@@ -10,10 +10,14 @@ config_version=5
 
 [application]
 
-config/name="teste de projeto"
+config/name="Cavaleiro dos Circuitos"
 run/main_scene="uid://cltlew27mk5y4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ItemDB="*res://Scripts/Items/ItemDatabase.gd"
 
 [input]
 

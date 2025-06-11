@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlu75gsrwm4nq"]
 
-[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Sprites/Dungeon Tile Set.png" id="1_8xh3x"]
+[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="1_8xh3x"]
 [ext_resource type="Script" uid="uid://v7ye7i0nsa60" path="res://Cenas/placas1.gd" id="1_b5l15"]
-[ext_resource type="AudioStream" uid="uid://dqwnbwxkfmbct" path="res://Sprites/sounds/explosion.wav" id="3_8xh3x"]
+[ext_resource type="AudioStream" uid="uid://dqwnbwxkfmbct" path="res://Assets/sounds/explosion.wav" id="3_8xh3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mflt"]
 size = Vector2(12, 7.75)

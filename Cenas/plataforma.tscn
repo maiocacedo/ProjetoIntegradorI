@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvgaeqs22at0x"]
 
-[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Sprites/Dungeon Tile Set.png" id="1_bon5w"]
+[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="1_bon5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v4vm"]
 size = Vector2(34, 3)
