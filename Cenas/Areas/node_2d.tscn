@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cltlew27mk5y4"]
+[gd_scene load_steps=25 format=4 uid="uid://cltlew27mk5y4"]
 
 [ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Cenas/main.gd" id="1_o0qou"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/character_body_2d.tscn" id="2_4ofe7"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bwa3pyhv3v5gt" path="res://Cenas/key.tscn" id="6_iuh1b"]
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma.tscn" id="7_iuh1b"]
 [ext_resource type="PackedScene" uid="uid://dfmhdvi6re8px" path="res://Cenas/area_morte.tscn" id="8_vevm7"]
-[ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/ghost.tscn" id="9_enyly"]
+[ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/Armadilhas/ghost.tscn" id="9_enyly"]
+[ext_resource type="Script" uid="uid://qb7xfbpdtwl6" path="res://Scripts/Armadilhas/spike_area.gd" id="11_ai6mh"]
+[ext_resource type="Texture2D" uid="uid://b2osewbxs44vs" path="res://Sprites/sprites/Armadilhas/Spike.png" id="12_60cq0"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vevm7"]
 a = Vector2(25.5, 0)
@@ -377,6 +379,9 @@ texture = ExtResource("5_gxfnd")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_b4w7g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxed5"]
+size = Vector2(77.5, 2)
+
 [node name="Node2D" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_o0qou")
@@ -434,7 +439,7 @@ theme_override_font_sizes/font_size = 8
 text = "Cuidado com espinhos"
 
 [node name="placas4" parent="Placas" instance=ExtResource("4_gxfnd")]
-position = Vector2(713, 508)
+position = Vector2(615, 478)
 scale = Vector2(2, 2)
 label_path = NodePath("Label4")
 
@@ -531,6 +536,15 @@ libraries = {
 autoplay = "new_animation"
 speed_scale = 0.614
 
+[node name="plataforma_cai" parent="Plataformas" instance=ExtResource("6_gb0c0")]
+position = Vector2(721, 496)
+
+[node name="plataforma_cai2" parent="Plataformas" instance=ExtResource("6_gb0c0")]
+position = Vector2(830, 496)
+
+[node name="plataforma_cai3" parent="Plataformas" instance=ExtResource("6_gb0c0")]
+position = Vector2(775, 482)
+
 [node name="Chaves" type="Node" parent="."]
 
 [node name="Key" parent="Chaves" instance=ExtResource("6_iuh1b")]
@@ -581,3 +595,22 @@ position = Vector2(129, 247)
 
 [node name="point_b" type="Marker2D" parent="."]
 position = Vector2(218, 246)
+
+[node name="spike-area" type="Area2D" parent="."]
+position = Vector2(383, 255)
+collision_layer = 2
+script = ExtResource("11_ai6mh")
+
+[node name="spikes" type="Sprite2D" parent="spike-area"]
+texture_repeat = 2
+position = Vector2(4, -0.5)
+scale = Vector2(0.437503, 0.421874)
+texture = ExtResource("12_60cq0")
+region_enabled = true
+region_rect = Rect2(0, 8, 176, 8)
+
+[node name="colision" type="CollisionShape2D" parent="spike-area"]
+position = Vector2(4.25, 0.5)
+shape = SubResource("RectangleShape2D_xxed5")
+
+[connection signal="body_entered" from="spike-area" to="spike-area" method="_on_body_entered"]

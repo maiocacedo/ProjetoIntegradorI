@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func has_collided_with(collision: KinematicCollision2D, collider: CharacterBody2D):
 	if !is_triggered:
 		is_triggered = true
-		anim.play("tremor")
+		anim.play("quake")
 		velocity = Vector2.ZERO
 		
 
@@ -37,9 +37,10 @@ func _on_anim_animation_finished(anim_name: StringName) -> void:
 func _on_respawn_timeout() -> void:
 	set_process(false)
 	global_position = respawn_position
-	$texture.visible = false  # Esconde
-	if is_triggered:
-		$texture.visible = true  # Mostra
-		var spawn_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
-		spawn_tween.tween_property($texture, "modulate:a", 1.0, 0.2).from(0.0)  # fade-in
+	
+	$texture.visible = true
+	$texture.modulate.a = 0.0  # Garante que a opacidade comece em 0
+	var spawn_tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_IN_OUT)
+	spawn_tween.tween_property($texture, "modulate:a", 1.0, 0.2)
+
 	is_triggered = false
