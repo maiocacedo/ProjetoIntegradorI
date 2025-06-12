@@ -1,5 +1,5 @@
 res://Cenas/character_body_2d.tscn
-res://Scripts/Items/item.gd
+res://Scripts/Inventory/inventory_ui.gd
 res://Cenas/Areas/node_2d.tscn
 res://Cenas/placas.tscn
 res://Cenas/plataforma.tscn
@@ -9,5 +9,5 @@ res://Cenas/Items/item.tscn
 res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://scripts/inventory/inventory_ui.gd
-res://Scripts/Inventory/inventory_ui.gd
+res://Scripts/Items/item.gd
 res://Scripts/Items/ItemDatabase.gd
