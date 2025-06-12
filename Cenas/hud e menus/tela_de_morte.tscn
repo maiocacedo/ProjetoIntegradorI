@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://hw5oqh8xa4au"]
+
+[ext_resource type="Script" uid="uid://bnmew726tydj0" path="res://Scripts/hud e menus/tela_de_morte.gd" id="1_1n8eh"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_hpf3u"]
+[ext_resource type="Theme" uid="uid://bbr5200q147wf" path="res://Cenas/hud e menus/tres/botao_menu_principal.tres" id="3_1n8eh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1on44"]
+line_spacing = 1.0
+font = ExtResource("1_hpf3u")
+font_size = 37
+font_color = Color(1, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="tela_de_morte" type="CanvasLayer"]
+script = ExtResource("1_1n8eh")
+
+[node name="fundo_transparente" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.176471, 0.0823529, 0.0823529, 0.32549)
+
+[node name="menu_morte" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -74.5
+offset_bottom = 74.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="voce_perdeu_label" type="Label" parent="menu_morte"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Você perdeu!
+"
+label_settings = SubResource("LabelSettings_1on44")
+
+[node name="tentar_novamente" type="Button" parent="menu_morte"]
+layout_mode = 2
+theme = ExtResource("3_1n8eh")
+text = "Tentar novamente"
+
+[node name="voltar_menu_principal" type="Button" parent="menu_morte"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_1n8eh")
+text = "Voltar para o Menu"
+
+[connection signal="pressed" from="menu_morte/tentar_novamente" to="." method="_on_tentar_novamente_pressed"]
+[connection signal="pressed" from="menu_morte/voltar_menu_principal" to="." method="_on_voltar_menu_principal_pressed"]

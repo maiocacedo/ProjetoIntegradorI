@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bycx5btccname"]
+[gd_scene load_steps=5 format=3 uid="uid://bycx5btccname"]
 
-[ext_resource type="Script" uid="uid://cv14lpvs4ctll" path="res://Cenas/HUD/menu_de_pausa.gd" id="1_e7xrw"]
-[ext_resource type="Theme" uid="uid://dd6uh1qsm5jv7" path="res://Cenas/HUD/botao_menu_de_pausa.tres" id="1_t1u7a"]
+[ext_resource type="Script" uid="uid://cv14lpvs4ctll" path="res://Scripts/hud e menus/menu_de_pausa.gd" id="1_e7xrw"]
+[ext_resource type="Theme" uid="uid://dd6uh1qsm5jv7" path="res://Cenas/hud e menus/tres/botao_menu_de_pausa.tres" id="2_g7um4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7um4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_008jy"]
 
 [node name="menu_de_pausa" type="CanvasLayer"]
 process_mode = 3
@@ -31,18 +35,28 @@ alignment = 1
 
 [node name="retomar" type="Button" parent="menu_1_container"]
 layout_mode = 2
-theme = ExtResource("1_t1u7a")
+theme = ExtResource("2_g7um4")
 text = "Retomar"
+
+[node name="HSeparator2" type="HSeparator" parent="menu_1_container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g7um4")
 
 [node name="opcoes" type="Button" parent="menu_1_container"]
 layout_mode = 2
-theme = ExtResource("1_t1u7a")
+theme = ExtResource("2_g7um4")
 text = "Opções"
+
+[node name="HSeparator" type="HSeparator" parent="menu_1_container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_008jy")
 
 [node name="sair" type="Button" parent="menu_1_container"]
 layout_mode = 2
-theme = ExtResource("1_t1u7a")
-text = "Sair do jogo"
+theme = ExtResource("2_g7um4")
+text = "Voltar para o Menu"
 
 [connection signal="pressed" from="menu_1_container/retomar" to="." method="_on_retomar_pressed"]
 [connection signal="pressed" from="menu_1_container/opcoes" to="." method="_on_opcoes_pressed"]

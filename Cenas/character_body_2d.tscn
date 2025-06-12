@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bq72xujbqyik1"]
 
-[ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Cenas/character_body_2d.gd" id="1_ifqbm"]
+[ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Scripts/character_body_2d.gd" id="1_ifqbm"]
 [ext_resource type="Resource" uid="uid://bwyeak6m6211s" path="res://inventory/players_inv.tres" id="2_gwfya"]
 [ext_resource type="Texture2D" uid="uid://b8okrk53o6oow" path="res://Assets/sprites/AnimationSheet_Character.png" id="3_gwfya"]
 [ext_resource type="AudioStream" uid="uid://bkc4r3skiv3ue" path="res://Assets/sounds/pulo.wav" id="4_gwfya"]

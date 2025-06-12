@@ -1,0 +1,269 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkfyo3nn0pram"]
+
+[ext_resource type="Script" uid="uid://cme4e4r6wr6cn" path="res://Scripts/hud e menus/seletor_nivel.gd" id="1_fxf8f"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_gqlks"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="2_gqlks"]
+[ext_resource type="LabelSettings" uid="uid://dv05upwbm0w17" path="res://Cenas/hud e menus/tres/menu_label_settings.tres" id="2_vingm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xag0d"]
+font = ExtResource("1_gqlks")
+font_size = 48
+outline_size = 5
+outline_color = Color(0.305882, 0.345098, 0.486275, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tcltt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w52u4"]
+
+[node name="seletor_nivel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fxf8f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 12.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.0
+offset_top = 73.0
+offset_right = 106.0
+offset_bottom = 121.0
+grow_horizontal = 2
+text = "Fases"
+label_settings = SubResource("LabelSettings_xag0d")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 37.0
+offset_right = 234.0
+offset_bottom = 85.0
+text = "<> x"
+label_settings = ExtResource("2_vingm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -267.5
+offset_top = -88.0
+offset_right = 267.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="level_1" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+text = "Fase 1"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_4" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+text = "Fase 4
+"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_7" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 7
+"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_10" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 10"
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w52u4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="level_2" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 2
+"
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_6" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 5"
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_9" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 8
+"
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="voltar" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+text = "Voltar
+"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w52u4")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="level_3" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 3
+"
+
+[node name="Label9" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_6" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 6
+"
+
+[node name="Label10" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="level_9" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+disabled = true
+text = "Fase 9"
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "<><><>"
+label_settings = ExtResource("2_vingm")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/voltar" to="." method="_on_voltar_pressed"]

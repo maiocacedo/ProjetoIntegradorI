@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-MusicaDeFundo1="*res://Cenas/Areas/musica_de_fundo_1.tscn"
+MusicaDeFundo1="*res://Scripts/music/musica_de_fundo.gd"
 
 [input]
 
@@ -45,6 +45,7 @@ i={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=false
 
 [rendering]
 

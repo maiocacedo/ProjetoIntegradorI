@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfmhdvi6re8px"]
 
-[ext_resource type="Script" uid="uid://nh5uycdcfuji" path="res://Cenas/area_morte.gd" id="1_uyrdr"]
+[ext_resource type="Script" uid="uid://nh5uycdcfuji" path="res://Scripts/area_morte.gd" id="1_uyrdr"]
 [ext_resource type="AudioStream" uid="uid://dh3qtaigwn8ah" path="res://Assets/sounds/dano_letal.wav" id="2_diaaa"]
 
 [node name="area_morte" type="Area2D"]

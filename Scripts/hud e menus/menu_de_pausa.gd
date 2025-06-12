@@ -1,28 +1,31 @@
 extends CanvasLayer
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = false
 
+# Configura "esc" para pausar o jogo
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		visible = true
 		get_tree().paused = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	pass
 
 
+# Retoma o jogo, despausando os nós
 func _on_retomar_pressed() -> void:
 	visible = false
 	get_tree().paused = false
 
-
+# abre menu de opções
 func _on_opcoes_pressed() -> void:
 	pass # Fazer menu de opções
 
-
+# Volta para o menu
 func _on_sair_pressed() -> void:
-	get_tree().quit() # enquanto não tem menu principal
+	visible = false
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Cenas/hud e menus/menu.tscn")

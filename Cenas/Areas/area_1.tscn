@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=4 uid="uid://cltlew27mk5y4"]
 
-[ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Cenas/main.gd" id="1_hkbgh"]
+[ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Scripts/main.gd" id="1_hkbgh"]
 [ext_resource type="PackedScene" uid="uid://dfmhdvi6re8px" path="res://Cenas/area_morte.tscn" id="2_0n8st"]
-[ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/HUD/hud.tscn" id="2_oso3q"]
+[ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="2_oso3q"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placas.tscn" id="3_288g3"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_a6xb4"]
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma.tscn" id="5_4gljq"]
