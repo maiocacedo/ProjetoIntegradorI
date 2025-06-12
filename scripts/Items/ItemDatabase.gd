@@ -6,13 +6,36 @@ var items = {
 	1: {
 		"id": 1,
 		"name": "Espada",
-		"icon": preload("res://Assets/items/espada_32x32.png"),
+		"icon": preload("res://Assets/Items/espada.png"),
 		"scene": preload("res://Cenas/items/espada.tscn"),
 		"quantity": 1
+	},
+	# Chave
+	2: {
+		"id": 2,
+		"name": "Chave",
+		"icon": preload("res://Assets/Items/chave.png"),
+		"scene": preload("res://Cenas/items/chave.tscn"),
+		"quantity": 1
+	},
+	# Refrigerante
+	3: {
+		"id": 3,
+		"name": "Refrigerante",
+		"icon": preload("res://Assets/Items/refri-heigh.png"),
+		"scene": preload("res://Cenas/Items/refrigerante.tscn"),
+		"quantity": 1
+	},
+	# Tenis
+	4: {
+		"id": 4,
+		"name": "Tênis",
+		"icon": preload("res://Assets/Items/tenis.png"),
+		"scene": preload("res://Cenas/Items/tenis.tscn"),
+		"quantity": 1
 	}
-	# Adicionar...
 }
 
 # Retorna o item
-func get_item(id):
+func getItem(id):
 	return items.get(id, null)

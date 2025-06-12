@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://rfw2vgk7h76w"]
+
+[ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_riak6"]
+[ext_resource type="Texture2D" uid="uid://dsy366hq2h6xw" path="res://Assets/Items/tenis.png" id="2_paass"]
+
+[node name="Tenis" instance=ExtResource("1_riak6")]
+itemId = 4
+itemName = "Tenis Veloz"
+itemIcon = ExtResource("2_paass")

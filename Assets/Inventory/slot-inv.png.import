@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bukin3q8augpo"
-path="res://.godot/imported/refrigerante.png-7fddd6837d071060a9c15fa781e2979a.ctex"
+uid="uid://cxsiakk77al2x"
+path="res://.godot/imported/slot-inv.png-2a0f76f8901b35d962749d9314ea8d9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/refrigerante.png"
-dest_files=["res://.godot/imported/refrigerante.png-7fddd6837d071060a9c15fa781e2979a.ctex"]
+source_file="res://Assets/Inventory/slot-inv.png"
+dest_files=["res://.godot/imported/slot-inv.png-2a0f76f8901b35d962749d9314ea8d9b.ctex"]
 
 [params]
 

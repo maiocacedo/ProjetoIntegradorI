@@ -5,12 +5,14 @@ var inventory = [null, null, null, null]
 
 # Função que adicionará os itens desejados ao inicio
 func _ready():
-	var item = ItemDB.get_item(1) # Obtem o item espada pelo banco de dados
-	add_item(item)
-	update_ui()
+	#var item = ItemDB.getItem(1) # Obtem o item espada pelo banco de dados
+	#var item2 = ItemDB.getItem(2) # Obtem o item espada pelo banco de dados
+	#addItem(item)
+	#addItem(item2)
+	updateUI()
 
 # Adiciona um determinado item no inventário
-func add_item(item):
+func addItem(item):
 	for i in range(len(inventory)):
 		if inventory[i] == null:
 			inventory[i] = item
@@ -18,43 +20,18 @@ func add_item(item):
 	return false
 
 # Remove um determinado item no inventário por index
-func remove_item(slot_index):
-	if slot_index >= 0 and slot_index < len(inventory):
-		inventory[slot_index] = null
+func removeItem(slotIndex):
+	if slotIndex >= 0 and slotIndex < len(inventory):
+		inventory[slotIndex] = null
 
 # Atualiza os slots do inventário
-func update_ui():
+func updateUI():
 	for i in range(len(inventory)):
-		var slot_bg = $HBoxContainer.get_node("Slot%d" % i).get_node("SlotBackground")  
-		var btn = $HBoxContainer.get_node("Slot%d" % i).get_node("SlotButton")  
+		var slotBg = $HBoxContainer.get_node("Slot%d" % i).get_node("SlotBackground")  
+		var slotItem = $HBoxContainer.get_node("Slot%d" % i).get_node("SlotItem")  
 		var item = inventory[i]
 		if item != null:
-			btn.icon = item["icon"]
-			btn.visible = true
+			slotItem.texture = item["icon"]
+			slotItem.visible = true
 		else:
-			btn.visible = false
-
-# Função chamada quando algum slot é pressionado (talvez retirar)
-func _on_Slot_pressed(slot_index):
-	if inventory[slot_index] != null:
-		print("Usou o item: ", inventory[slot_index]["name"])
-		remove_item(slot_index)
-		update_ui()
-	else:
-		print("Slot vazio")
-
-# Slot 0
-func _on_slot_0_pressed() -> void:
-	_on_Slot_pressed(0)
-
-# Slot 1
-func _on_slot_1_pressed() -> void:
-	_on_Slot_pressed(1)
-
-# Slot 2
-func _on_slot_2_pressed() -> void:
-	_on_Slot_pressed(2)
-
-# Slot 3
-func _on_slot_3_pressed() -> void:
-	_on_Slot_pressed(3)
+			slotItem.visible = false

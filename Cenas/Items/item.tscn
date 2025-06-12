@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bv6s44gobtgf6"]
+[gd_scene load_steps=2 format=3 uid="uid://b43bnin2cm4dq"]
+
+[ext_resource type="Script" uid="uid://cwpn05slahd7u" path="res://Scripts/Items/item.gd" id="1_ha6vb"]
 
 [node name="Item" type="Area2D"]
+script = ExtResource("1_ha6vb")
 
 [node name="Texture" type="Sprite2D" parent="."]
 

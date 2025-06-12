@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2staw4b6tp1g"]
+
+[ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_xoas7"]
+[ext_resource type="Texture2D" uid="uid://rbshuwe3b5l3" path="res://Assets/Items/chave.png" id="2_ugvqg"]
+
+[node name="Chave" instance=ExtResource("1_xoas7")]
+itemId = 2
+itemName = "Chave"
+itemIcon = ExtResource("2_ugvqg")
