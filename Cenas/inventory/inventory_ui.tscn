@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cgr7yohoeixrn" path="res://Scripts/Inventory/inventory_ui.gd" id="1_jfabt"]
 [ext_resource type="Texture2D" uid="uid://cxsiakk77al2x" path="res://Assets/Inventory/slot-inv.png" id="2_anlta"]
 
-[node name="InventoryUI" type="Control"]
+[node name="InventoryUI" type="Control" groups=["inventory"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 166.0

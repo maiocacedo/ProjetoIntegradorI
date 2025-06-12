@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2staw4b6tp1g"]
+[gd_scene load_steps=4 format=3 uid="uid://d2staw4b6tp1g"]
 
 [ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_xoas7"]
 [ext_resource type="Texture2D" uid="uid://rbshuwe3b5l3" path="res://Assets/Items/chave.png" id="2_ugvqg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugvqg"]
+radius = 5.09902
 
 [node name="Chave" instance=ExtResource("1_xoas7")]
 itemId = 2
 itemName = "Chave"
 itemIcon = ExtResource("2_ugvqg")
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_ugvqg")
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_ugvqg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -9,13 +9,15 @@ func _ready():
 	#var item2 = ItemDB.getItem(2) # Obtem o item espada pelo banco de dados
 	#addItem(item)
 	#addItem(item2)
-	updateUI()
+	#updateUI()
+	add_to_group("inventory")
 
 # Adiciona um determinado item no inventário
 func addItem(item):
 	for i in range(len(inventory)):
 		if inventory[i] == null:
 			inventory[i] = item
+			updateUI()
 			return true
 	return false
 
