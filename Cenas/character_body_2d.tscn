@@ -1,9 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://bq72xujbqyik1"]
+[gd_scene load_steps=24 format=3 uid="uid://bq72xujbqyik1"]
 
 [ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Cenas/character_body_2d.gd" id="1_ifqbm"]
 [ext_resource type="Texture2D" uid="uid://b8okrk53o6oow" path="res://Assets/sprites/AnimationSheet_Character.png" id="3_gwfya"]
 [ext_resource type="AudioStream" uid="uid://conrbyxaaqnw6" path="res://Assets/sounds/jump.wav" id="3_ndeso"]
-[ext_resource type="PackedScene" uid="uid://bihqieswng1g3" path="res://Cenas/Inventory/inventory_ui.tscn" id="4_rsnfc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch4yf"]
 atlas = ExtResource("3_gwfya")
@@ -174,10 +173,3 @@ shape = SubResource("CapsuleShape2D_ndeso")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -1)
 stream = ExtResource("3_ndeso")
-
-[node name="InventoryUI" parent="." instance=ExtResource("4_rsnfc")]
-offset_left = -89.0
-offset_top = -48.0
-offset_right = 77.0
-offset_bottom = -8.0
-scale = Vector2(0.4, 0.4)

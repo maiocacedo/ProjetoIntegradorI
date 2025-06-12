@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cltlew27mk5y4"]
+[gd_scene load_steps=22 format=4 uid="uid://cltlew27mk5y4"]
 
 [ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Cenas/main.gd" id="1_o0qou"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/character_body_2d.tscn" id="2_4ofe7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="7_enyly"]
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma.tscn" id="7_iuh1b"]
 [ext_resource type="PackedScene" uid="uid://dfmhdvi6re8px" path="res://Cenas/area_morte.tscn" id="8_vevm7"]
+[ext_resource type="PackedScene" uid="uid://k3sv8pe5q23c" path="res://Cenas/Inventory/hud_inv.tscn" id="10_gb0c0"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vevm7"]
 a = Vector2(25.5, 0)
@@ -574,3 +575,5 @@ position_smoothing_speed = 15.0
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("10_gb0c0")]

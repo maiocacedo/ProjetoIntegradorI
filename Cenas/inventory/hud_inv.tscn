@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://k3sv8pe5q23c"]
+
+[ext_resource type="PackedScene" uid="uid://bihqieswng1g3" path="res://Cenas/Inventory/inventory_ui.tscn" id="1_73142"]
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryUI" parent="." instance=ExtResource("1_73142")]
+offset_left = 410.0
+offset_top = 566.0
+offset_right = 576.0
+offset_bottom = 606.0
+scale = Vector2(2, 2)

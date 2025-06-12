@@ -1,8 +1,8 @@
+CanvasLayer
 Label
 TextureRect
 HBoxContainer
 Button
-CanvasLayer
 Panel
 Control
 TileMapLayer
