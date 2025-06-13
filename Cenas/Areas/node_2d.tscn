@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cltlew27mk5y4"]
+[gd_scene load_steps=24 format=4 uid="uid://cltlew27mk5y4"]
 
 [ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Cenas/main.gd" id="1_o0qou"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/character_body_2d.tscn" id="2_4ofe7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dfmhdvi6re8px" path="res://Cenas/area_morte.tscn" id="8_vevm7"]
 [ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/Armadilhas/ghost.tscn" id="9_enyly"]
 [ext_resource type="PackedScene" uid="uid://8u5btptcigf6" path="res://Cenas/Armadilhas/spike_area.tscn" id="11_oiyed"]
+[ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/Armadilhas/fire_trap.tscn" id="12_ai6mh"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vevm7"]
 a = Vector2(25.5, 0)
@@ -606,3 +607,6 @@ scale = Vector2(2, 2)
 [node name="point_c" type="Marker2D" parent="monstro"]
 position = Vector2(314, 434)
 scale = Vector2(2, 2)
+
+[node name="fireTrap" parent="." instance=ExtResource("12_ai6mh")]
+position = Vector2(399, 156.5)

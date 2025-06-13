@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crscciwaoe8mp"
-path="res://.godot/imported/ice_stalactites_16x32.png-750dcd3ea40fea2f5d353e455ba60668.ctex"
+uid="uid://d2jyctdtmiwyy"
+path="res://.godot/imported/Fire_Trap_Idle (1).png-a50c84e06de9ad586f8b240f2ae4c045.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/sprites/Armadilhas/ice_stalactites_16x32.png"
-dest_files=["res://.godot/imported/ice_stalactites_16x32.png-750dcd3ea40fea2f5d353e455ba60668.ctex"]
+source_file="res://Sprites/sprites/Armadilhas/Fire_Trap_Idle (1).png"
+dest_files=["res://.godot/imported/Fire_Trap_Idle (1).png-a50c84e06de9ad586f8b240f2ae4c045.ctex"]
 
 [params]
 
