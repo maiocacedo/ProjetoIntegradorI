@@ -37,6 +37,13 @@ func removeItem(itemID, quantidade=1): # quantidade -> diminui a qtd antes de re
 			updateUI()
 			return
 
+# Retorna a quantidade de um determinado item no inventário
+func getQtdItem(item):
+	for i in range(len(inventory)):
+		if inventory[i] != null and inventory[i]["id"] == item["id"]:
+			return inventory[i]["quantity"]
+	return 0
+
 # Atualiza os slots do inventário
 func updateUI():
 	for i in range(len(inventory)):
@@ -50,6 +57,7 @@ func updateUI():
 			
 			if item["quantity"] > 1:
 				slotQtd.text = str(item["quantity"])
+			print(str(getQtdItem(ItemDB.getItem(2))))
 			slotQtd.visible = true
 		else:
 			slotItem.visible = false

@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://d2staw4b6tp1g"]
 
 [ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_xoas7"]
-[ext_resource type="Texture2D" uid="uid://cvmo6snnrtggm" path="res://Assets/Items/chave_moldura.png" id="2_ugvqg"]
-[ext_resource type="Texture2D" uid="uid://bcanofr3wfr07" path="res://Assets/Items/chave.png" id="3_nl1e8"]
-[ext_resource type="Texture2D" uid="uid://db2ucklnagkwm" path="res://Assets/Items/chave_coletada.png" id="4_awgdx"]
+[ext_resource type="Texture2D" uid="uid://13ductevq6s2" path="res://Assets/Items/chave_moldura.png" id="2_ugvqg"]
+[ext_resource type="Texture2D" uid="uid://6kcebm2ecanl" path="res://Assets/Items/chave.png" id="3_nl1e8"]
+[ext_resource type="Texture2D" uid="uid://bo2julcnsnfb2" path="res://Assets/Items/chave_coletada.png" id="4_awgdx"]
 [ext_resource type="AudioStream" uid="uid://bied0aayt4a30" path="res://Assets/sounds/collect.wav" id="5_vwkuk"]
 
 [sub_resource type="Animation" id="Animation_awgdx"]
