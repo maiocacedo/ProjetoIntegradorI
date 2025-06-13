@@ -12,3 +12,4 @@ res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://Cenas/Inventory/hud_inv.tscn
 res://Scripts/Items/item.gd
+res://Scripts/Inventory/inventory_ui.gd

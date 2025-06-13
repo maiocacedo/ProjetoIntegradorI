@@ -7,100 +7,107 @@
 [node name="InventoryUI" type="Control" groups=["inventory"]]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 166.0
-offset_bottom = 40.0
+offset_right = 195.0
+offset_bottom = 48.0
 script = ExtResource("1_jfabt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 167.0
-offset_bottom = 40.0
+offset_right = 195.0
+offset_bottom = 48.0
 
 [node name="Slot0" type="Node2D" parent="HBoxContainer"]
 
 [node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot0"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_anlta")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot0"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 36.0
-offset_bottom = 36.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="SlotQtd" type="Label" parent="HBoxContainer/Slot0"]
-offset_left = 24.0
-offset_top = 26.0
-offset_right = 40.0
-offset_bottom = 42.0
-scale = Vector2(0.4, 0.4)
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_7nilr")
 
 [node name="Slot1" type="Node2D" parent="HBoxContainer"]
 
 [node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot1"]
-offset_left = 42.0
-offset_right = 82.0
+offset_left = 49.0
+offset_right = 89.0
 offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_anlta")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot1"]
 custom_minimum_size = Vector2(16, 16)
-offset_left = 46.0
-offset_top = 4.0
-offset_right = 78.0
-offset_bottom = 36.0
+offset_left = 57.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 40.0
 
 [node name="SlotQtd" type="Label" parent="HBoxContainer/Slot1"]
-offset_left = 66.0
-offset_top = 26.0
-offset_right = 82.0
-offset_bottom = 42.0
-scale = Vector2(0.4, 0.4)
+offset_left = 81.0
+offset_top = 32.0
+offset_right = 97.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_7nilr")
 
 [node name="Slot2" type="Node2D" parent="HBoxContainer"]
 
 [node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot2"]
-offset_left = 84.0
-offset_right = 124.0
+offset_left = 98.0
+offset_right = 138.0
 offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_anlta")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot2"]
-offset_left = 88.0
-offset_top = 4.0
-offset_right = 120.0
-offset_bottom = 36.0
+offset_left = 106.0
+offset_top = 8.0
+offset_right = 138.0
+offset_bottom = 40.0
 
 [node name="SlotQtd" type="Label" parent="HBoxContainer/Slot2"]
-offset_left = 109.0
-offset_top = 26.0
-offset_right = 123.0
-offset_bottom = 42.0
-scale = Vector2(0.4, 0.4)
+offset_left = 130.0
+offset_top = 32.0
+offset_right = 146.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_7nilr")
 
 [node name="Slot3" type="Node2D" parent="HBoxContainer"]
 
 [node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot3"]
-offset_left = 126.0
-offset_right = 166.0
+offset_left = 147.0
+offset_right = 187.0
 offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_anlta")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot3"]
-offset_left = 130.0
-offset_top = 4.0
-offset_right = 162.0
-offset_bottom = 36.0
+offset_left = 155.0
+offset_top = 8.0
+offset_right = 187.0
+offset_bottom = 40.0
 
 [node name="SlotQtd" type="Label" parent="HBoxContainer/Slot3"]
-offset_left = 151.0
-offset_top = 26.0
-offset_right = 165.0
-offset_bottom = 42.0
-scale = Vector2(0.4, 0.4)
+offset_left = 179.0
+offset_top = 32.0
+offset_right = 195.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("3_7nilr")

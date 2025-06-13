@@ -11,8 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="InventoryUI" parent="." instance=ExtResource("1_73142")]
-offset_left = 410.0
-offset_top = 566.0
-offset_right = 576.0
-offset_bottom = 606.0
+offset_left = 390.0
+offset_top = 545.0
+offset_right = 585.0
+offset_bottom = 593.0
 scale = Vector2(2, 2)
