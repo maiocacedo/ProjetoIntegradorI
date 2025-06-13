@@ -5,6 +5,7 @@ var inventory = [null, null, null, null]
 
 # Função que adicionará os itens desejados ao inicio
 func _ready():
+	verificarUpgrades()
 	add_to_group("inventory")
 
 # Adiciona um determinado item no inventário
@@ -57,8 +58,20 @@ func updateUI():
 			
 			if item["quantity"] > 1:
 				slotQtd.text = str(item["quantity"])
-			print(str(getQtdItem(ItemDB.getItem(2))))
 			slotQtd.visible = true
 		else:
 			slotItem.visible = false
 			slotQtd.visible = false
+
+# ---------------------------- REVER AO IMPLEMENTAR --------------------------------
+# Verifica atraves do Nó Player quais upgrades ele possui para adicionar ao inv
+func verificarUpgrades():
+	var player = get_tree().get_first_node_in_group("player")
+	#if player.hasEspada
+		#addItem(ItemDB.getItem(1))
+	#
+	#if player.hasRefrigerante
+		#addItem(ItemDB.getitem(3))
+	#
+	#if player.hasTenis
+		#addItem(ItemDB.getitem(4))
