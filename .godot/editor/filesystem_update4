@@ -1,3 +1,6 @@
+res://Cenas/Items/refrigerante.tscn
+res://Cenas/Items/espada.tscn
+res://Cenas/Items/tenis.tscn
 res://Cenas/character_body_2d.tscn
 res://Cenas/Areas/node_2d.tscn
 res://Cenas/placas.tscn
@@ -8,6 +11,4 @@ res://Cenas/Items/item.tscn
 res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://Cenas/Inventory/hud_inv.tscn
-res://Scripts/Items/ItemDatabase.gd
-res://Scripts/Inventory/inventory_ui.gd
 res://Scripts/Items/item.gd

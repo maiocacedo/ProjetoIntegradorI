@@ -32,8 +32,8 @@ func _on_body_entered(body):
 		else:
 			print("Inventário encontrado:", inv)
 			inv.addItem(item)
+			$AudioColetado.play()
 			$Animation.play("coletado")
-			# Adicionar som
 
 # Quando a animação finaliza
 func _on_animation_animation_finished(anim_name: StringName) -> void:

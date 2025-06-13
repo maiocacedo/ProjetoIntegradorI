@@ -1,3 +1,5 @@
+AudioStreamPlayer2D
+AudioListener2D
 AnimationPlayer
 CanvasLayer
 Label
@@ -10,6 +12,3 @@ TileMapLayer
 TileMap
 Node
 CenterContainer
-Sprite2D
-GridContainer
-NinePatchRect
