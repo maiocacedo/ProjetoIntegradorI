@@ -6,7 +6,7 @@ var items = {
 	1: {
 		"id": 1,
 		"name": "Espada",
-		"icon": preload("res://Assets/Items/espada.png"),
+		"icon": preload("res://Assets/Items/espada_moldura.png"),
 		"scene": preload("res://Cenas/items/espada.tscn"),
 		"quantity": 1
 	},
@@ -14,7 +14,7 @@ var items = {
 	2: {
 		"id": 2,
 		"name": "Chave",
-		"icon": preload("res://Assets/Items/chave.png"),
+		"icon": preload("res://Assets/Items/chave_moldura.png"),
 		"scene": preload("res://Cenas/items/chave.tscn"),
 		"quantity": 1
 	},
@@ -22,7 +22,7 @@ var items = {
 	3: {
 		"id": 3,
 		"name": "Refrigerante",
-		"icon": preload("res://Assets/Items/refri-heigh.png"),
+		"icon": preload("res://Assets/Items/refrigerante_moldura.png"),
 		"scene": preload("res://Cenas/Items/refrigerante.tscn"),
 		"quantity": 1
 	},
@@ -30,7 +30,7 @@ var items = {
 	4: {
 		"id": 4,
 		"name": "Tênis",
-		"icon": preload("res://Assets/Items/tenis.png"),
+		"icon": preload("res://Assets/Items/tenis_moldura.png"),
 		"scene": preload("res://Cenas/Items/tenis.tscn"),
 		"quantity": 1
 	}

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjrmmo8sakrnb"
-path="res://.godot/imported/refri-heigh.png-6e017d4e9dbe100ed3a053ee1ce2f612.ctex"
+uid="uid://bkuyoarmwkdsc"
+path="res://.godot/imported/refrigerante_moldura.png-3ec95c780d0a4d798cf8eec1c3238eb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/refri-heigh.png"
-dest_files=["res://.godot/imported/refri-heigh.png-6e017d4e9dbe100ed3a053ee1ce2f612.ctex"]
+source_file="res://Assets/Items/refrigerante_moldura.png"
+dest_files=["res://.godot/imported/refrigerante_moldura.png-3ec95c780d0a4d798cf8eec1c3238eb8.ctex"]
 
 [params]
 

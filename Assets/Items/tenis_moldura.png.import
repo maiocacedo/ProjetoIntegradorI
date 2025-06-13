@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4mg37f1sxku7"
-path="res://.godot/imported/espada.png-2caab4e449e138990b9544d4e4049fb3.ctex"
+uid="uid://3grsukdvi2va"
+path="res://.godot/imported/tenis_moldura.png-c2696a8c406cb08e6ae89633463c483c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/espada.png"
-dest_files=["res://.godot/imported/espada.png-2caab4e449e138990b9544d4e4049fb3.ctex"]
+source_file="res://Assets/Items/tenis_moldura.png"
+dest_files=["res://.godot/imported/tenis_moldura.png-c2696a8c406cb08e6ae89633463c483c.ctex"]
 
 [params]
 

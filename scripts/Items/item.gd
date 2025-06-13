@@ -13,6 +13,8 @@ extends Area2D
 func _ready():
 	add_to_group("player")
 	$Texture.texture = itemIcon
+	$Texture.visible = true
+	$Animation.play("idle")
 
 # Quando um corpo entrar em contato com o item (ainda arrumar)
 func _on_body_entered(body):
@@ -30,4 +32,11 @@ func _on_body_entered(body):
 		else:
 			print("Inventário encontrado:", inv)
 			inv.addItem(item)
-			queue_free()
+			$Animation.play("coletado")
+			# Adicionar som
+
+# Quando a animação finaliza
+func _on_animation_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "coletado":
+		$Collision.disabled = true
+		queue_free()

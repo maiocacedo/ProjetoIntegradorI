@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca6sfke7wtrfb"
-path="res://.godot/imported/key.png-fa5e1cdd6e76e3ee849258cabfeb2a23.ctex"
+uid="uid://cymixotkwqv4e"
+path="res://.godot/imported/espada_moldura.png-04787ef366626b09b9a9f30ce1d8d5b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/key.png"
-dest_files=["res://.godot/imported/key.png-fa5e1cdd6e76e3ee849258cabfeb2a23.ctex"]
+source_file="res://Assets/Items/espada_moldura.png"
+dest_files=["res://.godot/imported/espada_moldura.png-04787ef366626b09b9a9f30ce1d8d5b5.ctex"]
 
 [params]
 

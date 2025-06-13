@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0pjhckv2ojk4"
-path="res://.godot/imported/espada_32x32.png-cbfa3ce98a9e70641d6b3c60b9cfd59f.ctex"
+uid="uid://db2ucklnagkwm"
+path="res://.godot/imported/chave_coletada.png-83ae182c996031345c6ce2fcd2bec459.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/espada_32x32.png"
-dest_files=["res://.godot/imported/espada_32x32.png-cbfa3ce98a9e70641d6b3c60b9cfd59f.ctex"]
+source_file="res://Assets/Items/chave_coletada.png"
+dest_files=["res://.godot/imported/chave_coletada.png-83ae182c996031345c6ce2fcd2bec459.ctex"]
 
 [params]
 

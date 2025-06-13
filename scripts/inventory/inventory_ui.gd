@@ -6,6 +6,8 @@ var inventory = [null, null, null, null]
 # Função que adicionará os itens desejados ao inicio
 func _ready():
 	addItem(ItemDB.getItem(1))
+	addItem(ItemDB.getItem(3))
+	addItem(ItemDB.getItem(4))
 	add_to_group("inventory")
 
 # Adiciona um determinado item no inventário

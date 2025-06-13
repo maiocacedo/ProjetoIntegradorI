@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsy366hq2h6xw"
-path="res://.godot/imported/tenis.png-c9588982b5f2d88fafb6e923faac8cfb.ctex"
+uid="uid://cvmo6snnrtggm"
+path="res://.godot/imported/chave_moldura.png-7b41f916adb3a55759ce929527a3bc83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/tenis.png"
-dest_files=["res://.godot/imported/tenis.png-c9588982b5f2d88fafb6e923faac8cfb.ctex"]
+source_file="res://Assets/Items/chave_moldura.png"
+dest_files=["res://.godot/imported/chave_moldura.png-7b41f916adb3a55759ce929527a3bc83.ctex"]
 
 [params]
 
