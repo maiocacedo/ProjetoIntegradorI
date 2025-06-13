@@ -33,10 +33,11 @@ func _on_body_entered(body):
 			print("Inventário encontrado:", inv)
 			inv.addItem(item)
 			$AudioColetado.play()
-			$Animation.play("coletado")
+			$Animation.play("collect")
 
 # Quando a animação finaliza
 func _on_animation_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "coletado":
+	if anim_name == "collect":
 		$Collision.disabled = true
+		$Texture.visible = false
 		queue_free()

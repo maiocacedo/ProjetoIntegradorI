@@ -546,10 +546,16 @@ position = Vector2(272, 474)
 scale = Vector2(2, 2)
 
 [node name="Chave" parent="Chaves" instance=ExtResource("7_enyly")]
-position = Vector2(65, 359)
+position = Vector2(223, 261)
 
 [node name="Chave2" parent="Chaves" instance=ExtResource("7_enyly")]
-position = Vector2(245, 257)
+position = Vector2(247, 259)
+
+[node name="Chave3" parent="Chaves" instance=ExtResource("7_enyly")]
+position = Vector2(272, 255)
+
+[node name="Chave4" parent="Chaves" instance=ExtResource("7_enyly")]
+position = Vector2(358, 495)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 visible = false
