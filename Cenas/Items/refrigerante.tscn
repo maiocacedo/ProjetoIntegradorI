@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb7v0un3cuk72"]
+[gd_scene load_steps=3 format=3 uid="uid://b7jlgakhwk0et"]
 
 [ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_v3g1w"]
-[ext_resource type="Texture2D" uid="uid://bkuyoarmwkdsc" path="res://Assets/Items/refrigerante_moldura.png" id="2_v3g1w"]
+[ext_resource type="Texture2D" uid="uid://dy6j8mulfaixv" path="res://Assets/Items/refrigerante_moldura.png" id="2_c6xln"]
 
 [node name="Refrigerante" instance=ExtResource("1_v3g1w")]
 itemId = 3
 itemName = "Refrigerante"
-itemIcon = ExtResource("2_v3g1w")
+itemIcon = ExtResource("2_c6xln")

@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdad51vdwgkxj"]
+[gd_scene load_steps=3 format=3 uid="uid://yull3wkgfl82"]
 
-[ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_bi1co"]
-[ext_resource type="Texture2D" uid="uid://cymixotkwqv4e" path="res://Assets/Items/espada_moldura.png" id="2_oly8f"]
+[ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_17nn4"]
+[ext_resource type="Texture2D" uid="uid://5h07difn3pah" path="res://Assets/Items/espada_moldura.png" id="2_oly8f"]
 
-[node name="Espada" instance=ExtResource("1_bi1co")]
-priority = 1
-itemId = 1
+[node name="Espada" instance=ExtResource("1_17nn4")]
+itemId = 2
 itemName = "Espada"
 itemIcon = ExtResource("2_oly8f")

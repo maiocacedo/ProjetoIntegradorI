@@ -27,10 +27,11 @@ func addItem(item):
 	return false
 
 # Remove determinado item do inventário de acordo com o ID passado
-func removeItem(itemID, quantidade=1): # quantidade -> diminui a qtd antes de realmente remover (até zerar)
+func removeItem(itemRemover, quantidade=1): # quantidade -> diminui a qtd antes de realmente remover (até zerar)
+	print("Removendo item...")
 	for i in range(len(inventory)):
 		var item = inventory[i]
-		if item != null and item["id"] == itemID:
+		if item != null and item["id"] == itemRemover["id"]:
 			if item["quantity"] > quantidade:
 				item["quantity"] -= quantidade
 			else:

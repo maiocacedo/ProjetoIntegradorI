@@ -7,4 +7,10 @@ script = ExtResource("1_ha6vb")
 
 [node name="Texture" type="Sprite2D" parent="."]
 
+[node name="Animation" type="AnimationPlayer" parent="."]
+
 [node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="AudioColetado" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

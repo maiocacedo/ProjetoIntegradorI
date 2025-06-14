@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1749842900
+::res://::1749936905
 default_bus_layout.tres::AudioBusLayout/AudioBusLayout::8276442367822035244::1746307745::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile/TextFile::-1::1746307745::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::5588181810093367900::1746307745::1746308717::1::::<><><>0<>0<>30f04d95502da36bd63a2e7e2a619ec8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -93,33 +93,33 @@ TopPatternPanel_02_33x15.png::CompressedTexture2D/CompressedTexture2D::351614420
 ValueBar_128x16.png::CompressedTexture2D/CompressedTexture2D::9029844271923626302::1746307745::1749610342::1::::<><><>0<>0<>10bd7e888f241d425d0d8e0269caaa1d<>res://.godot/imported/ValueBar_128x16.png-402bc440c8621c36d3abdd1b666c8086.ctex::
 ValueBlue_120x8.png::CompressedTexture2D/CompressedTexture2D::1029625197283332840::1746307745::1749610342::1::::<><><>0<>0<>a7510ea31aa37a59513b383a04d1fecf<>res://.godot/imported/ValueBlue_120x8.png-214c1ca4e5b99fd2c6dd272b76273215.ctex::
 ValueRed_120x8.png::CompressedTexture2D/CompressedTexture2D::3902610948684945974::1746307745::1749610342::1::::<><><>0<>0<>e705e772e933a9541fddb8df59b94c92<>res://.godot/imported/ValueRed_120x8.png-e127013c106e65e2c4308f1d68e64f7d.ctex::
-::res://Cenas/::1749842478
+::res://Cenas/::1749936749
 area_morte.gd::GDScript/GDScript::928764101023142450::1749609862::0::1::::<>Area2D<><>0<>0<><>::
-area_morte.tscn::PackedScene::7535410295429462441::1749842478::0::1::::<><><>0<>0<><>::uid://nh5uycdcfuji::::res://Cenas/area_morte.gd
-character_body_2d.gd::GDScript/GDScript::214765099733744129::1749609862::0::1::::<>CharacterBody2D<><>0<>0<><>::
-character_body_2d.tscn::PackedScene::3577183766534051502::1749842478::0::1::::<><><>0<>0<><>::uid://dcbfdglh56rd::::res://Cenas/character_body_2d.gd<>uid://b8okrk53o6oow::::res://Assets/sprites/AnimationSheet_Character.png<>uid://conrbyxaaqnw6::::res://Assets/sounds/jump.wav
+area_morte.tscn::PackedScene::7535410295429462441::1749936749::0::1::::<><><>0<>0<><>::uid://nh5uycdcfuji::::res://Cenas/area_morte.gd
+character_body_2d.gd::GDScript::214765099733744129::1749936704::0::1::::<>CharacterBody2D<><>0<>0<><>::
+character_body_2d.tscn::PackedScene::3577183766534051502::1749936749::0::1::::<><><>0<>0<><>::uid://dcbfdglh56rd::::res://Cenas/character_body_2d.gd<>uid://b8okrk53o6oow::::res://Assets/sprites/AnimationSheet_Character.png<>uid://conrbyxaaqnw6::::res://Assets/sounds/jump.wav
 key.gd::GDScript/GDScript::5132570291365162654::1749609862::0::1::::<>Area2D<><>0<>0<><>::
 key.tscn::PackedScene/PackedScene::3932303378802303903::1749695639::0::1::::<><><>0<>0<><>::uid://cfeixhluegwpy::::res://Cenas/key.gd<>uid://dsls2iho2outq::::res://Assets/key_32x32_24f.png
 main.gd::GDScript/GDScript::1213274176066603010::1749609862::0::1::::<>Node2D<><>0<>0<><>::
 placas1.gd::GDScript/GDScript::1541491849790214071::1749609862::0::1::::<>Area2D<><>0<>0<><>::
 placas.gd::GDScript/GDScript::3607186348921699746::1749609862::0::1::::<>CollisionShape2D<><>0<>0<><>::
-placas.tscn::PackedScene::7974623747513416222::1749842478::0::1::::<><><>0<>0<><>::uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png<>uid://v7ye7i0nsa60::::res://Cenas/placas1.gd<>uid://dqwnbwxkfmbct::::res://Assets/sounds/explosion.wav
-plataforma.tscn::PackedScene::3872780679234701509::1749842478::0::1::::<><><>0<>0<><>::uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png
-::res://Cenas/Areas/::1749842501
-area_2.tscn::PackedScene::740001253093207381::1749842478::0::1::::<><><>0<>0<><>::
-node_2d.tscn::PackedScene::5584818053521565333::1749842501::0::1::::<><><>0<>0<><>::uid://rjypimvo6r7g::::res://Cenas/main.gd<>uid://bq72xujbqyik1::::res://Cenas/character_body_2d.tscn<>uid://dlu75gsrwm4nq::::res://Cenas/placas.tscn<>uid://bheljxbnad55u::::res://Assets/fonts/PixelOperator8.ttf<>uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png<>uid://bwa3pyhv3v5gt::::res://Cenas/key.tscn<>uid://d2staw4b6tp1g::::res://Cenas/Items/chave.tscn<>uid://bvgaeqs22at0x::::res://Cenas/plataforma.tscn<>uid://dfmhdvi6re8px::::res://Cenas/area_morte.tscn<>uid://k3sv8pe5q23c::::res://Cenas/Inventory/hud_inv.tscn
-::res://Cenas/Inventory/::1749842478
-hud_inv.tscn::PackedScene::760823177700910534::1749842478::0::1::::<><><>0<>0<><>::uid://bihqieswng1g3::::res://Cenas/Inventory/inventory_ui.tscn
-inventory_ui.tscn::PackedScene::2963368074228379024::1749842478::0::1::::<><><>0<>0<><>::uid://cgr7yohoeixrn::::res://Scripts/Inventory/inventory_ui.gd<>uid://cxsiakk77al2x::::res://Assets/Inventory/slot-inv.png<>uid://dshmu3ukt60ch::::res://Assets/fonts/PixelOperator8-Bold.ttf
-::res://Cenas/Items/::1749842642
-chave.tscn::PackedScene::9092674452142474398::1749842642::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://13ductevq6s2::::res://Assets/Items/chave_moldura.png<>uid://6kcebm2ecanl::::res://Assets/Items/chave.png<>uid://bo2julcnsnfb2::::res://Assets/Items/chave_coletada.png<>uid://bied0aayt4a30::::res://Assets/sounds/collect.wav
-espada.tscn::PackedScene::2597224337616594799::1749833173::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://cymixotkwqv4e::::res://Assets/Items/espada_moldura.png
-item.tscn::PackedScene::4479784100122437002::1749842478::0::1::::<><><>0<>0<><>::uid://cwpn05slahd7u::::res://Scripts/Items/item.gd
-refrigerante.tscn::PackedScene::4910411072674989059::1749833138::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://bkuyoarmwkdsc::::res://Assets/Items/refrigerante_moldura.png
-tenis.tscn::PackedScene::1204917333649753516::1749833215::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://3grsukdvi2va::::res://Assets/Items/tenis_moldura.png
+placas.tscn::PackedScene::7974623747513416222::1749936749::0::1::::<><><>0<>0<><>::uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png<>uid://v7ye7i0nsa60::::res://Cenas/placas1.gd<>uid://dqwnbwxkfmbct::::res://Assets/sounds/explosion.wav
+plataforma.tscn::PackedScene::3872780679234701509::1749936749::0::1::::<><><>0<>0<><>::uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png
+::res://Cenas/Areas/::1749936749
+area_2.tscn::PackedScene::740001253093207381::1749936749::0::1::::<><><>0<>0<><>::
+node_2d.tscn::PackedScene::5584818053521565333::1749936749::0::1::::<><><>0<>0<><>::uid://rjypimvo6r7g::::res://Cenas/main.gd<>uid://bq72xujbqyik1::::res://Cenas/character_body_2d.tscn<>uid://dlu75gsrwm4nq::::res://Cenas/placas.tscn<>uid://bheljxbnad55u::::res://Assets/fonts/PixelOperator8.ttf<>uid://f6ia5oa3758x::::res://Assets/Dungeon Tile Set.png<>uid://bwa3pyhv3v5gt::::res://Cenas/key.tscn<>uid://d2staw4b6tp1g::::res://Cenas/Items/chave.tscn<>uid://bvgaeqs22at0x::::res://Cenas/plataforma.tscn<>uid://dfmhdvi6re8px::::res://Cenas/area_morte.tscn<>uid://k3sv8pe5q23c::::res://Cenas/Inventory/hud_inv.tscn
+::res://Cenas/Inventory/::1749936749
+hud_inv.tscn::PackedScene::760823177700910534::1749936749::0::1::::<><><>0<>0<><>::uid://bihqieswng1g3::::res://Cenas/Inventory/inventory_ui.tscn
+inventory_ui.tscn::PackedScene::2963368074228379024::1749936749::0::1::::<><><>0<>0<><>::uid://cgr7yohoeixrn::::res://Scripts/Inventory/inventory_ui.gd<>uid://cxsiakk77al2x::::res://Assets/Inventory/slot-inv.png<>uid://dshmu3ukt60ch::::res://Assets/fonts/PixelOperator8-Bold.ttf
+::res://Cenas/Items/::1749936749
+chave.tscn::PackedScene::9092674452142474398::1749936749::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://13ductevq6s2::::res://Assets/Items/chave_moldura.png<>uid://6kcebm2ecanl::::res://Assets/Items/chave.png<>uid://bo2julcnsnfb2::::res://Assets/Items/chave_coletada.png<>uid://bied0aayt4a30::::res://Assets/sounds/collect.wav
+espada.tscn::PackedScene::1726508838149441521::1749936322::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://5h07difn3pah::::res://Assets/Items/espada_moldura.png
+item.tscn::PackedScene::4479784100122437002::1749936749::0::1::::<><><>0<>0<><>::uid://cwpn05slahd7u::::res://Scripts/Items/item.gd
+refrigerante.tscn::PackedScene::4651721697376449423::1749936375::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://dy6j8mulfaixv::::res://Assets/Items/refrigerante_moldura.png
+tenis.tscn::PackedScene::6656707124191366785::1749936444::0::1::::<><><>0<>0<><>::uid://b43bnin2cm4dq::::res://Cenas/Items/item.tscn<>uid://cu0gmuhlgenk::::res://Assets/Items/tenis_moldura.png
 ::res://Scripts/::1749609934
-::res://Scripts/Inventory/::1749841781
-inventory_ui.gd::GDScript::5231055400637972779::1749841781::0::1::::<>Control<><>0<>0<><>::
-::res://Scripts/Items/::1749842063
-item.gd::GDScript::6348797163494450808::1749840353::0::1::::<>Area2D<><>0<>0<><>::
-ItemDatabase.gd::GDScript::3247834730784078147::1749842063::0::1::::<>Node<><>0<>0<><>::
+::res://Scripts/Inventory/::1749844083
+inventory_ui.gd::GDScript/GDScript::5231055400637972779::1749844083::0::1::::<>Control<><>0<>0<><>::
+::res://Scripts/Items/::1749936749
+item.gd::GDScript::6348797163494450808::1749936749::0::1::::<>Area2D<><>0<>0<><>::
+ItemDatabase.gd::GDScript::3247834730784078147::1749936482::0::1::::<>Node<><>0<>0<><>::

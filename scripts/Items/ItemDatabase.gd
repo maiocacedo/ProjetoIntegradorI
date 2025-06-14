@@ -2,20 +2,20 @@ extends Node
 
 # Itens do Jogo
 var items = {
-	# Espada
+	# Chave
 	1: {
 		"id": 1,
-		"name": "Espada",
-		"icon": preload("res://Assets/Items/espada_moldura.png"),
-		"scene": preload("res://Cenas/items/espada.tscn"),
-		"quantity": 1
-	},
-	# Chave
-	2: {
-		"id": 2,
 		"name": "Chave",
 		"icon": preload("res://Assets/Items/chave_moldura.png"),
 		"scene": preload("res://Cenas/items/chave.tscn"),
+		"quantity": 1
+	},
+	# Espada
+	2: {
+		"id": 2,
+		"name": "Espada",
+		"icon": preload("res://Assets/Items/espada_moldura.png"),
+		"scene": preload("res://Cenas/items/espada.tscn"),
 		"quantity": 1
 	},
 	# Refrigerante

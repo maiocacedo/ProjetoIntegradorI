@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bo2julcnsnfb2" path="res://Assets/Items/chave_coletada.png" id="4_awgdx"]
 [ext_resource type="AudioStream" uid="uid://bied0aayt4a30" path="res://Assets/sounds/collect.wav" id="5_vwkuk"]
 
-[sub_resource type="Animation" id="Animation_vwkuk"]
+[sub_resource type="Animation" id="Animation_f6cfc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,7 +45,7 @@ tracks/2/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_f6cfc"]
+[sub_resource type="Animation" id="Animation_vwkuk"]
 resource_name = "collect"
 length = 0.6
 step = 0.1
@@ -84,6 +84,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Collision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_awgdx"]
@@ -128,10 +140,10 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6cfc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nnjx0"]
 _data = {
-&"RESET": SubResource("Animation_vwkuk"),
-&"collect": SubResource("Animation_f6cfc"),
+&"RESET": SubResource("Animation_f6cfc"),
+&"collect": SubResource("Animation_vwkuk"),
 &"idle": SubResource("Animation_awgdx")
 }
 
@@ -139,7 +151,7 @@ _data = {
 radius = 5.09902
 
 [node name="Chave" instance=ExtResource("1_xoas7")]
-itemId = 2
+itemId = 1
 itemName = "Chave"
 itemIcon = ExtResource("2_ugvqg")
 
@@ -147,16 +159,15 @@ itemIcon = ExtResource("2_ugvqg")
 texture = ExtResource("3_nl1e8")
 hframes = 4
 
-[node name="Animation" type="AnimationPlayer" parent="." index="1"]
+[node name="Animation" parent="." index="1"]
 libraries = {
-&"": SubResource("AnimationLibrary_f6cfc")
+&"": SubResource("AnimationLibrary_nnjx0")
 }
 
 [node name="Collision" parent="." index="2"]
 shape = SubResource("CircleShape2D_ugvqg")
 
-[node name="AudioColetado" type="AudioStreamPlayer2D" parent="." index="3"]
+[node name="AudioColetado" parent="." index="3"]
 stream = ExtResource("5_vwkuk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

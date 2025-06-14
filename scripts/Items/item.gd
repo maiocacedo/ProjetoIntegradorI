@@ -14,6 +14,7 @@ func _ready():
 	add_to_group("player")
 	$Texture.texture = itemIcon
 	$Texture.visible = true
+	$Collision.disabled = false
 	$Animation.play("idle")
 
 # Quando um corpo entrar em contato com o item (ainda arrumar)
@@ -38,6 +39,4 @@ func _on_body_entered(body):
 # Quando a animação finaliza
 func _on_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "collect":
-		$Collision.disabled = true
-		$Texture.visible = false
 		queue_free()

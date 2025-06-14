@@ -1,6 +1,6 @@
 AudioStreamPlayer2D
-AudioListener2D
 AnimationPlayer
+AudioListener2D
 CanvasLayer
 Label
 TextureRect
