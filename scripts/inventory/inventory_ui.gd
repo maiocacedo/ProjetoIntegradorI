@@ -68,11 +68,17 @@ func updateUI():
 # Verifica atraves do Nó Player quais upgrades ele possui para adicionar ao inv
 func verificarUpgrades():
 	var player = get_tree().get_first_node_in_group("player")
-	#if player.hasEspada
-		#addItem(ItemDB.getItem(1))
-	#
-	#if player.hasRefrigerante
-		#addItem(ItemDB.getitem(3))
-	#
-	#if player.hasTenis
-		#addItem(ItemDB.getitem(4))
+	if player != null and player.hasEspada:
+		addItem(ItemDB.getItem(2))
+	
+	if player != null and player.hasRefrigerante:
+		addItem(ItemDB.getItem(3))
+	
+	if player != null and player.hasTenis:
+		addItem(ItemDB.getItem(4))
+	
+# ---------------------------- REVER AO IMPLEMENTAR --------------------------------
+# Adicionar isso ao código do player:
+#var hasEspada: bool = true/false
+#var hasRefrigerante: bool = true/false 
+#var hasTenis: bool = true/false

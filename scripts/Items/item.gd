@@ -11,7 +11,6 @@ extends Area2D
 
 # Ao iniciar passa o icone do item para o texture
 func _ready():
-	add_to_group("player")
 	$Texture.texture = itemIcon
 	$Texture.visible = true
 	$Collision.disabled = false
