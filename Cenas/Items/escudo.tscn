@@ -4,6 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dh4kt3ctbfvc3" path="res://Assets/Items/escudo_moldura.png" id="2_q5842"]
 
 [node name="Escudo" instance=ExtResource("1_4oh2j")]
-itemId = 5
+itemId = 4
 itemName = "Escudo"
 itemIcon = ExtResource("2_q5842")

@@ -4,6 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dy6j8mulfaixv" path="res://Assets/Items/refrigerante_moldura.png" id="2_c6xln"]
 
 [node name="Refrigerante" instance=ExtResource("1_v3g1w")]
-itemId = 3
-itemName = "Refrigerante"
+itemId = 2
+itemName = "Refri Pulante"
 itemIcon = ExtResource("2_c6xln")

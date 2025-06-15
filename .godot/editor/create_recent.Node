@@ -1,8 +1,9 @@
 AudioStreamPlayer2D
+Timer
+Label
 AnimationPlayer
 AudioListener2D
 CanvasLayer
-Label
 TextureRect
 HBoxContainer
 Button
@@ -11,4 +12,3 @@ Control
 TileMapLayer
 TileMap
 Node
-CenterContainer

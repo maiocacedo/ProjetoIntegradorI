@@ -13,3 +13,6 @@ res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://Cenas/Inventory/hud_inv.tscn
 res://Cenas/Items/escudo_com_espinhos.tscn
+res://Scripts/Items/item.gd
+res://Cenas/Items/refrigerante.tscn
+res://Cenas/Items/tenis.tscn

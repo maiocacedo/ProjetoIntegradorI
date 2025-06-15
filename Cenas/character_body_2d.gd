@@ -6,11 +6,14 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var hasEspada: bool = false # Adicionado para testar
-var hasRefrigerante: bool = false # Adicionado para testar
-var hasTenis: bool = false # Adicionado para testar
-var hasEscudo: bool = true # Adicionado para testar
-var hasEscudoEspinhos: bool = true # Adicionado para testar
+@export var hasRefrigerante: bool # Adicionado para testar
+@export var hasTenis: bool # Adicionado para testar
+@export var hasEscudo: bool # Adicionado para testar
+@export var hasEscudoEspinhos: bool # Adicionado para testar
+
+# Lembrar de adicionar no pesonagem, para que o inv funcione
+func _ready():
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

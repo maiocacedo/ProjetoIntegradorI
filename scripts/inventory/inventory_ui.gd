@@ -3,13 +3,17 @@ extends Control
 # Inventário com 4 Slots
 var inventory = [null, null, null, null]
 
-# Função que adicionará os itens desejados ao inicio
+# Fila de mensagens
+var message_queue = []
+var showing_message = false
+
 func _ready():
 	verificarUpgrades()
 	add_to_group("inventory")
 
 # Adiciona um determinado item no inventário
 func addItem(item):
+	print("Adicionando item...")
 	# Verifica se o item já existe no inventário
 	for i in range(len(inventory)):
 		if inventory[i] != null and inventory[i]["id"] == item["id"]:
@@ -27,8 +31,8 @@ func addItem(item):
 	return false
 
 # Remove determinado item do inventário de acordo com o ID passado
-func removeItem(itemRemover, quantidade=1): # quantidade -> diminui a qtd antes de realmente remover (até zerar)
-	print("Removendo item...")
+func removeItem(itemRemover, quantidade=1):
+	print("Removendo item...") # LOG
 	for i in range(len(inventory)):
 		var item = inventory[i]
 		if item != null and item["id"] == itemRemover["id"]:
@@ -41,9 +45,12 @@ func removeItem(itemRemover, quantidade=1): # quantidade -> diminui a qtd antes 
 
 # Retorna a quantidade de um determinado item no inventário
 func getQtdItem(item):
+	print("Obtendo quantidade do item solicitado:") # LOG
 	for i in range(len(inventory)):
 		if inventory[i] != null and inventory[i]["id"] == item["id"]:
+			print(str(inventory[i]["quantity"])) # LOG
 			return inventory[i]["quantity"]
+	print("não encontrado") # LOG
 	return 0
 
 # Atualiza os slots do inventário
@@ -64,27 +71,64 @@ func updateUI():
 			slotItem.visible = false
 			slotQtd.visible = false
 
-# ---------------------------- REVER AO IMPLEMENTAR --------------------------------
-# Verifica atraves do Nó Player quais upgrades ele possui para adicionar ao inv
+# Verifica quais upgrades o player tem e adiciona ao inventário
 func verificarUpgrades():
 	var player = get_tree().get_first_node_in_group("player")
-	if player != null and player.hasEspada:
-		addItem(ItemDB.getItem(2))
 	
-	if player != null and player.hasRefrigerante:
-		addItem(ItemDB.getItem(3))
-	
-	if player != null and player.hasTenis:
-		addItem(ItemDB.getItem(4))
-	
-	if player != null and player.hasEscudo:
-		addItem(ItemDB.getItem(5))
-	
-	if player != null and player.hasEscudoEspinhos:
-		addItem(ItemDB.getItem(6))
-	
-# ---------------------------- REVER AO IMPLEMENTAR --------------------------------
-# Adicionar isso ao código do player:
-#var hasEspada: bool = true/false
-#var hasRefrigerante: bool = true/false 
-#var hasTenis: bool = true/false
+	print("Verificando se player é null:") # LOG
+	if player != null:
+		print("não é, tudo certo!") # LOG
+		var upgrades = []
+
+		# Se o Refri Pulante estiver equipado
+		if player.hasRefrigerante:
+			addItem(ItemDB.getItem(2))
+			upgrades.append(ItemDB.getItem(2)["name"])
+		
+		# Se o Tenis Veloz estiver equipado
+		if player.hasTenis:
+			addItem(ItemDB.getItem(3))
+			upgrades.append(ItemDB.getItem(3)["name"])
+		
+		# Se o Escudo estiver equipado
+		if player.hasEscudo:
+			addItem(ItemDB.getItem(4))
+			upgrades.append(ItemDB.getItem(4)["name"])
+		
+		# Se o Escudo com Espinhos estiver equipado
+		if player.hasEscudoEspinhos:
+			addItem(ItemDB.getItem(5))
+			upgrades.append(ItemDB.getItem(5)["name"])
+		
+		if upgrades.size() > 0:
+			var texto_final = ", ".join(upgrades) + " equipado(s)!"
+			show_message(texto_final)
+			$AudioPowerUp.playing = true
+	else:
+		print("Adicione o player ao grupo \"player\"") # LOG
+
+# Mostra uma mensagem na label info do inv
+func show_message(text):
+	print("mostrando msg") # LOG
+	message_queue.append(text)
+	if not showing_message:
+		print("prox mensagem") # LOG
+		_process_next_message()
+
+# Caso tenha mais de uma mensagem a ser mostrada
+func _process_next_message():
+	if message_queue.size() == 0:
+		showing_message = false
+		return
+
+	showing_message = true
+	var text = message_queue.pop_front()
+	$LabelInfo.text = text
+	$LabelInfo.visible = true
+	$TimerInfo.start()  # Tempo configurado no editor, tipo 2 segundos
+
+# Apos o tempo de mensagem acabar
+func _on_timer_info_timeout() -> void:
+	print("time out") # LOG
+	$LabelInfo.visible = false
+	_process_next_message()

@@ -28,14 +28,17 @@ func _on_body_entered(body):
 		}
 		var inv = get_tree().get_first_node_in_group("inventory")
 		if inv == null:
-			print("Inventário não encontrado no grupo")
+			print("Inventário não encontrado no grupo!")
 		else:
 			print("Inventário encontrado:", inv)
 			inv.addItem(item)
+			inv.show_message("Você pegou um(a) %s" % [itemName])
 			$AudioColetado.play()
 			$Animation.play("collect")
 
 # Quando a animação finaliza
 func _on_animation_animation_finished(anim_name: StringName) -> void:
+	print("Animação finalizada, verificando se entrou no if:")
 	if anim_name == "collect":
+		print("Entrou no IF!")
 		queue_free()

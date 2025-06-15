@@ -10,41 +10,33 @@ var items = {
 		"scene": preload("res://Cenas/items/chave.tscn"),
 		"quantity": 1
 	},
-	# Espada
+	# Refrigerante
 	2: {
 		"id": 2,
-		"name": "Espada",
-		"icon": preload("res://Assets/Items/espada_moldura.png"),
-		"scene": preload("res://Cenas/items/espada.tscn"),
-		"quantity": 1
-	},
-	# Refrigerante
-	3: {
-		"id": 3,
-		"name": "Refrigerante",
+		"name": "Refri Pulante",
 		"icon": preload("res://Assets/Items/refrigerante_moldura.png"),
 		"scene": preload("res://Cenas/Items/refrigerante.tscn"),
 		"quantity": 1
 	},
 	# Tenis
-	4: {
-		"id": 4,
-		"name": "Tênis",
+	3: {
+		"id": 3,
+		"name": "Tênis Veloz",
 		"icon": preload("res://Assets/Items/tenis_moldura.png"),
 		"scene": preload("res://Cenas/Items/tenis.tscn"),
 		"quantity": 1
 	},
 	# Escudo
-	5: {
-		"id": 5,
+	4: {
+		"id": 4,
 		"name": "Escudo",
 		"icon": preload("res://Assets/Items/escudo_moldura.png"),
 		"scene": preload("res://Cenas/Items/escudo.tscn"),
 		"quantity": 1
 	},
 	# Escudo com Espinhos
-	6: {
-		"id": 6,
+	5: {
+		"id": 5,
 		"name": "Escudo com Espinhos",
 		"icon": preload("res://Assets/Items/escudo_espinhos_moldura.png"),
 		"scene": preload("res://Cenas/Items/escudo_com_espinhos.tscn"),

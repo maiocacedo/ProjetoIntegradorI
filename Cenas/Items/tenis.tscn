@@ -4,6 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cu0gmuhlgenk" path="res://Assets/Items/tenis_moldura.png" id="2_paass"]
 
 [node name="Tenis" instance=ExtResource("1_riak6")]
-itemId = 4
-itemName = "Tênis"
+itemId = 3
+itemName = "Tênis Veloz"
 itemIcon = ExtResource("2_paass")
