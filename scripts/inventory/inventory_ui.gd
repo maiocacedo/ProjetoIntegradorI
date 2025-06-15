@@ -77,6 +77,12 @@ func verificarUpgrades():
 	if player != null and player.hasTenis:
 		addItem(ItemDB.getItem(4))
 	
+	if player != null and player.hasEscudo:
+		addItem(ItemDB.getItem(5))
+	
+	if player != null and player.hasEscudoEspinhos:
+		addItem(ItemDB.getItem(6))
+	
 # ---------------------------- REVER AO IMPLEMENTAR --------------------------------
 # Adicionar isso ao código do player:
 #var hasEspada: bool = true/false

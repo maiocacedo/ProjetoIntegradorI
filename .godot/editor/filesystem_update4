@@ -1,5 +1,9 @@
-res://Cenas/character_body_2d.tscn
 res://Cenas/Areas/node_2d.tscn
+res://Cenas/Items/escudo.tscn
+res://Scripts/Items/ItemDatabase.gd
+res://Cenas/character_body_2d.tscn
+res://Cenas/character_body_2d.gd
+res://Scripts/Inventory/inventory_ui.gd
 res://Cenas/placas.tscn
 res://Cenas/plataforma.tscn
 res://Cenas/area_morte.tscn
@@ -8,6 +12,4 @@ res://Cenas/Items/item.tscn
 res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://Cenas/Inventory/hud_inv.tscn
-res://Cenas/character_body_2d.gd
-res://Scripts/Inventory/inventory_ui.gd
-res://Scripts/Items/item.gd
+res://Cenas/Items/escudo_com_espinhos.tscn
