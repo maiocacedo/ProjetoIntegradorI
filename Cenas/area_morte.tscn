@@ -7,7 +7,6 @@
 script = ExtResource("1_uyrdr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.503
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_diaaa")

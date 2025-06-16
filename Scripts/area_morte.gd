@@ -6,10 +6,12 @@ extends Area2D
 signal morrendo()
 
 func _on_body_entered(_body: Node2D) -> void:
-	timer.start()
+	if _body.is_in_group("player"):
+		_body.die()
+	emit_signal("morrendo")
 	morte.playing = true 
-
-
+	timer.start()
+	
 
 func _on_timer_timeout() -> void:
-	emit_signal("morrendo")
+	GameManager.call_deferred("abrir_tela_de_morte","Morte Morrida")

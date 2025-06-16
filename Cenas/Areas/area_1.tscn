@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cltlew27mk5y4"]
+[gd_scene load_steps=22 format=4 uid="uid://cltlew27mk5y4"]
 
 [ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Scripts/main.gd" id="1_hkbgh"]
 [ext_resource type="PackedScene" uid="uid://dfmhdvi6re8px" path="res://Cenas/area_morte.tscn" id="2_0n8st"]
@@ -376,6 +376,9 @@ texture = ExtResource("7_ol4p3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_b4w7g")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oso3q"]
+size = Vector2(8, 15.5)
+
 [node name="area_1" type="Node2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_hkbgh")
@@ -570,3 +573,11 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 metadata/_edit_lock_ = true
+
+[node name="fim" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fim"]
+position = Vector2(236, 168)
+shape = SubResource("RectangleShape2D_oso3q")
+
+[connection signal="body_entered" from="fim" to="." method="_on_fim_body_entered"]

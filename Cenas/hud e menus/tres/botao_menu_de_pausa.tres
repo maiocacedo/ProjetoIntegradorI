@@ -10,7 +10,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fa45"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5y50"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaoil"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cj448"]
 
@@ -25,6 +25,6 @@ Button/styles/disabled = SubResource("StyleBoxEmpty_v4156")
 Button/styles/disabled_mirrored = SubResource("StyleBoxEmpty_3dyc1")
 Button/styles/focus = SubResource("StyleBoxEmpty_txbx5")
 Button/styles/hover = SubResource("StyleBoxEmpty_4fa45")
-Button/styles/normal = SubResource("StyleBoxEmpty_n5y50")
+Button/styles/normal = SubResource("StyleBoxFlat_yaoil")
 Button/styles/pressed = SubResource("StyleBoxEmpty_cj448")
 Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_t7hug")

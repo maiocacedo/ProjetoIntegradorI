@@ -1,29 +1,34 @@
 extends CanvasLayer
 
-@onready var hud_control = $".."
-
+@onready var voce_perdeu_label = $menu_morte/voce_perdeu_label
 
 func _ready() -> void:
-	visible = false
+	mostrar_morte()
 	
+
+# mostra a tela e atualiza texto
+func mostrar_morte():
+	visible = true
+	voce_perdeu_label.text = GameManager.lastDeathCause
+
 
 func _process(delta: float) -> void:
 	pass
 
+# Recarrega fase
 func _on_tentar_novamente_pressed() -> void:
-	print("Tentar")
-	get_tree().paused = false
-	call_deferred("_reiniciar_jogo")
+	# se o path estiver correto, recarrega cena anterior
+	if GameManager.lastScenePath != "":
+		get_tree().change_scene_to_file(GameManager.lastScenePath)
+	else: 
+		push_error("lastScenePath não existe")
+	
 
-func _reiniciar_jogo() -> void:
-	get_tree().reload_current_scene()	
-
-
+# Volta para o menu
 func _on_voltar_menu_principal_pressed() -> void:
-	get_tree().quit() # enquanto não tem menu principal
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Cenas/hud e menus/seletor_nivel.tscn")
 
 
-func _on_hud_times_is_up() -> void:
-	visible = true
-	get_tree().paused = true
+
 	

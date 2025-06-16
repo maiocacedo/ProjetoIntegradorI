@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkfyo3nn0pram"]
+[gd_scene load_steps=10 format=3 uid="uid://dkfyo3nn0pram"]
 
 [ext_resource type="Script" uid="uid://cme4e4r6wr6cn" path="res://Scripts/hud e menus/seletor_nivel.gd" id="1_fxf8f"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_gqlks"]
 [ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="2_gqlks"]
 [ext_resource type="LabelSettings" uid="uid://dv05upwbm0w17" path="res://Cenas/hud e menus/tres/menu_label_settings.tres" id="2_vingm"]
+[ext_resource type="Texture2D" uid="uid://bxcm8oasgop6y" path="res://Assets/sprites/estrela.png" id="4_p0enc"]
+[ext_resource type="Texture2D" uid="uid://rxfa6rlfw44o" path="res://Assets/sprites/estrela_slot.png" id="5_qoxf0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xag0d"]
 font = ExtResource("1_gqlks")
@@ -27,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fxf8f")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="fundo_solido" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
@@ -40,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.102998, 0.119671, 0.185393, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="fases_label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,14 +55,24 @@ grow_horizontal = 2
 text = "Fases"
 label_settings = SubResource("LabelSettings_xag0d")
 
-[node name="Label2" type="Label" parent="."]
+[node name="estrelas_label" type="Label" parent="."]
 layout_mode = 1
 offset_left = 24.0
 offset_top = 37.0
 offset_right = 234.0
 offset_bottom = 85.0
-text = "<> x"
+text = "   x0"
 label_settings = ExtResource("2_vingm")
+
+[node name="estrela_4" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+offset_left = 24.0
+offset_top = 25.0
+offset_right = 54.0
+offset_bottom = 55.0
+texture = ExtResource("4_p0enc")
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -84,10 +96,26 @@ layout_mode = 2
 theme = ExtResource("2_gqlks")
 text = "Fase 1"
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -97,13 +125,30 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 [node name="level_4" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
+disabled = true
 text = "Fase 4
 "
 
-[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -117,10 +162,26 @@ disabled = true
 text = "Fase 7
 "
 
-[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_7" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -133,10 +194,26 @@ theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 10"
 
-[node name="Label4" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_10" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -158,43 +235,91 @@ disabled = true
 text = "Fase 2
 "
 
-[node name="Label5" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="estrelas_2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_2"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 
-[node name="level_6" type="Button" parent="HBoxContainer/VBoxContainer2"]
+[node name="level_5" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 5"
 
-[node name="Label6" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="estrelas_5" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_5"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 
-[node name="level_9" type="Button" parent="HBoxContainer/VBoxContainer2"]
+[node name="level_8" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 8
 "
 
-[node name="Label7" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="estrelas_8" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_8"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_8"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer2/estrelas_8"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -227,10 +352,26 @@ disabled = true
 text = "Fase 3
 "
 
-[node name="Label9" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="estrelas_3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -244,10 +385,26 @@ disabled = true
 text = "Fase 6
 "
 
-[node name="Label10" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="estrelas_6" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_6"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -260,10 +417,35 @@ theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 9"
 
-[node name="Label8" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="estrelas_9" type="HBoxContainer" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "<><><>"
-label_settings = ExtResource("2_vingm")
+
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_9"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_9"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer3/estrelas_9"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("5_qoxf0")
+stretch_mode = 4
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_10" to="." method="_on_level_10_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_8" to="." method="_on_level_8_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_9" to="." method="_on_level_9_pressed"]
