@@ -3,9 +3,9 @@ extends Node2D
 @onready var animation = $AnimationPlayer
 @onready var stateTimer = $Timer
 
-var currentState := "fireOff"
+var currentState := "fireOff" # para saber o status da trap
 
-func _ready():
+func _ready(): #inicia o status como off
 	stateTimer.start()
 	animation.play(currentState)
 
@@ -20,6 +20,6 @@ func _on_timer_timeout() -> void:
 	animation.play(currentState)
 
 
-func _on_fire_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().reload_current_scene()
+func _on_fire_body_entered(body: Node2D) -> void: #quando o player enconstar reseta a fase
+	if body.is_in_group("player"): # grupo que o player
+		get_tree().reload_current_scene() # reset fase

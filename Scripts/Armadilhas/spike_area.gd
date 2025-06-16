@@ -5,6 +5,6 @@ extends Area2D
 func _ready() -> void:
 	pass
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
+func _on_body_entered(body: Node2D) -> void: # caso o player encoste nos espinhos ele reset a fase
+	if body.is_in_group("player"): # grupo do player
 		get_tree().reload_current_scene()

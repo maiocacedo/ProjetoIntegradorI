@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkkj8rxk1n0lp"]
+[gd_scene load_steps=7 format=3 uid="uid://dkkj8rxk1n0lp"]
 
 [ext_resource type="Script" uid="uid://cmakhr36f0m0c" path="res://Scripts/Armadilhas/plataforma_cai.gd" id="1_a728n"]
 [ext_resource type="Texture2D" uid="uid://ngbw7k1xm1i0" path="res://Sprites/sprites/Armadilhas/falling-platform-brown.png" id="2_2ly8l"]
@@ -37,15 +37,10 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(2, 0), Vector2(0, 0), Vector2(-2, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_u5uav"]
-resource_name = "tremor"
-length = 0.4
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hplj4"]
 _data = {
 &"RESET": SubResource("Animation_28vjk"),
-&"quake": SubResource("Animation_hplj4"),
-&"tremor": SubResource("Animation_u5uav")
+&"quake": SubResource("Animation_hplj4")
 }
 
 [node name="plataforma_cai" type="AnimatableBody2D"]

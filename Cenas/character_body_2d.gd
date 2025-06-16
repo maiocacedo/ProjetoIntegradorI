@@ -8,10 +8,11 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var facingDir := Vector2.RIGHT # DO GHOST
+var facingDir := Vector2.RIGHT # A Direção inicial do personagem está "olhando" (para a direita
 func _physics_process(delta: float) -> void:
 	# DO GHOST
-	if abs(velocity.x) > 0.1:
+	if abs(velocity.x) > 0.1:# Atualiza a direção do player com base na velocidade horizontal
+		# Se a velocidade X for positiva, o player olha para a direita; se negativa, para a esquerda
 		facingDir = Vector2.RIGHT if velocity.x > 0 else Vector2.LEFT
 	
 	# Add the gravity.
@@ -55,10 +56,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	for platforms in get_slide_collision_count(): # Plataforma que cai
-		var collision = get_slide_collision(platforms)
-		if collision.get_collider().has_method("has_collided_with"):
-			collision.get_collider().has_collided_with(collision, self) 
+	#plataforma que cai
+	# Para cada colisão detectada durante o movimento do player
+	for platforms in get_slide_collision_count(): 
+		var collision = get_slide_collision(platforms)  #Obtém o objeto da colisão na posição i
+		if collision.get_collider().has_method("has_collided_with"): # Verifica se o objeto(plataforma) colidido possui o método 'has_collided_with'
+			collision.get_collider().has_collided_with(collision, self) # Chama o método 'has_collided_with' da plataforma, passando a colisão e o player
 	
 func collect(item):
 	inv.insert(item)
