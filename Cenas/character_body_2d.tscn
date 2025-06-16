@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Cenas/character_body_2d.gd" id="1_ifqbm"]
 [ext_resource type="Resource" uid="uid://bwyeak6m6211s" path="res://inventory/players_inv.tres" id="2_gwfya"]
-[ext_resource type="Texture2D" uid="uid://b8okrk53o6oow" path="res://Sprites/sprites/AnimationSheet_Character.png" id="3_gwfya"]
-[ext_resource type="AudioStream" uid="uid://conrbyxaaqnw6" path="res://Sprites/sounds/jump.wav" id="3_ndeso"]
+[ext_resource type="Texture2D" uid="uid://b8okrk53o6oow" path="res://Assets/Sprites/sprites/AnimationSheet_Character.png" id="3_gwfya"]
+[ext_resource type="AudioStream" uid="uid://conrbyxaaqnw6" path="res://Assets/Sprites/sounds/jump.wav" id="3_ndeso"]
 [ext_resource type="PackedScene" uid="uid://bmlklnbensrua" path="res://inventory/inn_ui.tscn" id="5_ch4yf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch4yf"]

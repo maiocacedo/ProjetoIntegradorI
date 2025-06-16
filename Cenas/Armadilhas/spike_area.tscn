@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8u5btptcigf6"]
 
 [ext_resource type="Script" uid="uid://qb7xfbpdtwl6" path="res://Scripts/Armadilhas/spike_area.gd" id="1_w1prt"]
-[ext_resource type="Texture2D" uid="uid://b2osewbxs44vs" path="res://Sprites/sprites/Armadilhas/Spike.png" id="2_ic8w2"]
+[ext_resource type="Texture2D" uid="uid://b2osewbxs44vs" path="res://Assets/Sprites/sprites/Armadilhas/Spike.png" id="2_ic8w2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wkgv"]
 size = Vector2(140, 2)

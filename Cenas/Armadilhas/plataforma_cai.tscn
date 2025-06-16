@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkkj8rxk1n0lp"]
 
 [ext_resource type="Script" uid="uid://cmakhr36f0m0c" path="res://Scripts/Armadilhas/plataforma_cai.gd" id="1_a728n"]
-[ext_resource type="Texture2D" uid="uid://ngbw7k1xm1i0" path="res://Sprites/sprites/Armadilhas/falling-platform-brown.png" id="2_2ly8l"]
+[ext_resource type="Texture2D" uid="uid://ngbw7k1xm1i0" path="res://Assets/Sprites/sprites/Armadilhas/falling-platform-brown.png" id="2_2ly8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ly8l"]
 size = Vector2(32, 3)

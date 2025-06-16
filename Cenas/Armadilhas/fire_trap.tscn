@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cafhbwy8vlr"]
 
-[ext_resource type="Texture2D" uid="uid://ckwvmfknh6vys" path="res://Sprites/sprites/Armadilhas/Fire_Trap_Active.png" id="1_44tjh"]
+[ext_resource type="Texture2D" uid="uid://ckwvmfknh6vys" path="res://Assets/Sprites/sprites/Armadilhas/Fire_Trap_Active.png" id="1_44tjh"]
 [ext_resource type="Script" uid="uid://bio0lcr6ujsg2" path="res://Scripts/Armadilhas/fire_trap.gd" id="1_e26qp"]
-[ext_resource type="Texture2D" uid="uid://d2jyctdtmiwyy" path="res://Sprites/sprites/Armadilhas/Fire_Trap_Idle (1).png" id="2_e26qp"]
+[ext_resource type="Texture2D" uid="uid://d2jyctdtmiwyy" path="res://Assets/Sprites/sprites/Armadilhas/Fire_Trap_Idle (1).png" id="2_e26qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8707k"]
 size = Vector2(8, 11.5)
