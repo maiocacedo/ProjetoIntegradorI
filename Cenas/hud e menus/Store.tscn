@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckkbbeftedlp7"]
+
+[ext_resource type="Texture2D" uid="uid://bgl74nc0j8vph" path="res://Assets/sprites/Sprites Gabriel/Store_Background.png" id="1_ki743"]
+[ext_resource type="Script" uid="uid://blrlapiodpiiv" path="res://Scripts/hud e menus/labels.gd" id="2_te8ty"]
+[ext_resource type="Script" uid="uid://wpjkg81trmum" path="res://Scripts/hud e menus/buttons.gd" id="2_xmw48"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="StoreBackground" type="Sprite2D" parent="Sprites"]
+position = Vector2(577.5, 321.5)
+scale = Vector2(0.896094, 0.895833)
+texture = ExtResource("1_ki743")
+
+[node name="Buttons" type="Node" parent="."]
+script = ExtResource("2_xmw48")
+
+[node name="ShoesButton" type="Button" parent="Buttons"]
+offset_left = 102.0
+offset_top = 549.0
+offset_right = 223.0
+offset_bottom = 601.0
+
+[node name="CapeButton" type="Button" parent="Buttons"]
+offset_left = 318.0
+offset_top = 547.0
+offset_right = 439.0
+offset_bottom = 601.0
+
+[node name="RefriButton" type="Button" parent="Buttons"]
+offset_left = 515.0
+offset_top = 546.0
+offset_right = 637.0
+offset_bottom = 602.0
+
+[node name="PergaminhoButton" type="Button" parent="Buttons"]
+offset_left = 702.0
+offset_top = 545.0
+offset_right = 821.0
+offset_bottom = 599.0
+
+[node name="SkinsButton" type="Button" parent="Buttons"]
+offset_left = 908.0
+offset_top = 45.0
+offset_right = 1056.0
+offset_bottom = 106.0
+text = "Skins"
+
+[node name="Labels" type="Node" parent="."]
+script = ExtResource("2_te8ty")
+
+[node name="PlayerLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 73.0
+offset_top = 49.0
+offset_right = 327.0
+offset_bottom = 117.0
+
+[node name="ShoesLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 76.0
+offset_top = 415.0
+offset_right = 241.0
+offset_bottom = 536.0
+text = "Aqui vai o nome uma breve descrição do upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CapeLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 301.0
+offset_top = 422.0
+offset_right = 460.0
+offset_bottom = 536.0
+text = "Aqui vai o nome uma breve descrição do upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RefriLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 495.0
+offset_top = 419.0
+offset_right = 657.0
+offset_bottom = 531.0
+text = "Aqui vai o nome uma breve descrição do upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PergaminhoLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 685.0
+offset_top = 415.0
+offset_right = 848.0
+offset_bottom = 530.0
+text = "Aqui vai o nome uma breve descrição do upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1

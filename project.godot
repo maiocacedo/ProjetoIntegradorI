@@ -19,6 +19,22 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/managers/game_manager.gd"
 MusicManager="*res://Scripts/managers/music_manager.gd"
 SaveManager="*res://Scripts/managers/save_manager.gd"
+PlayerData="*res://Scripts/managers/PlayerData.gd"
+
+[input]
+
+esquerda={
+"deadzone": 0.2,
+"events": []
+}
+pular={
+"deadzone": 0.2,
+"events": []
+}
+direita={
+"deadzone": 0.2,
+"events": []
+}
 
 [input_devices]
 
