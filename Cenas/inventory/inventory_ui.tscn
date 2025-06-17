@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cxsiakk77al2x" path="res://Assets/Inventory/slot-inv.png" id="2_anlta"]
 [ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_7nilr"]
 [ext_resource type="Texture2D" uid="uid://dicv33ff1pwi4" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
-[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_th0yl"]
 [ext_resource type="AudioStream" uid="uid://cnrehayqgolsh" path="res://Assets/sounds/paranpanpan.wav" id="5_qbvel"]
+[ext_resource type="AudioStream" uid="uid://pnf8d3mibmm5" path="res://Assets/sounds/tap.wav" id="6_rqqdd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbvel"]
 size = Vector2(36, 36)
@@ -13,10 +13,10 @@ size = Vector2(36, 36)
 [node name="InventoryUI" type="Control" groups=["inventory"]]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 155.0
-offset_top = 96.0
-offset_right = 555.0
-offset_bottom = 157.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 402.0
+offset_bottom = 62.0
 script = ExtResource("1_jfabt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -133,7 +133,7 @@ offset_right = 800.0
 offset_bottom = 23.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
-theme_override_fonts/font = ExtResource("4_th0yl")
+theme_override_fonts/font = ExtResource("3_7nilr")
 horizontal_alignment = 1
 
 [node name="TimerInfo" type="Timer" parent="."]
@@ -142,6 +142,9 @@ one_shot = true
 
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qbvel")
+
+[node name="AudioDrop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rqqdd")
 
 [connection signal="pressed" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="released" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_released"]
