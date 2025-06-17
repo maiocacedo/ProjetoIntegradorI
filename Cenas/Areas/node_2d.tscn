@@ -589,24 +589,28 @@ position = Vector2(769, 511)
 
 [node name="monstro" type="Node" parent="."]
 
-[node name="ghost" parent="monstro" node_paths=PackedStringArray("pointA", "pointB", "pointC") instance=ExtResource("9_enyly")]
-position = Vector2(261, 479)
+[node name="ghost" parent="monstro" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("9_enyly")]
+position = Vector2(552, 362)
 scale = Vector2(2, 2)
 pointA = NodePath("../point_a")
 pointB = NodePath("../point_b")
 pointC = NodePath("../point_c")
+pointD = NodePath("../point_d")
 
 [node name="point_a" type="Marker2D" parent="monstro"]
-position = Vector2(260, 486)
+position = Vector2(530, 364)
 scale = Vector2(2, 2)
 
 [node name="point_b" type="Marker2D" parent="monstro"]
-position = Vector2(436, 484)
+position = Vector2(654, 363)
 scale = Vector2(2, 2)
 
 [node name="point_c" type="Marker2D" parent="monstro"]
-position = Vector2(314, 434)
+position = Vector2(588, 336)
 scale = Vector2(2, 2)
+
+[node name="point_d" type="Marker2D" parent="monstro"]
+position = Vector2(589, 399)
 
 [node name="ArmadilhaFogo" type="Node" parent="."]
 

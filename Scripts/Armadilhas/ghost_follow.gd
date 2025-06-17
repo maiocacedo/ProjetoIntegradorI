@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var pointA: Marker2D # horizontal
 @export var pointB: Marker2D # horizontal
 @export var pointC: Marker2D # vertical
+@export var pointD: Marker2D # Limite inferior vertical
+
 # Controle se o inimigo deve patrulhar e qual a velocidade
 @export var usePatrol: bool = true
 @export var patrolSpeed: float = 80.0
@@ -33,53 +35,69 @@ func hasPassedLimits() -> bool:
 func _physics_process(delta: float) -> void:
 	if not player:
 		return
+
 	match state:
-		State.PATROLLING: # Se o jogador estiver na área e não estiver olhando para o inimigo
+		State.PATROLLING:
 			patrol(delta)
 			if isPlayerInsidePatrolArea() and not isPlayerLookingAtMe():
 				state = State.CHASING
 				$ReturnTimer.stop()
 
-		State.CHASING: # Se passou dos limites, volta a patrulhar
+		State.CHASING:
+			if not isPlayerInsidePatrolArea(): # <--- jogador saiu da área?
+				state = State.PATROLLING
+				return
+
 			if hasPassedLimits():
 				state = State.PATROLLING
 				return
-			
-			if isPlayerLookingAtMe(): # Se o jogador estiver olhando, o inimigo para de se mover
+
+			if isPlayerLookingAtMe():
 				state = State.HIDING
 				$ReturnTimer.start()
-			else: 
+			else:
 				chasePlayer(delta)
 				$ReturnTimer.stop()
-		
-		State.HIDING: # Se o jogador parar de olhar, volta a perseguir
+
+		State.HIDING:
 			hideFace()
-			if not isPlayerLookingAtMe():
+			if not isPlayerInsidePatrolArea(): # <--- jogador saiu da área?
+				state = State.PATROLLING
+				$ReturnTimer.stop()
+			elif not isPlayerLookingAtMe():
 				state = State.CHASING
 				$ReturnTimer.stop()
-			elif not $ReturnTimer.is_stopped(): # Se ainda está dentro do tempo de espera, permanece escondido
+			elif not $ReturnTimer.is_stopped():
 				pass
-
-func patrol(delta): # Lógica de patrulha entre os pontos A e B
-	if global_position.distance_to(patrolTarget.global_position) < 8.0: # Troca o alvo quando chega perto
-		patrolTarget = pointA if patrolTarget == pointB else pointB
-		
-	# Move em direção ao alvo da patrulha
+				
+func patrol(delta):
 	var toTarget = patrolTarget.global_position - global_position
+	var distance = toTarget.length()
+
+	# Quando estiver suficientemente perto do ponto de destino, troca o alvo
+	if distance < 4.0:  # pode ajustar esse valor se quiser
+		if patrolTarget == pointA:
+			patrolTarget = pointB
+		else:
+			patrolTarget = pointA
+
+	# Atualiza direção e velocidade
 	var direction = toTarget.normalized()
 	velocity = direction * patrolSpeed
-	
-	# Impede que o inimigo suba acima do ponto C (limite vertical)
-	if (global_position.y + velocity.y * delta) < pointC.global_position.y:
+
+	# Impede que o inimigo suba acima do ponto C ou abaixo do D (limites verticais)
+	var futureY = global_position.y + velocity.y * delta
+	if futureY < pointC.global_position.y or futureY > pointD.global_position.y:
 		velocity.y = 0
 
 	move_and_slide()
-	
+
 	# Animação e direção visual
 	$anim.play("moving")
 	if abs(velocity.x) > 0.1:
 		patrolDirection = sign(velocity.x)
 	$anim.flip_h = patrolDirection < 0
+
 
 # Lógica de perseguição do jogador
 func chasePlayer(delta):
@@ -87,8 +105,10 @@ func chasePlayer(delta):
 	velocity = toPlayer * patrolSpeed
 	
 	# Impede subir acima do limite vertical (pointC)
-	if (global_position.y + velocity.y * delta) < pointC.global_position.y:
+	var futureY = global_position.y + velocity.y * delta
+	if futureY < pointC.global_position.y or futureY > pointD.global_position.y:
 		velocity.y = 0
+
 
 	move_and_slide()
 	
@@ -124,10 +144,11 @@ func isPlayerInsidePatrolArea() -> bool:
 	var minX = min(pointA.global_position.x, pointB.global_position.x)
 	var maxX = max(pointA.global_position.x, pointB.global_position.x)
 	var minY = pointC.global_position.y
+	var maxY = pointD.global_position.y
 
 	var playerPos = player.global_position
 
 	return (
-		playerPos.x >= minX and playerPos.x <= maxX and
-		playerPos.y >= minY  # Agora checa se está ABAIXO de pointC
-	)
+	playerPos.x >= minX and playerPos.x <= maxX and
+	playerPos.y >= minY and playerPos.y <= maxY
+)
