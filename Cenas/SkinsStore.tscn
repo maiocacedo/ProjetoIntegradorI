@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://5wllx01h6pqs"]
+
+[ext_resource type="Texture2D" uid="uid://bq5s2w2r7t1u5" path="res://Assets/sprites/Sprites Gabriel/Skin_Store_Background.png" id="1_rbru8"]
+[ext_resource type="Script" uid="uid://v6fj0kmdayre" path="res://Assets/Scripts/SkinStoreButtons.gd" id="2_2bh30"]
+[ext_resource type="Script" uid="uid://4kw0yu1um4vm" path="res://Assets/Scripts/SkinStoreLabels.gd" id="3_bphmr"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="SkinStoreBackground" type="Sprite2D" parent="Sprites"]
+position = Vector2(576.5, 325.5)
+scale = Vector2(0.896094, 0.898611)
+texture = ExtResource("1_rbru8")
+
+[node name="Buttons" type="Node" parent="."]
+script = ExtResource("2_2bh30")
+
+[node name="Skin1Button" type="Button" parent="Buttons"]
+offset_left = 173.0
+offset_top = 537.0
+offset_right = 303.0
+offset_bottom = 598.0
+
+[node name="Skin2Button" type="Button" parent="Buttons"]
+offset_left = 475.0
+offset_top = 532.0
+offset_right = 615.0
+offset_bottom = 592.0
+
+[node name="Skin3Button" type="Button" parent="Buttons"]
+offset_left = 836.0
+offset_top = 527.0
+offset_right = 963.0
+offset_bottom = 587.0
+
+[node name="UpgradesButton" type="Button" parent="Buttons"]
+offset_left = 810.0
+offset_top = 46.0
+offset_right = 964.0
+offset_bottom = 118.0
+text = "Upgrades"
+
+[node name="Labels" type="Node" parent="."]
+script = ExtResource("3_bphmr")
+
+[node name="PlayerLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 71.0
+offset_top = 51.0
+offset_right = 329.0
+offset_bottom = 119.0
+
+[node name="Skin1Label" type="RichTextLabel" parent="Labels"]
+offset_left = 131.0
+offset_top = 398.0
+offset_right = 327.0
+offset_bottom = 493.0
+text = "Aqui vai o nome e uma breve descrição da skin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skin2Label" type="RichTextLabel" parent="Labels"]
+offset_left = 443.0
+offset_top = 393.0
+offset_right = 635.0
+offset_bottom = 494.0
+text = "Aqui vai o nome e uma breve descrição da skin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skin3Label" type="RichTextLabel" parent="Labels"]
+offset_left = 805.0
+offset_top = 393.0
+offset_right = 980.0
+offset_bottom = 491.0
+text = "Aqui vai o nome e uma breve descrição da skin"
+horizontal_alignment = 1
+vertical_alignment = 1

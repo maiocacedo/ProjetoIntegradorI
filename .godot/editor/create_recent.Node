@@ -1,0 +1,14 @@
+CollisionShape2D
+Area2D
+CharacterBody2D
+Button
+RichTextLabel
+Node
+AudioStreamPlayer2D
+TileMapLayer
+TileMap
+Label
+Panel
+CenterContainer
+Sprite2D
+GridContainer

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgcrqf5ta20ch"]
+
+[ext_resource type="Script" uid="uid://bh1pg82uojs8w" path="res://Cenas/enemy.gd" id="1_tp8xb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i8v1b"]
+load_path = "res://.godot/imported/skin 4.png-594871ed9a63ee5d7bd071c4d653e259.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8v1b"]
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tp8xb"]
+radius = 15.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_tp8xb")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 9.53674e-07)
+scale = Vector2(0.999999, 0.937501)
+texture = SubResource("CompressedTexture2D_i8v1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i8v1b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="EnemyHitBox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_tp8xb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
