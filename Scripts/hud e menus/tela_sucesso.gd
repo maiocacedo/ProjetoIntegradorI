@@ -27,7 +27,7 @@ func _on_proxima_fase_pressed() -> void:
 func _on_loja_pressed() -> void:
 	visible = false # Torna invisivel novamente
 	get_tree().paused = false # Despausa cena
-	get_tree().change_scene_to_file("res://Cenas/hud e menus/menu.tscn") # mudar para loja
+	get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn") # mudar para loja
 
 
 func _on_voltar_ao_menu_pressed() -> void:

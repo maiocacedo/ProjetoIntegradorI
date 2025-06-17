@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CavaleirodosCircuitos"
+run/main_scene="uid://05mwbm41y5a1"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,7 @@ GameManager="*res://Scripts/managers/game_manager.gd"
 MusicManager="*res://Scripts/managers/music_manager.gd"
 SaveManager="*res://Scripts/managers/save_manager.gd"
 PlayerData="*res://Scripts/managers/PlayerData.gd"
+ItemDB="*res://Scripts/Items/ItemDatabase.gd"
 
 [input]
 

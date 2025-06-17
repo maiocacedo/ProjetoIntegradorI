@@ -32,11 +32,11 @@ func _on_scene_changed(newScene: Node) -> void:
 	print("Cena mudou para:", newScene.name)
 	# Toca música de acordo com a cena
 	match newScene.name:
-		"area_1", "area_2":
+		"fase_1", "fase_2":
 			_play_music("res://Assets/music/tema_level_1.wav")
 		"menu_principal", "seletor_nivel", "opcoes", "creditos":
 			_play_music("res://Assets/music/tema_menu.wav")
-		"loja":
+		"Store":
 			_play_music("res://Assets/music/loja.wav")
 		_:
 			_stop_music()

@@ -13,12 +13,18 @@ var speedUpgradeScript := preload("res://Scripts/upgrades/SpeedUpgrade.gd").new(
 var damageUpgradeScript := preload("res://Scripts/upgrades/DamageUpgrade.gd").new()
 var jumpUpgradeScript := preload("res://Scripts/upgrades/JumpUpgrade.gd").new()
 
+@export var hasRefrigerante: bool # Adicionado para testar
+@export var hasTenis: bool # Adicionado para testar
+@export var hasEscudo: bool # Adicionado para testar
+@export var hasEscudoEspinhos: bool # Adicionado para testar
+
 var knockbackHorizontal = 800 #define a força horizontal do knockback
 var knockbackVertical = -300 #define a força vertical do knockback
 
 var jumpsLeft = 2
 
 var facingDir := Vector2.RIGHT # A Direção inicial do personagem está "olhando" (para a direita
+
 func _physics_process(delta: float) -> void:
 	if not alive:
 		animated_sprite_2d.play("parado")

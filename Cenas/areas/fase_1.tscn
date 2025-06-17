@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://c6ra8fwxkf2sx"]
+[gd_scene load_steps=3 format=3 uid="uid://c6ra8fwxkf2sx"]
+
+[ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="1_8lebx"]
+[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/character_body_2d.tscn" id="2_mmr1w"]
 
 [node name="fase_1" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hud" parent="CanvasLayer" instance=ExtResource("1_8lebx")]
+
+[node name="player" parent="." instance=ExtResource("2_mmr1w")]

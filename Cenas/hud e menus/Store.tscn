@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://blrlapiodpiiv" path="res://Scripts/hud e menus/labels.gd" id="2_te8ty"]
 [ext_resource type="Script" uid="uid://wpjkg81trmum" path="res://Scripts/hud e menus/buttons.gd" id="2_xmw48"]
 
-[node name="Control" type="Control"]
+[node name="Store" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

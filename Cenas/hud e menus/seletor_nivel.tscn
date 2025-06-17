@@ -438,6 +438,22 @@ layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="loja" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+text = "Loja
+"
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/level_7" to="." method="_on_level_7_pressed"]
@@ -449,3 +465,4 @@ stretch_mode = 4
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_9" to="." method="_on_level_9_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/loja" to="." method="_on_loja_pressed"]

@@ -91,3 +91,7 @@ func _on_level_9_pressed() -> void:
 
 func _on_level_10_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/Areas/fase_10.tscn")
+
+
+func _on_loja_pressed() -> void:
+	get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn")
