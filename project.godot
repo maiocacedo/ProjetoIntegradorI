@@ -1,0 +1,48 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="CavaleirodosCircuitos"
+run/main_scene="uid://05mwbm41y5a1"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/managers/game_manager.gd"
+MusicManager="*res://Scripts/managers/music_manager.gd"
+SaveManager="*res://Scripts/managers/save_manager.gd"
+PlayerData="*res://Scripts/managers/PlayerData.gd"
+ItemDB="*res://Scripts/Items/ItemDatabase.gd"
+
+[input]
+
+esquerda={
+"deadzone": 0.2,
+"events": []
+}
+pular={
+"deadzone": 0.2,
+"events": []
+}
+direita={
+"deadzone": 0.2,
+"events": []
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
