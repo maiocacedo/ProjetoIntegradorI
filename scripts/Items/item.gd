@@ -32,7 +32,7 @@ func _on_body_entered(body):
 		else:
 			print("Inventário encontrado:", inv) # LOG
 			inv.addItem(item)
-			inv.show_message("Você pegou um(a) %s" % [itemName])
+			inv.show_message("Você pegou um(a) %s!" % [itemName])
 			$AudioColetado.play()
 			$Animation.play("collect")
 

@@ -11,11 +11,16 @@ const JUMP_VELOCITY = -300.0
 @export var hasEscudo: bool # Adicionado para testar
 @export var hasEscudoEspinhos: bool # Adicionado para testar
 
+var facingDir := Vector2.RIGHT;
+
 # Lembrar de adicionar no pesonagem, para que o inv funcione
 func _ready():
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
+	if abs(velocity.x) > 0.1:
+		facingDir = Vector2.RIGHT if velocity.x > 0 else Vector2.LEFT
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

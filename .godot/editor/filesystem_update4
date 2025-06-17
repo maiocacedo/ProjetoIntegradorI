@@ -4,3 +4,6 @@ res://Cenas/Items/item.tscn
 res://Cenas/Inventory/inventory_ui.tscn
 res://Cenas/Items/chave.tscn
 res://Cenas/Items/escudo.tscn
+res://Scripts/Inventory/inventory_ui.gd
+res://Scripts/Items/item.gd
+res://Cenas/character_body_2d.gd

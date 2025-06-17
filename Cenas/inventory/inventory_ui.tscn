@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bihqieswng1g3"]
+[gd_scene load_steps=8 format=3 uid="uid://bihqieswng1g3"]
 
 [ext_resource type="Script" uid="uid://cgr7yohoeixrn" path="res://Scripts/Inventory/inventory_ui.gd" id="1_jfabt"]
 [ext_resource type="Texture2D" uid="uid://cxsiakk77al2x" path="res://Assets/Inventory/slot-inv.png" id="2_anlta"]
 [ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_7nilr"]
+[ext_resource type="Texture2D" uid="uid://dicv33ff1pwi4" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_th0yl"]
 [ext_resource type="AudioStream" uid="uid://cnrehayqgolsh" path="res://Assets/sounds/paranpanpan.wav" id="5_qbvel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbvel"]
+size = Vector2(36, 36)
 
 [node name="InventoryUI" type="Control" groups=["inventory"]]
 layout_mode = 3
@@ -17,9 +21,9 @@ script = ExtResource("1_jfabt")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 102.5
+offset_left = 91.0
 offset_top = 12.0
-offset_right = 297.5
+offset_right = 309.0
 offset_bottom = 60.0
 alignment = 1
 
@@ -98,22 +102,26 @@ theme_override_fonts/font = ExtResource("3_7nilr")
 [node name="Slot3" type="Node2D" parent="HBoxContainer"]
 
 [node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot3"]
-offset_left = 147.0
-offset_right = 187.0
+offset_left = 170.0
+offset_right = 210.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_anlta")
+texture = ExtResource("4_rqqdd")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/Slot3/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_qbvel")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot3"]
-offset_left = 155.0
+offset_left = 178.0
 offset_top = 8.0
-offset_right = 187.0
+offset_right = 210.0
 offset_bottom = 40.0
 
 [node name="SlotQtd" type="Label" parent="HBoxContainer/Slot3"]
-offset_left = 179.0
+offset_left = 202.0
 offset_top = 32.0
-offset_right = 195.0
+offset_right = 218.0
 offset_bottom = 48.0
 scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
@@ -135,4 +143,6 @@ one_shot = true
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qbvel")
 
+[connection signal="pressed" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="released" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_released"]
 [connection signal="timeout" from="TimerInfo" to="." method="_on_timer_info_timeout"]
