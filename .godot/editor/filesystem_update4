@@ -2,8 +2,8 @@ res://Cenas/Areas/node_2d.tscn
 res://inventory/players_inv.tres
 res://inventory/inv_ui_slot.gd
 res://inventory/items/heart.tres
-res://Cenas/Armadilhas/ghost.tscn
 res://Cenas/character_body_2d.tscn
+res://Cenas/Armadilhas/ghost.tscn
 res://Cenas/Armadilhas/plataforma_cai.tscn
 res://Cenas/Armadilhas/spike_area.tscn
 res://Cenas/Armadilhas/fire_trap.tscn

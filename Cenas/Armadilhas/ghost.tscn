@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://durn1jaddvq3j"]
 
 [ext_resource type="Script" uid="uid://5ymluixygy" path="res://Scripts/Armadilhas/ghost_follow.gd" id="1_ysyse"]
-[ext_resource type="Texture2D" uid="uid://bn4h46cbd3rqf" path="res://Assets/Sprites/sprites/Armadilhas/transparent-particles.png" id="2_m07c3"]
+[ext_resource type="Texture2D" uid="uid://bn4h46cbd3rqf" path="res://Assets/sprites/Armadilhas/transparent-particles.png" id="2_m07c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhfb5"]
 atlas = ExtResource("2_m07c3")

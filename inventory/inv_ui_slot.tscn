@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwp84ilsfwdpi"]
 
-[ext_resource type="Texture2D" uid="uid://dl2rtyxmbqgw0" path="res://Assets/Sprites/sprites/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/CharacterBox_56x57.png" id="1_dfngl"]
+[ext_resource type="Texture2D" uid="uid://dl2rtyxmbqgw0" path="res://Assets/sprites/Fantasy Minimal Pixel Art GUI by eta-commercial-free/UI/CharacterBox_56x57.png" id="1_dfngl"]
 [ext_resource type="Script" uid="uid://b3026m6f4qsds" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
-[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/Sprites/fonts/PixelOperator8.ttf" id="3_jagxy"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="3_jagxy"]
 
 [node name="inv_ui_slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
