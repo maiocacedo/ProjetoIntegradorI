@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cltlew27mk5y4"]
+[gd_scene load_steps=24 format=4 uid="uid://cltlew27mk5y4"]
 
 [ext_resource type="Script" uid="uid://rjypimvo6r7g" path="res://Cenas/main.gd" id="1_o0qou"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/character_body_2d.tscn" id="2_4ofe7"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjlhxl5ks1poh" path="res://Sprites/button/BotaoAndarEsquerdo.png" id="9_gb0c0"]
 [ext_resource type="Texture2D" uid="uid://bewne13ewi1w0" path="res://Sprites/button/BotaoAndarDireito.png" id="10_oiyed"]
 [ext_resource type="Texture2D" uid="uid://dd8fyfm4pgia4" path="res://Sprites/button/BotaoPular.png" id="11_oiyed"]
+[ext_resource type="PackedScene" uid="uid://nbg3vi3bqn73" path="res://Cenas/alavanca.tscn" id="12_ai6mh"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vevm7"]
 a = Vector2(25.5, 0)
@@ -572,19 +573,22 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TouchScreenButtonEsquerdo" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(370, 260)
-scale = Vector2(0.175097, 0.139013)
+position = Vector2(33, 373)
+scale = Vector2(0.470817, 0.461883)
 texture_normal = ExtResource("9_gb0c0")
 action = "esquerda"
 
 [node name="TouchScreenButtonDireito" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(425, 260)
-scale = Vector2(0.180147, 0.121429)
+position = Vector2(128, 359)
+scale = Vector2(0.522059, 0.457143)
 texture_normal = ExtResource("10_oiyed")
 action = "direita"
 
 [node name="TouchScreenButtonPular" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2(664, 257)
-scale = Vector2(0.166154, 0.127036)
+position = Vector2(1003, 377)
+scale = Vector2(0.449231, 0.397394)
 texture_normal = ExtResource("11_oiyed")
 action = "pular"
+
+[node name="Node2D" parent="." instance=ExtResource("12_ai6mh")]
+position = Vector2(60, 248)

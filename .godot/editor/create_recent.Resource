@@ -1,3 +1,4 @@
+AtlasTexture
 Inv
 InvItem
 Resource

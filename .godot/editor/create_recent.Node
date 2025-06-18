@@ -1,3 +1,7 @@
+CollisionShape2D
+Area2D
+Sprite2D
+Node2D
 TouchScreenButton
 CanvasLayer
 TileMapLayer
@@ -6,10 +10,6 @@ Node
 Label
 Panel
 CenterContainer
-Sprite2D
 GridContainer
 NinePatchRect
 Control
-AnimationPlayer
-AnimationTree
-CollisionShape2D
