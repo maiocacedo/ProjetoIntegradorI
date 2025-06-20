@@ -264,7 +264,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 [node name="level_5" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
-button_mask = 0
+disabled = true
 text = "Fase 5"
 
 [node name="estrelas_5" type="HBoxContainer" parent="HBoxContainer/VBoxContainer2"]
