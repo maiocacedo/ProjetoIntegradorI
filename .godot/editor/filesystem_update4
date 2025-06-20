@@ -1,7 +1,14 @@
-res://Cenas/character_body_2d.tscn
-res://Cenas/Areas/node_2d.tscn
-res://Cenas/Items/item.tscn
-res://Cenas/Inventory/inventory_ui.tscn
-res://Cenas/Items/chave.tscn
-res://Cenas/Items/escudo.tscn
-res://Scripts/Inventory/inventory_ui.gd
+res://Cenas/hud e menus/menu.tscn
+res://Cenas/hud e menus/tres/botao_menu_principal.tres
+res://Cenas/hud e menus/tres/botao_menu_opcoes.tres
+res://Cenas/hud e menus/tres/slidervolume.tres
+res://Cenas/hud e menus/tres/botao_menu_niveis.tres
+res://Cenas/inventory/inventory_ui.tscn
+res://Cenas/hud e menus/hud.tscn
+res://Scripts/hud e menus/seletor_nivel.gd
+res://Scripts/fases/fase_1.gd
+res://Scripts/fases/fase_2.gd
+res://Scripts/fases/fase_3.gd
+res://Scripts/fases/fase_4.gd
+res://Scripts/fases/fase_5.gd
+res://Scripts/fases/fase_6.gd

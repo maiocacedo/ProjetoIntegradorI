@@ -1,6 +1,6 @@
 extends Control
 
-# Inventário com 4 Slots
+# Inventário com 4 Slots (0 a 2 = upgrades | 3 = chave)
 var inventory = [null, null, null, null]
 
 func _ready():
@@ -11,25 +11,45 @@ func _ready():
 # Adiciona um item ao inventário
 func addItem(item):
 	print("Tentando adicionar item ao inventário: " + str(item))  # LOG
-	# Tenta empilhar caso o item já exista
-	for i in range(len(inventory)):
+
+	if item["id"] == 1:
+		# Chave só pode ir no slot 3
+		var i = 3
 		if inventory[i] != null and inventory[i]["id"] == item["id"]:
 			inventory[i]["quantity"] += item["quantity"]
-			updateUI()
-			print("Item empilhado no slot " + str(i))  # LOG
-			return true
-	# Se não existe ainda, adiciona no primeiro slot vazio
-	for i in range(len(inventory)):
-		if inventory[i] == null:
+			print("Chave empilhada no slot 3")  # LOG
+		else:
 			inventory[i] = item
-			updateUI()
-			print("Item adicionado ao slot " + str(i))  # LOG
-			return true
-	print("Inventário cheio, item não adicionado")  # LOG
+			print("Chave adicionada ao slot 3")  # LOG
+		updateUI()
+		return true
+	else:
+		# Upgrades: tenta empilhar nos slots 0 a 2
+		for i in range(3):
+			if inventory[i] != null and inventory[i]["id"] == item["id"]:
+				inventory[i]["quantity"] += item["quantity"]
+				print("Upgrade empilhado no slot " + str(i))  # LOG
+				updateUI()
+				return true
+		# Se não tem, coloca no primeiro slot vazio entre 0 a 2
+		for i in range(3):
+			if inventory[i] == null:
+				inventory[i] = item
+				print("Upgrade adicionado ao slot " + str(i))  # LOG
+				updateUI()
+				return true
+
+	print("Sem espaço para adicionar item")  # LOG
 	return false
 
 # Remove um item do inventário e dropa no mundo
 func removerItem(itemRemover, posicaoDrop):
+	# Upgrades não podem ser removidos
+	if itemRemover["id"] != 1:
+		print("Tentativa de remover item não removível (upgrade). Ação bloqueada.")  # LOG
+		show_message("Este item não pode ser descartado!")
+		return
+
 	print("Tentando remover item: " + str(itemRemover) + " na posição: " + str(posicaoDrop))  # LOG
 
 	# Se não tem espaço na posição de drop, cancela
@@ -42,32 +62,31 @@ func removerItem(itemRemover, posicaoDrop):
 	var ground_position = get_ground_position(posicaoDrop)
 	print("Posição de drop ajustada para o chão: " + str(ground_position))  # LOG
 
-	# Procura o item no inventário
-	for i in range(len(inventory)):
-		var item = inventory[i]
-		if item != null and item["id"] == itemRemover["id"]:
-			# Instancia a chave no mundo
-			var key_scene = preload("res://Cenas/Items/chave.tscn")
-			var key_instance = key_scene.instantiate()
-			key_instance.scale = Vector2(0.5, 0.5)
-			get_tree().current_scene.add_child(key_instance)
-			key_instance.global_position = ground_position
-			print("Item droppado na cena")  # LOG
+	var i = 3  # Slot da chave
+	var item = inventory[i]
+	if item != null and item["id"] == itemRemover["id"]:
+		# Instancia a chave no mundo
+		var key_scene = preload("res://Cenas/Items/chave.tscn")
+		var key_instance = key_scene.instantiate()
+		key_instance.scale = Vector2(2, 2)
+		get_tree().current_scene.add_child(key_instance)
+		key_instance.global_position = ground_position
+		print("Item droppado na cena")  # LOG
 
-			# Diminui a quantidade ou remove do inventário
-			if item["quantity"] > 1:
-				item["quantity"] -= 1
-				print("Quantidade do item diminuída para: " + str(item["quantity"]))  # LOG
-			else:
-				inventory[i] = null
-				print("Item removido do inventário")  # LOG
+		# Diminui a quantidade ou remove do inventário
+		if item["quantity"] > 1:
+			item["quantity"] -= 1
+			print("Quantidade do item diminuída para: " + str(item["quantity"]))  # LOG
+		else:
+			inventory[i] = null
+			print("Item removido do inventário")  # LOG
 
-			show_message("O(a) " + item["name"] + " foi jogado fora!")
-			$AudioDrop.playing = true
-			updateUI()
-			return
+		show_message("O(a) " + item["name"] + " foi jogado fora!")
+		$AudioDrop.playing = true
+		updateUI()
+		return
 
-	print("Item não encontrado no inventário")  # LOG
+	print("Item não encontrado no slot da chave")  # LOG
 
 # Retorna a quantidade de um determinado item no inventário
 func getQtdItem(item):
@@ -153,23 +172,6 @@ func is_position_free(posicao: Vector2) -> bool:
 	print("Checando espaço livre na posição: " + str(posicao) + " - Livre: " + str(result.is_empty()))  # LOG
 	return result.is_empty()
 
-# Quando o botão de drop for pressionado
-func _on_touch_screen_button_pressed() -> void:
-	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot-inv.png")
-	var player = get_tree().get_first_node_in_group("player")
-	if player != null:
-		var drop_offset = player.facingDir.normalized() * 16
-		var drop_position = player.global_position + drop_offset
-		print("Botão pressionado - Drop na posição: " + str(drop_position))  # LOG
-		removerItem(ItemDB.getItem(1), drop_position)
-	else:
-		print("Player não encontrado no drop (pressed)")  # LOG
-
-# Quando o botão de drop for solto
-func _on_touch_screen_button_released() -> void:
-	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_chave.png")
-	print("Botão de drop solto")  # LOG
-
 # Faz um raycast para encontrar o chão mais próximo abaixo
 func get_ground_position(start_position: Vector2) -> Vector2:
 	var space_state = get_world_2d().direct_space_state
@@ -183,9 +185,68 @@ func get_ground_position(start_position: Vector2) -> Vector2:
 	var result = space_state.intersect_ray(query)
 
 	if result:
-		var final_pos = result.position - Vector2(0, 4)  # Sobe 4 pixels para não grudar no chão
+		var final_pos = result.position - Vector2(0, 10)  # Sobe 10 pixels para não grudar no chão
 		print("Chão encontrado em: " + str(result.position) + ", posição final ajustada: " + str(final_pos))  # LOG
 		return final_pos
 	else:
 		print("Chão não encontrado, mantendo posição original: " + str(start_position))  # LOG
 		return start_position
+
+# Mostra uma mensagem com o nome e descrição do item
+func mostrarNomeItem(slot_index: int):
+	if slot_index >= 0 and slot_index < inventory.size():
+		var item = inventory[slot_index]
+		if item != null:
+			show_message(item["name"] + ": " + item["description"])
+			print("Mostrando item do slot " + str(slot_index) + ": " + item["name"])  # LOG
+		else:
+			show_message("Sem Item no Slot.")
+			print("Tentou mostrar slot vazio: " + str(slot_index))  # LOG
+
+# Ações para o slot 0
+func _on_touch_button_slot_0_pressed() -> void:
+	$AudioSlotClick.playing = true
+	$HBoxContainer/Slot0/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_pressed.png")
+	mostrarNomeItem(0)
+
+func _on_touch_button_slot_0_released() -> void:
+	$HBoxContainer/Slot0/SlotBackground.texture = load("res://Assets/Inventory/slot_inv.png")
+
+# Ações para o slot 1
+func _on_touch_button_slot_1_pressed() -> void:
+	$AudioSlotClick.playing = true
+	$HBoxContainer/Slot1/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_pressed.png")
+	mostrarNomeItem(1)
+
+func _on_touch_button_slot_1_released() -> void:
+	$HBoxContainer/Slot1/SlotBackground.texture = load("res://Assets/Inventory/slot_inv.png")
+
+# Ações para o slot 2
+func _on_touch_button_slot_2_pressed() -> void:
+	$AudioSlotClick.playing = true
+	$HBoxContainer/Slot2/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_pressed.png")
+	mostrarNomeItem(2)
+
+func _on_touch_button_slot_2_released() -> void:
+	$HBoxContainer/Slot2/SlotBackground.texture = load("res://Assets/Inventory/slot_inv.png")
+
+# Quando o botão do slot 3 (chave) for pressionado
+func _on_touch_button_slot_3_pressed() -> void:
+	$AudioSlotClick.playing = true
+	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_chave_pressed.png")
+	var player = get_tree().get_first_node_in_group("player")
+	if player != null:
+		var drop_offset = player.facingDir.normalized() * 40
+		var drop_position = player.global_position + drop_offset
+		print("Botão pressionado - Drop na posição: " + str(drop_position))  # LOG
+		if getQtdItem(ItemDB.getItem(1)) == 0:
+			show_message("Sem Chave no Slot.")
+		else:
+			removerItem(ItemDB.getItem(1), drop_position)
+	else:
+		print("Player não encontrado no drop (pressed)")  # LOG
+
+# Quando o botão do slot 3 (chave) for solto
+func _on_touch_button_slot_3_released() -> void:
+	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_chave.png")
+	print("Botão de drop solto")  # LOG
