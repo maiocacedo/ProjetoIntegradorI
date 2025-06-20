@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="1_8lebx"]
 [ext_resource type="Script" uid="uid://cxesvd5ydh8ax" path="res://Scripts/fases/fase_1.gd" id="1_q1mpm"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="2_d055s"]
-[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/character_body_2d.tscn" id="2_mmr1w"]
+[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="2_mmr1w"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="3_0utqe"]
 [ext_resource type="Texture2D" uid="uid://cls4e33k2m7le" path="res://Assets/spritesheets/tileset1-6.png" id="3_yvkhr"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="7_bvxkj"]
@@ -286,7 +286,7 @@ position = Vector2(707, 511)
 position = Vector2(726, 511)
 
 [node name="spike-area4" parent="espinhos" instance=ExtResource("9_1bkqr")]
-position = Vector2(485, 511)
+position = Vector2(486, 532)
 
 [node name="spike-area5" parent="espinhos" instance=ExtResource("9_1bkqr")]
 position = Vector2(601, 543)

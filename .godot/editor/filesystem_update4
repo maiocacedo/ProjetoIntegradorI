@@ -5,10 +5,8 @@ res://Cenas/hud e menus/tres/slidervolume.tres
 res://Cenas/hud e menus/tres/botao_menu_niveis.tres
 res://Cenas/inventory/inventory_ui.tscn
 res://Cenas/hud e menus/hud.tscn
-res://Scripts/hud e menus/seletor_nivel.gd
-res://Scripts/fases/fase_1.gd
-res://Scripts/fases/fase_2.gd
-res://Scripts/fases/fase_3.gd
-res://Scripts/fases/fase_4.gd
-res://Scripts/fases/fase_5.gd
-res://Scripts/fases/fase_6.gd
+res://Cenas/player/player.tscn
+res://Scripts/player/player.gd
+res://Scripts/armadilhas/spike_area.gd
+res://Cenas/fases/fase_1.tscn
+res://Cenas/armadilhas/spike_area.tscn

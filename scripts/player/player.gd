@@ -40,7 +40,8 @@ var has_jumped = false
 
 func _physics_process(delta: float) -> void:
 	if not alive:
-		animated_sprite_2d.play("parado")
+		if animated_sprite_2d.animation != "die":
+			animated_sprite_2d.play("die")
 		return
 
 	# Temporizadores

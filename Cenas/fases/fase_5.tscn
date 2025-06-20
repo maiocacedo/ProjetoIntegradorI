@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="6_fp2v1"]
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="7_aiwf6"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="8_4eu60"]
-[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/character_body_2d.tscn" id="9_jy764"]
+[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="9_jy764"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="10_igiqs"]
 [ext_resource type="PackedScene" uid="uid://cskeghnjtijmk" path="res://Cenas/alavanca/alavanca.tscn" id="11_kdmjm"]
 

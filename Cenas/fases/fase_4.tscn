@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="10_qymqf"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="11_dcrdh"]
 [ext_resource type="PackedScene" uid="uid://cskeghnjtijmk" path="res://Cenas/alavanca/alavanca.tscn" id="12_f0a64"]
-[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/character_body_2d.tscn" id="12_gt327"]
+[ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="12_gt327"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vavc2"]
 texture = ExtResource("1_f0a64")
