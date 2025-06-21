@@ -1,0 +1,238 @@
+[gd_scene load_steps=15 format=3 uid="uid://05mwbm41y5a1"]
+
+[ext_resource type="LabelSettings" uid="uid://cuqghwtdf0bxd" path="res://Cenas/hud e menus/tres/title_label_settings.tres" id="1_1djae"]
+[ext_resource type="Script" uid="uid://g523ra776iqg" path="res://Scripts/hud e menus/menu.gd" id="1_rwb3b"]
+[ext_resource type="Theme" uid="uid://bbr5200q147wf" path="res://Cenas/hud e menus/tres/botao_menu_principal.tres" id="3_rwb3b"]
+[ext_resource type="Texture2D" uid="uid://bxvdovgud8als" path="res://Assets/sprites/led.png" id="5_nndfb"]
+[ext_resource type="Texture2D" uid="uid://csj463mc1f0bp" path="res://Assets/sprites/cap2.png" id="6_1xyrg"]
+[ext_resource type="Texture2D" uid="uid://cnv3nqw56skur" path="res://Assets/sprites/cap1.png" id="7_thrbc"]
+[ext_resource type="Texture2D" uid="uid://vyvjvd4tilsn" path="res://Assets/sprites/bateria.png" id="8_mq37e"]
+[ext_resource type="Texture2D" uid="uid://cuwavmrvh1vpg" path="res://Assets/sprites/player_breathing (1).png" id="8_nndfb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn3cf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u7sj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1d4j"]
+
+[sub_resource type="Animation" id="Animation_ica3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ua8by"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.571429),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fsho"]
+_data = {
+&"RESET": SubResource("Animation_ica3m"),
+&"idle": SubResource("Animation_ua8by")
+}
+
+[node name="menu_principal" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rwb3b")
+
+[node name="fundo" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fundo_solido" type="ColorRect" parent="fundo"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1152.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="Cap2" type="Sprite2D" parent="fundo"]
+position = Vector2(494, 595)
+scale = Vector2(4.47917, 4.47917)
+texture = ExtResource("6_1xyrg")
+hframes = 3
+
+[node name="Cap1" type="Sprite2D" parent="fundo"]
+position = Vector2(1087, 396)
+scale = Vector2(4.79167, 4.79167)
+texture = ExtResource("7_thrbc")
+hframes = 3
+
+[node name="Bateria" type="Sprite2D" parent="fundo"]
+position = Vector2(82, 480)
+scale = Vector2(4.58333, 3.54167)
+texture = ExtResource("8_mq37e")
+hframes = 3
+
+[node name="Led2" type="Sprite2D" parent="fundo"]
+position = Vector2(97.5, 311.5)
+scale = Vector2(2.45833, 2.45833)
+texture = ExtResource("5_nndfb")
+hframes = 3
+
+[node name="Cap3" type="Sprite2D" parent="fundo"]
+position = Vector2(996, 90)
+scale = Vector2(4.47917, 4.47917)
+texture = ExtResource("6_1xyrg")
+hframes = 3
+
+[node name="Cap4" type="Sprite2D" parent="fundo"]
+position = Vector2(314, 586)
+scale = Vector2(4.79167, 4.79167)
+texture = ExtResource("7_thrbc")
+hframes = 3
+
+[node name="Bateria2" type="Sprite2D" parent="fundo"]
+position = Vector2(1083, 220)
+scale = Vector2(4.58333, 3.54167)
+texture = ExtResource("8_mq37e")
+hframes = 3
+
+[node name="Led3" type="Sprite2D" parent="fundo"]
+position = Vector2(901, 591)
+scale = Vector2(2.45833, 2.45833)
+texture = ExtResource("5_nndfb")
+hframes = 3
+
+[node name="Led5" type="Sprite2D" parent="fundo"]
+position = Vector2(133, 584)
+scale = Vector2(2.45833, 2.45833)
+texture = ExtResource("5_nndfb")
+hframes = 3
+
+[node name="Cap5" type="Sprite2D" parent="fundo"]
+position = Vector2(74, 140)
+scale = Vector2(4.47917, 4.47917)
+texture = ExtResource("6_1xyrg")
+hframes = 3
+
+[node name="Cap6" type="Sprite2D" parent="fundo"]
+position = Vector2(737, 603)
+scale = Vector2(4.79167, 4.79167)
+texture = ExtResource("7_thrbc")
+hframes = 3
+
+[node name="Bateria3" type="Sprite2D" parent="fundo"]
+position = Vector2(1032, 553)
+scale = Vector2(4.58333, 3.54167)
+texture = ExtResource("8_mq37e")
+hframes = 3
+
+[node name="Led4" type="Sprite2D" parent="fundo"]
+position = Vector2(164, 75)
+scale = Vector2(2.45833, 2.45833)
+texture = ExtResource("5_nndfb")
+hframes = 3
+
+[node name="título" type="Label" parent="."]
+layout_mode = 2
+offset_left = 137.0
+offset_top = 183.0
+offset_right = 1013.0
+offset_bottom = 231.0
+text = "Cavaleiro dos Circuitos"
+label_settings = ExtResource("1_1djae")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 381.0
+offset_top = 286.0
+offset_right = 781.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_rwb3b")
+text = "Start"
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xn3cf")
+
+[node name="créditos" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+theme = ExtResource("3_rwb3b")
+text = "Créditos"
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_1u7sj")
+
+[node name="opcoes" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+theme = ExtResource("3_rwb3b")
+text = "Opções"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_s1d4j")
+
+[node name="sair" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+theme = ExtResource("3_rwb3b")
+text = "Sair"
+
+[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="."]
+position = Vector2(573, 89)
+scale = Vector2(6.91667, 6.91667)
+texture = ExtResource("8_nndfb")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cavaleiro_dos_circuitos"]
+libraries = {
+&"": SubResource("AnimationLibrary_7fsho")
+}
+autoplay = "idle"
+speed_scale = 0.875
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/créditos" to="." method="_on_créditos_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/sair" to="." method="_on_sair_pressed"]

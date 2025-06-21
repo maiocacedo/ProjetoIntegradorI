@@ -1,8 +1,0 @@
-res://inventory/players_inv.tres
-res://inventory/inv_ui_slot.gd
-res://inventory/items/heart.tres
-res://Cenas/alavanca.tscn
-res://Cenas/alavanca.gd
-res://Cenas/Areas/node_2d.tscn
-res://Cenas/character_body_2d.tscn
-res://Sprites/sprites/alavancaEsquerda.tres
