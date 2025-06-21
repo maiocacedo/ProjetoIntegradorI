@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://4karp4wjuj7q" path="res://Scripts/hud e menus/hud.gd" id="1_xiwd3"]
 [ext_resource type="PackedScene" uid="uid://bycx5btccname" path="res://Cenas/hud e menus/menu_de_pausa.tscn" id="2_0bjgd"]
-[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="2_f148t"]
 [ext_resource type="PackedScene" uid="uid://bivmjihra5h5g" path="res://Cenas/hud e menus/tela_sucesso.tscn" id="3_sqf27"]
 [ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="4_1xaho"]
+[ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_kg46m"]
 [ext_resource type="PackedScene" uid="uid://bihqieswng1g3" path="res://Cenas/inventory/inventory_ui.tscn" id="6_kg46m"]
 
 [node name="hud" type="Control"]
@@ -36,23 +36,28 @@ autostart = true
 layout_mode = 1
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 208.0
-offset_bottom = 64.0
+offset_right = 130.0
+offset_bottom = 48.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("4_kg46m")
 text = "Timer: "
-label_settings = ExtResource("2_f148t")
 
 [node name="timer_counter" type="Label" parent="."]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 182.0
 offset_top = 32.0
-offset_right = 292.0
-offset_bottom = 64.0
+offset_right = 258.0
+offset_bottom = 48.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_kg46m")
 text = "00:00"
-label_settings = ExtResource("2_f148t")
 
 [node name="botao_pause" type="Button" parent="."]
 custom_minimum_size = Vector2(50, 50)
@@ -60,8 +65,9 @@ layout_mode = 0
 offset_left = 1071.0
 offset_top = 24.0
 offset_right = 1121.0
-offset_bottom = 77.0
+offset_bottom = 74.0
 theme = ExtResource("4_1xaho")
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "II"
 
 [node name="InventoryUI" parent="." instance=ExtResource("6_kg46m")]

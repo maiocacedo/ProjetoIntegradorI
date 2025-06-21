@@ -45,10 +45,12 @@ func _on_scene_changed(newScene: Node) -> void:
 # Função para tocar música de acordo com path
 func _play_music(path: String) -> void:
 	if !musica.stream or musica.stream.resource_path != path:
-		
 		musica.stream = load(path)
 		musica.play()
 
+# Retoma a musica
+func retomar_musica() -> void:
+	musica.play()
 
 # Função para parar música
 func _stop_music() -> void:

@@ -10,3 +10,9 @@ res://Scripts/player/player.gd
 res://Scripts/armadilhas/spike_area.gd
 res://Cenas/fases/fase_1.tscn
 res://Cenas/armadilhas/spike_area.tscn
+res://Cenas/hud e menus/menu_de_pausa.tscn
+res://Scripts/hud e menus/menu_de_pausa.gd
+res://Scripts/managers/music_manager.gd
+res://Cenas/fases/fase_2.tscn
+res://Scripts/hud e menus/tela_de_morte.gd
+res://Cenas/hud e menus/tela_de_morte.tscn

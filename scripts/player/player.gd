@@ -111,6 +111,7 @@ func _physics_process(delta: float) -> void:
 			collision.get_collider().has_collided_with(collision, self)
 
 func die() -> void:
+	$AudioMorte.playing = true
 	alive = false
 
 func collect(item):

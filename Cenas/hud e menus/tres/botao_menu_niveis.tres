@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://13k87xtq212r"]
 
-[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_dv4mq"]
+[ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="1_cjwul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv4mq"]
 bg_color = Color(0.154848, 0.17892, 0.266615, 0.745098)
@@ -21,10 +21,11 @@ anti_aliasing_size = 0.883
 bg_color = Color(0.127372, 0.148381, 0.224993, 1)
 
 [resource]
+default_font_size = 0
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0.340339, 0.340339, 0.340339, 1)
 Button/font_sizes/font_size = 28
-Button/fonts/font = ExtResource("1_dv4mq")
+Button/fonts/font = ExtResource("1_cjwul")
 Button/styles/disabled = SubResource("StyleBoxFlat_dv4mq")
 Button/styles/hover = SubResource("StyleBoxFlat_cjwul")
 Button/styles/normal = SubResource("StyleBoxFlat_cjwul")

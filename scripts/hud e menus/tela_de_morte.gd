@@ -4,13 +4,11 @@ extends CanvasLayer
 
 func _ready() -> void:
 	mostrar_morte()
-	
 
 # mostra a tela e atualiza texto
 func mostrar_morte():
 	visible = true
 	voce_perdeu_label.text = GameManager.lastDeathCause
-
 
 func _process(delta: float) -> void:
 	pass
@@ -20,6 +18,7 @@ func _on_tentar_novamente_pressed() -> void:
 	# se o path estiver correto, recarrega cena anterior
 	if GameManager.lastScenePath != "":
 		get_tree().change_scene_to_file(GameManager.lastScenePath)
+		MusicManager.retomar_musica()
 	else: 
 		push_error("lastScenePath não existe")
 	

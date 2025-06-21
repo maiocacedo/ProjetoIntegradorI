@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bq72xujbqyik1"]
+[gd_scene load_steps=23 format=3 uid="uid://bq72xujbqyik1"]
 
 [ext_resource type="Script" uid="uid://dcbfdglh56rd" path="res://Scripts/player/player.gd" id="1_24wr4"]
 [ext_resource type="Texture2D" uid="uid://be76dogkupg0p" path="res://Assets/spritesheets/player_run.png" id="2_n53tt"]
 [ext_resource type="Texture2D" uid="uid://cqew6syu3baf5" path="res://Assets/spritesheets/player_breathing.png" id="3_wig68"]
 [ext_resource type="Texture2D" uid="uid://kwl664r6jv2t" path="res://Assets/spritesheets/player_die.png" id="4_ljv0f"]
+[ext_resource type="AudioStream" uid="uid://bjvdpy370ujle" path="res://Assets/sounds/derrota.wav" id="5_pek40"]
 [ext_resource type="AudioStream" uid="uid://bkc4r3skiv3ue" path="res://Assets/sounds/pulo.wav" id="5_yfm6n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4esn"]
@@ -155,3 +156,8 @@ position = Vector2(0, -1)
 stream = ExtResource("5_yfm6n")
 volume_db = 4.131
 pitch_scale = 3.06
+
+[node name="AudioMorte" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(0.75, 0.785157)
+stream = ExtResource("5_pek40")
