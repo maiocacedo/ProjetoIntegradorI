@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=3 uid="uid://bivmjihra5h5g"]
+
+[ext_resource type="LabelSettings" uid="uid://cuqghwtdf0bxd" path="res://Cenas/hud e menus/tres/title_label_settings.tres" id="1_e0k1f"]
+[ext_resource type="Script" uid="uid://wnkwhmyolt07" path="res://Scripts/hud e menus/tela_sucesso.gd" id="1_n4dh1"]
+[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="1_sr08s"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="2_sr08s"]
+[ext_resource type="Texture2D" uid="uid://rxfa6rlfw44o" path="res://Assets/sprites/estrela_slot.png" id="3_jfha2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfha2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4dh1"]
+
+[node name="menu_de_congratulacoes" type="CanvasLayer"]
+script = ExtResource("1_n4dh1")
+
+[node name="fundo_transparente" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.533333)
+
+[node name="fundo_solido" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1100, 550)
+offset_left = 33.0
+offset_top = 40.0
+offset_right = 1133.0
+offset_bottom = 590.0
+color = Color(0.263724, 0.296133, 0.422682, 1)
+
+[node name="fundo_solido2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1100, 550)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -275.0
+offset_right = 550.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="pausado" type="Label" parent="fundo_solido2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -183.0
+offset_top = 35.0
+offset_right = 183.0
+offset_bottom = 83.0
+grow_horizontal = 2
+text = "PARABÉNS!"
+label_settings = ExtResource("1_e0k1f")
+
+[node name="tempo" type="Label" parent="fundo_solido2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -21.0
+offset_right = 115.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tempo:"
+label_settings = ExtResource("1_sr08s")
+
+[node name="tempo_counter" type="Label" parent="fundo_solido2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -21.0
+offset_right = 114.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+label_settings = ExtResource("1_sr08s")
+
+[node name="estrelas_1" type="HBoxContainer" parent="fundo_solido2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -138.0
+offset_right = 154.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="estrela_1" type="TextureRect" parent="fundo_solido2/estrelas_1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_jfha2")
+stretch_mode = 4
+
+[node name="estrela_2" type="TextureRect" parent="fundo_solido2/estrelas_1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_jfha2")
+stretch_mode = 4
+
+[node name="estrela_3" type="TextureRect" parent="fundo_solido2/estrelas_1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_jfha2")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="fundo_solido2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -216.0
+offset_right = 225.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="proxima_fase" type="Button" parent="fundo_solido2/VBoxContainer"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+theme = ExtResource("2_sr08s")
+text = "Próxima Fase"
+
+[node name="HSeparator" type="HSeparator" parent="fundo_solido2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jfha2")
+
+[node name="loja" type="Button" parent="fundo_solido2/VBoxContainer"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+theme = ExtResource("2_sr08s")
+text = "Loja"
+
+[node name="HSeparator2" type="HSeparator" parent="fundo_solido2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_n4dh1")
+
+[node name="voltar_ao_menu" type="Button" parent="fundo_solido2/VBoxContainer"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+theme = ExtResource("2_sr08s")
+text = "Voltar ao menu"
+
+[connection signal="pressed" from="fundo_solido2/VBoxContainer/proxima_fase" to="." method="_on_proxima_fase_pressed"]
+[connection signal="pressed" from="fundo_solido2/VBoxContainer/loja" to="." method="_on_loja_pressed"]
+[connection signal="pressed" from="fundo_solido2/VBoxContainer/voltar_ao_menu" to="." method="_on_voltar_ao_menu_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dkkj8rxk1n0lp"]
 
-[ext_resource type="Script" uid="uid://cmakhr36f0m0c" path="res://Scripts/Armadilhas/plataforma_cai.gd" id="1_a728n"]
-[ext_resource type="Texture2D" uid="uid://ngbw7k1xm1i0" path="res://Assets/sprites/Armadilhas/falling-platform-brown.png" id="2_2ly8l"]
+[ext_resource type="Script" uid="uid://cmakhr36f0m0c" path="res://Scripts/armadilhas/plataforma_cai.gd" id="1_a728n"]
+[ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_6j4vd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ly8l"]
 size = Vector2(32, 3)
@@ -44,17 +44,19 @@ _data = {
 }
 
 [node name="plataforma_cai" type="AnimatableBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_a728n")
 
 [node name="texture" type="Sprite2D" parent="."]
 light_mask = 3
-position = Vector2(-1, -1.78814e-07)
-scale = Vector2(1, 0.25)
-texture = ExtResource("2_2ly8l")
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.649305, 0.458333)
+texture = ExtResource("2_6j4vd")
+region_enabled = true
+region_rect = Rect2(16, 160, 48, 6)
 
 [node name="colision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_2ly8l")
 one_way_collision = true
 

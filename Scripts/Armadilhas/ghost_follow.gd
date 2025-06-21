@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var pointC: Marker2D # vertical
 @export var pointD: Marker2D # Limite inferior vertical
 
+@onready var timer: Timer = $Timer
+@onready var morte: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 # Controle se o inimigo deve patrulhar e qual a velocidade
 @export var usePatrol: bool = true
 @export var patrolSpeed: float = 80.0
@@ -134,10 +137,17 @@ func isPlayerLookingAtMe() -> bool: # Verifica se o jogador está olhando direta
 func _on_return_timer_timeout() -> void:
 	state = State.PATROLLING
 
+
 # Se o inimigo colidir com o jogador, reinicia a cena
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().reload_current_scene()
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	if _body.is_in_group("player"):
+		_body.die()
+	
+		morte.playing = true 
+		timer.start()
+		
+		
+
 
 # Verifica se o jogador está dentro da área de patrulha (horizontal e vertical)
 func isPlayerInsidePatrolArea() -> bool:
@@ -152,3 +162,7 @@ func isPlayerInsidePatrolArea() -> bool:
 	playerPos.x >= minX and playerPos.x <= maxX and
 	playerPos.y >= minY and playerPos.y <= maxY
 )
+
+
+func _on_timer_timeout() -> void:
+	GameManager.call_deferred("abrir_tela_de_morte","Morte Morrida")

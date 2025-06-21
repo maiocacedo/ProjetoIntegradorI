@@ -1,10 +1,8 @@
-res://Cenas/Areas/node_2d.tscn
-res://inventory/players_inv.tres
-res://inventory/inv_ui_slot.gd
-res://inventory/items/heart.tres
-res://Cenas/character_body_2d.tscn
-res://Cenas/Armadilhas/ghost.tscn
-res://Cenas/Armadilhas/plataforma_cai.tscn
-res://Cenas/Armadilhas/spike_area.tscn
-res://Cenas/Armadilhas/fire_trap.tscn
-res://Scripts/Armadilhas/ghost_follow.gd
+res://Cenas/areas/fase_6.tscn
+res://Cenas/hud e menus/tres/botao_menu_opcoes.tres
+res://Cenas/hud e menus/tres/slidervolume.tres
+res://Cenas/hud e menus/tres/botao_menu_principal.tres
+res://Cenas/hud e menus/tres/botao_menu_niveis.tres
+res://Cenas/areas/fase_7.tscn
+res://Cenas/armadilhas/ghost.tscn
+res://Cenas/areas/fase_3.tscn

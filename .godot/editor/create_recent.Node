@@ -1,14 +1,2 @@
+Node2D
 Marker2D
-Node
-CollisionShape2D
-AnimationPlayer
-Timer
-Sprite2D
-Area2D
-StaticBody2D
-RigidBody2D
-VisibleOnScreenEnabler2D
-AnimatedSprite2D
-AnimatableBody2D
-CharacterBody2D
-TileMapLayer
