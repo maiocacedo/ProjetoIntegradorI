@@ -10,6 +10,8 @@ const savePath := "user://progress.json" # caminho do json de dados de salvament
 	"fase_4": { "3": 25.0, "2": 40.0 },
 	"fase_5": { "3": 25.0, "2": 40.0 },
 	"fase_6": { "3": 25.0, "2": 40.0 },
+	"fase_7": { "3": 25.0, "2": 40.0 },
+	"fase_8": { "3": 25.0, "2": 40.0 },
 	
 }
 

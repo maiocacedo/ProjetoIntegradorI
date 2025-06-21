@@ -6,13 +6,14 @@ res://Cenas/hud e menus/tres/botao_menu_niveis.tres
 res://Cenas/inventory/inventory_ui.tscn
 res://Cenas/hud e menus/hud.tscn
 res://Cenas/player/player.tscn
-res://Scripts/player/player.gd
-res://Scripts/armadilhas/spike_area.gd
-res://Cenas/fases/fase_1.tscn
-res://Cenas/armadilhas/spike_area.tscn
 res://Cenas/hud e menus/menu_de_pausa.tscn
-res://Scripts/hud e menus/menu_de_pausa.gd
-res://Scripts/managers/music_manager.gd
+res://Cenas/fases/fase_1.tscn
 res://Cenas/fases/fase_2.tscn
-res://Scripts/hud e menus/tela_de_morte.gd
 res://Cenas/hud e menus/tela_de_morte.tscn
+res://Cenas/fases/fase_7.tscn
+res://Scripts/managers/save_manager.gd
+res://Scripts/fases/fase_7.gd
+res://Scripts/fases/fase_8.gd
+res://Cenas/managers/save_manager.tscn
+res://Cenas/fases/fase_8.tscn
+res://Scripts/fases/fase_6.gd

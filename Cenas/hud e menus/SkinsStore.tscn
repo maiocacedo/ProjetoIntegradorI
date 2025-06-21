@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://5wllx01h6pqs"]
 
 [ext_resource type="Texture2D" uid="uid://bq5s2w2r7t1u5" path="res://Assets/sprites/Sprites Gabriel/Skin_Store_Background.png" id="1_rbru8"]
-[ext_resource type="Script" uid="uid://v6fj0kmdayre" path="res://Assets/Scripts/SkinStoreButtons.gd" id="2_2bh30"]
-[ext_resource type="Script" uid="uid://4kw0yu1um4vm" path="res://Assets/Scripts/SkinStoreLabels.gd" id="3_bphmr"]
+[ext_resource type="Script" uid="uid://v6fj0kmdayre" path="res://Scripts/hud e menus/SkinStoreButtons.gd" id="2_2bh30"]
+[ext_resource type="Script" uid="uid://4kw0yu1um4vm" path="res://Scripts/hud e menus/SkinStoreLabels.gd" id="3_bphmr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
