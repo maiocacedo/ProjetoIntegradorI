@@ -14,5 +14,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	playerLabel.text = "Dinheiro: " + str(PlayerData.stats["estrelas"])
+	playerLabel.text = " x" + str(PlayerData.stats["estrelas"])
 	

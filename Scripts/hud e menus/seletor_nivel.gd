@@ -7,41 +7,38 @@ var estrelaText : Texture2D = load(estrelaPath) # Carregando estrela como textur
 
 
 func _ready() -> void:
-	var estrelasTotal = 0 # Número total de estrelas
-	# percorre as recompensas de cada nivel, pelo nome
+	var total_estrelas := 0
+	
 	for levelName in SaveManager.recompensaLevels.keys():
-		var levelNum = levelName.get_slice("_", 1).to_int() # recebe o indice do level
+		var levelNum   = levelName.get_slice("_", 1).to_int()
+		var estrelas   = SaveManager.progress.get(levelName, {}).get("estrelas", 0)
+		total_estrelas += estrelas
 		
-		# recebe as estrelas que o jogador conquistou no level
-		var estrelas = SaveManager.progress.get(levelName, {}).get("estrelas",0) 
+		# 1) Coluna de 1 a 3, usando resto:
+		# levelNum=1,2,3 → colIdx=1,2,3
+		# levelNum=4,5,6 → colIdx=1,2,3 de novo
+		var colIdx   = (levelNum - 1) % 3 + 1
+		var vboxName = "VBoxContainer%d" % colIdx
 		
-		estrelasTotal += estrelas # soma ao total de estrelas
-		
-		var containerPath: String = ""
-		# Verifica a qual coluna no grid do seletor o level faz parte, a fim de escolher o path correto
-		if (levelNum-1)%3 == 0:
-			containerPath = "HBoxContainer/VBoxContainer/estrelas_%d" % levelNum
-		elif (levelNum-2)%3 == 0:
-			containerPath = "HBoxContainer/VBoxContainer2/estrelas_%d" % levelNum
-		elif (levelNum-3)%3 == 0:
-			containerPath = "HBoxContainer/VBoxContainer3/estrelas_%d" % levelNum
-		else:
-			containerPath = "HBoxContainer/VBoxContainer%d/estrelas_%d" % [levelNum,levelNum]
-		
-		var containerEstrelas = get_node(containerPath) # instancia o container
-		
-		# Percorre as estrelas do container
-		for i in range(1,4):
-			# verifica se existe
-			if containerEstrelas.has_node("estrela_%d" % i):
-				# instancia estrela
-				var estrela := containerEstrelas.get_node("estrela_%d" % i) as TextureRect
-				# verifica se o jogador conquistou essa estrela
-				if i <= estrelas:
-					estrela.texture = estrelaText # troca a textura
-					
-	estrelas_label.text = "   x%d" % estrelasTotal # Atualiza texto
+		# 2) Path até o container de estrelas daquela fase
+		var estrelasContPath = "HBoxContainer/%s/estrelas_%d" % [vboxName, levelNum]
+		if has_node(estrelasContPath):
+			var cont = get_node(estrelasContPath)
+			# acende ou apaga cada uma das 3 estrelas
+			for i in range(1,4):
+				var starNode = cont.get_node("estrela_%d" % i) as TextureRect
+				if (i<=estrelas):
+					starNode.texture = estrelaText
 
+		# 3) Desbloqueia o botão da próxima fase, se tiver conquistado >0 estrelas
+		var nextLevel = levelNum + 1
+		var nextCol   = (nextLevel - 1) % 3 + 1
+		var nextVbox  = "VBoxContainer%d" % nextCol
+		var nextBtnPath = "HBoxContainer/%s/level_%d" % [nextVbox, nextLevel]
+		if estrelas > 0 and has_node(nextBtnPath):
+			get_node(nextBtnPath).disabled = false
+			
+	estrelas_label.text = "   x%d" % total_estrelas
 
 func _process(delta: float) -> void:
 	pass

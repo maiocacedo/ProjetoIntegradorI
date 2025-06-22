@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SaveManager="*res://Scripts/managers/save_manager.gd"
 GameManager="*res://Scripts/managers/game_manager.gd"
 MusicManager="*res://Scripts/managers/music_manager.gd"
-SaveManager="*res://Scripts/managers/save_manager.gd"
 PlayerData="*res://Scripts/managers/PlayerData.gd"
 ItemDB="*res://Scripts/Items/ItemDatabase.gd"
 

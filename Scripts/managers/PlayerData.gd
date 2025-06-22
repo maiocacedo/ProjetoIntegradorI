@@ -14,6 +14,7 @@ var skins = [ #guarda informações das skins
 ]
 
 #aqui vai as variaveis relacionadas ao player
+
 var hasSpeedUpgrade: bool = false
 var speedUpgradeApplied: bool = false
 
