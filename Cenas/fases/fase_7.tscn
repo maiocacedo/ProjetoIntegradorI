@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dno1i16jw2vqf"]
+[gd_scene load_steps=19 format=3 uid="uid://dno1i16jw2vqf"]
 
-[ext_resource type="Script" uid="uid://dsemsptvam1co" path="res://Scripts/fases/fase_7.gd" id="1_drr1u"]
+[ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_acoss"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_wp4rd"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_drr1u"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="3_rarq1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://8u5btptcigf6" path="res://Cenas/armadilhas/spike_area.tscn" id="5_ruru3"]
 [ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="6_qd44v"]
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="7_0uvqh"]
+[ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="7_3lpi3"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="8_2o6pq"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="9_ll7xo"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="10_bmiq8"]
@@ -196,7 +197,11 @@ sources/0 = SubResource("TileSetAtlasSource_tde0f")
 sources/1 = SubResource("TileSetAtlasSource_bsgho")
 
 [node name="fase_7" type="Node2D"]
-script = ExtResource("1_drr1u")
+script = ExtResource("1_acoss")
+levelName = "fase_7"
+msgPorta = "SE (chaves == 2 E alavancas == 0)"
+chavesNecessarias = 2
+pathProximaFase = "res://Cenas/fases/fase_8.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -220,9 +225,19 @@ scale = Vector2(2, 2)
 offset_top = 1.0
 offset_bottom = 1.0
 
-[node name="Portas" parent="." instance=ExtResource("8_2o6pq")]
-position = Vector2(1069, 498)
+[node name="Porta" parent="." instance=ExtResource("8_2o6pq")]
+position = Vector2(1062, 496)
 scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="Porta"]
+offset_left = -55.6667
+offset_top = -23.0
+offset_right = 322.333
+offset_bottom = -7.00001
+scale = Vector2(0.3, 0.3)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_3lpi3")
+horizontal_alignment = 1
 
 [node name="player" parent="." instance=ExtResource("9_ll7xo")]
 position = Vector2(41, 544)
@@ -362,4 +377,5 @@ text = "Para isso é necessário você pegar duas chaves para
 o efeito da not"
 horizontal_alignment = 1
 
-[connection signal="body_entered" from="Portas" to="." method="_on_portas_body_entered"]
+[connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
+[connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]

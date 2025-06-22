@@ -1,14 +1,17 @@
-res://Cenas/fases/fase_8.tscn
+res://Cenas/hud e menus/menu.tscn
 res://Cenas/hud e menus/tres/botao_menu_principal.tres
+res://Cenas/player/player.tscn
+res://Cenas/fases/fase_1.tscn
 res://Cenas/hud e menus/tres/botao_menu_opcoes.tres
 res://Cenas/hud e menus/tres/slidervolume.tres
 res://Cenas/hud e menus/tres/botao_menu_niveis.tres
-res://Cenas/managers/save_manager.tscn
-res://Scripts/managers/save_manager.gd
-res://Cenas/hud e menus/menu.tscn
-res://Cenas/inventory/inventory_ui.tscn
-res://Cenas/hud e menus/hud.tscn
-res://Cenas/player/player.tscn
-res://Cenas/hud e menus/menu_de_pausa.tscn
-res://Cenas/fases/fase_9.tscn
-res://Scripts/fases/fase_9.gd
+res://Scripts/fases/fase_1.gd
+res://Cenas/Items/portas.tscn
+res://Scripts/fases/fase.gd
+res://Cenas/fases/fase_2.tscn
+res://Cenas/fases/fase_3.tscn
+res://Cenas/fases/fase_4.tscn
+res://Cenas/fases/fase_5.tscn
+res://Cenas/fases/fase_6.tscn
+res://Cenas/fases/fase_7.tscn
+res://Cenas/fases/fase_8.tscn

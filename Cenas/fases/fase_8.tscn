@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://b5vtnql7o8qdy"]
+[gd_scene load_steps=20 format=3 uid="uid://b5vtnql7o8qdy"]
 
-[ext_resource type="Script" uid="uid://b71e5j14ojd0f" path="res://Scripts/fases/fase_8.gd" id="1_nswrm"]
+[ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_utr60"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="2_48i21"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="3_qsast"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="4_f1eg7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="7_faw5x"]
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="8_pqemu"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="9_3yw2g"]
+[ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="9_opm0k"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="10_b7dk1"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="11_ouoyv"]
 [ext_resource type="PackedScene" uid="uid://dkkj8rxk1n0lp" path="res://Cenas/armadilhas/plataforma_cai.tscn" id="13_wmixn"]
@@ -197,7 +198,12 @@ sources/0 = SubResource("TileSetAtlasSource_h2htq")
 sources/1 = SubResource("TileSetAtlasSource_hopsv")
 
 [node name="fase_8" type="Node2D"]
-script = ExtResource("1_nswrm")
+script = ExtResource("1_utr60")
+levelName = "fase_8"
+msgPorta = "SE (chaves == 3 E alavancas == 2)"
+chavesNecessarias = 3
+alavancasNecessarias = 2
+pathProximaFase = "res://Cenas/fases/fase_9.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -264,9 +270,19 @@ scale = Vector2(2, 2)
 offset_top = 1.0
 offset_bottom = 1.0
 
-[node name="Portas" parent="." instance=ExtResource("9_3yw2g")]
-position = Vector2(1069, 498)
+[node name="Porta" parent="." instance=ExtResource("9_3yw2g")]
+position = Vector2(1052, 499)
 scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="Porta"]
+offset_left = -55.6667
+offset_top = -23.0
+offset_right = 322.333
+offset_bottom = -7.00001
+scale = Vector2(0.3, 0.3)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_opm0k")
+horizontal_alignment = 1
 
 [node name="player" parent="." instance=ExtResource("10_b7dk1")]
 position = Vector2(41, 544)
@@ -366,4 +382,5 @@ position = Vector2(262, 215)
 [node name="Alavanca2" parent="Alavancas" instance=ExtResource("15_utr60")]
 position = Vector2(867, 311)
 
-[connection signal="body_entered" from="Portas" to="." method="_on_portas_body_entered"]
+[connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
+[connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]
