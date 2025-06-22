@@ -14,8 +14,6 @@ func _process(delta: float) -> void:
 	pass
 
 # Função para finalizar fase
-
-
 func _on_portas_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
@@ -32,7 +30,7 @@ func _on_portas_body_entered(body: Node2D) -> void:
 	var chave = ItemDB.getItem(1)
 	var qtd_chaves = inventory_node.getQtdItem(chave)
 	
-	if qtd_chaves < 3:
+	if qtd_chaves < 2:
 		print("Você precisa da chave!")
 		return
 	
@@ -44,7 +42,7 @@ func _on_portas_body_entered(body: Node2D) -> void:
 		if alavanca.ativada:
 			alavancas_ativadas += 1
 
-	if alavancas_ativadas < 2:
+	if alavancas_ativadas < 1:
 		print("Você precisa ativar as duas alavancas!")
 		return
 
@@ -61,4 +59,4 @@ func _on_portas_body_entered(body: Node2D) -> void:
 	elif tempoDecorrido <= SaveManager.recompensaLevels[levelName]["2"]:
 		estrelas = 2
 	
-	hud.mostra_resultado(tempoDecorrido, estrelas, "res://Cenas/fases/fase_9.tscn")
+	hud.mostra_resultado(tempoDecorrido, estrelas, "res://Cenas/fases/fase_10.tscn")
