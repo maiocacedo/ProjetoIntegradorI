@@ -1,11 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bihqieswng1g3"]
+[gd_scene load_steps=10 format=3 uid="uid://bihqieswng1g3"]
 
 [ext_resource type="Script" uid="uid://cgr7yohoeixrn" path="res://Scripts/inventory/inventory_ui.gd" id="1_jfabt"]
-[ext_resource type="Texture2D" uid="uid://cxsiakk77al2x" path="res://Assets/Inventory/slot-inv.png" id="2_anlta"]
+[ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="2_mk05o"]
 [ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_7nilr"]
-[ext_resource type="Texture2D" uid="uid://dicv33ff1pwi4" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
-[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_th0yl"]
+[ext_resource type="Texture2D" uid="uid://cqth8yvopl8pb" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
 [ext_resource type="AudioStream" uid="uid://cd3afp4as3st0" path="res://Assets/sounds/paranpanpan.wav" id="5_qbvel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk05o"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1n3"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7bf"]
+size = Vector2(36, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbvel"]
 size = Vector2(36, 36)
@@ -33,7 +41,11 @@ alignment = 1
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_anlta")
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot0" type="TouchScreenButton" parent="HBoxContainer/Slot0/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_mk05o")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot0"]
 offset_left = 8.0
@@ -57,7 +69,11 @@ offset_left = 49.0
 offset_right = 89.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_anlta")
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot1" type="TouchScreenButton" parent="HBoxContainer/Slot1/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_uf1n3")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot1"]
 custom_minimum_size = Vector2(16, 16)
@@ -82,7 +98,11 @@ offset_left = 98.0
 offset_right = 138.0
 offset_bottom = 40.0
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_anlta")
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot2" type="TouchScreenButton" parent="HBoxContainer/Slot2/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_7k7bf")
 
 [node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot2"]
 offset_left = 106.0
@@ -108,7 +128,7 @@ offset_bottom = 40.0
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_rqqdd")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer/Slot3/SlotBackground"]
+[node name="TouchButtonSlot3" type="TouchScreenButton" parent="HBoxContainer/Slot3/SlotBackground"]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_qbvel")
 
@@ -133,7 +153,7 @@ offset_right = 800.0
 offset_bottom = 23.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
-theme_override_fonts/font = ExtResource("4_th0yl")
+theme_override_fonts/font = ExtResource("3_7nilr")
 horizontal_alignment = 1
 
 [node name="TimerInfo" type="Timer" parent="."]
@@ -143,6 +163,12 @@ one_shot = true
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_qbvel")
 
-[connection signal="pressed" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="released" from="HBoxContainer/Slot3/SlotBackground/TouchScreenButton" to="." method="_on_touch_screen_button_released"]
+[connection signal="pressed" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_pressed"]
+[connection signal="released" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_released"]
+[connection signal="pressed" from="HBoxContainer/Slot1/SlotBackground/TouchButtonSlot1" to="." method="_on_touch_button_slot_1_pressed"]
+[connection signal="released" from="HBoxContainer/Slot1/SlotBackground/TouchButtonSlot1" to="." method="_on_touch_button_slot_1_released"]
+[connection signal="pressed" from="HBoxContainer/Slot2/SlotBackground/TouchButtonSlot2" to="." method="_on_touch_button_slot_2_pressed"]
+[connection signal="released" from="HBoxContainer/Slot2/SlotBackground/TouchButtonSlot2" to="." method="_on_touch_button_slot_2_released"]
+[connection signal="pressed" from="HBoxContainer/Slot3/SlotBackground/TouchButtonSlot3" to="." method="_on_touch_button_slot_3_pressed"]
+[connection signal="released" from="HBoxContainer/Slot3/SlotBackground/TouchButtonSlot3" to="." method="_on_touch_button_slot_3_released"]
 [connection signal="timeout" from="TimerInfo" to="." method="_on_timer_info_timeout"]
