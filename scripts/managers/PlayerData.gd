@@ -3,7 +3,7 @@ extends Node
 var stats = { #guarda informações do player
 	"speed": 200.0,
 	"jumpSpeed": -300.0,
-	"estrelas": 0
+	"estrelas": 35
 }
 
 var skins = [ #guarda informações das skins
@@ -14,6 +14,7 @@ var skins = [ #guarda informações das skins
 ]
 
 #aqui vai as variaveis relacionadas ao player
+
 var hasSpeedUpgrade: bool = false
 var speedUpgradeApplied: bool = false
 

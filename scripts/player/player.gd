@@ -38,6 +38,17 @@ const KNOCKBACK_DURATION = 0.3
 # Controle de animação de pulo
 var has_jumped = false
 
+# Verifica os upgrades
+func _ready() -> void:
+	if PlayerData.hasJumpUpgrade:
+		hasRefrigerante = true
+	if PlayerData.hasSpeedUpgrade:
+		hasTenis = true
+	if PlayerData.hasDamageUpgrade:
+		hasEscudo = true
+	if PlayerData.hasPergaminho:
+		hasEscudoEspinhos = true
+
 func _physics_process(delta: float) -> void:
 	if not alive:
 		if animated_sprite_2d.animation != "die":

@@ -1,8 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://5wllx01h6pqs"]
+[gd_scene load_steps=14 format=3 uid="uid://5wllx01h6pqs"]
 
-[ext_resource type="Texture2D" uid="uid://bq5s2w2r7t1u5" path="res://Assets/sprites/Sprites Gabriel/Skin_Store_Background.png" id="1_rbru8"]
+[ext_resource type="Texture2D" uid="uid://drprns1suecoh" path="res://Assets/sprites/menu_mercado_mockup.png" id="1_frgl3"]
 [ext_resource type="Script" uid="uid://v6fj0kmdayre" path="res://Scripts/hud e menus/SkinStoreButtons.gd" id="2_2bh30"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="3_2w1wo"]
+[ext_resource type="Theme" uid="uid://p3mjdw5vhdb0" path="res://Cenas/hud e menus/StoreButton.tres" id="3_67pyf"]
 [ext_resource type="Script" uid="uid://4kw0yu1um4vm" path="res://Scripts/hud e menus/SkinStoreLabels.gd" id="3_bphmr"]
+[ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="4_gj35x"]
+[ext_resource type="Texture2D" uid="uid://cuwavmrvh1vpg" path="res://Assets/sprites/player_breathing (1).png" id="5_gj35x"]
+[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="8_7yj5r"]
+[ext_resource type="Texture2D" uid="uid://cpto0txrmllto" path="res://Assets/sprites/descricacao_item.png" id="8_a04mj"]
+[ext_resource type="Texture2D" uid="uid://bxcm8oasgop6y" path="res://Assets/sprites/estrela.png" id="10_gj35x"]
+
+[sub_resource type="Animation" id="Animation_ica3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ua8by"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.571429),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fsho"]
+_data = {
+&"RESET": SubResource("Animation_ica3m"),
+&"idle": SubResource("Animation_ua8by")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,70 +61,220 @@ grow_vertical = 2
 [node name="Sprites" type="Node" parent="."]
 
 [node name="SkinStoreBackground" type="Sprite2D" parent="Sprites"]
-position = Vector2(576.5, 325.5)
-scale = Vector2(0.896094, 0.898611)
-texture = ExtResource("1_rbru8")
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_frgl3")
+
+[node name="ColorRect" type="ColorRect" parent="Sprites"]
+offset_left = 72.0
+offset_top = 200.0
+offset_right = 1089.0
+offset_bottom = 595.0
+color = Color(0.219608, 0.25098, 0.364706, 1)
 
 [node name="Buttons" type="Node" parent="."]
 script = ExtResource("2_2bh30")
 
 [node name="Skin1Button" type="Button" parent="Buttons"]
-offset_left = 173.0
-offset_top = 537.0
-offset_right = 303.0
-offset_bottom = 598.0
+offset_left = 172.0
+offset_top = 179.0
+offset_right = 329.0
+offset_bottom = 376.0
+theme = ExtResource("3_67pyf")
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/Skin1Button"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_left = -28.0
+offset_right = 152.0
+offset_bottom = 197.0
+texture = ExtResource("4_gj35x")
+
+[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin1Button/TextureRect"]
+modulate = Color(0.843137, 0.482353, 0.721569, 1)
+position = Vector2(92, 96)
+scale = Vector2(6.91667, 6.91667)
+texture = ExtResource("5_gj35x")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin1Button/TextureRect/cavaleiro_dos_circuitos"]
+libraries = {
+&"": SubResource("AnimationLibrary_7fsho")
+}
+autoplay = "idle"
+speed_scale = 0.875
 
 [node name="Skin2Button" type="Button" parent="Buttons"]
-offset_left = 475.0
-offset_top = 532.0
-offset_right = 615.0
-offset_bottom = 592.0
+offset_left = 463.0
+offset_top = 179.0
+offset_right = 662.0
+offset_bottom = 376.0
+theme = ExtResource("3_67pyf")
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/Skin2Button"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_left = 18.0
+offset_right = 198.0
+offset_bottom = 197.0
+texture = ExtResource("4_gj35x")
+
+[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin2Button/TextureRect"]
+modulate = Color(0.6, 0.898039, 0.313726, 1)
+position = Vector2(92, 96)
+scale = Vector2(6.91667, 6.91667)
+texture = ExtResource("5_gj35x")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin2Button/TextureRect/cavaleiro_dos_circuitos"]
+libraries = {
+&"": SubResource("AnimationLibrary_7fsho")
+}
+autoplay = "idle"
+speed_scale = 0.875
 
 [node name="Skin3Button" type="Button" parent="Buttons"]
-offset_left = 836.0
-offset_top = 527.0
-offset_right = 963.0
-offset_bottom = 587.0
+offset_left = 832.0
+offset_top = 179.0
+offset_right = 994.0
+offset_bottom = 376.0
+theme = ExtResource("3_67pyf")
+
+[node name="TextureRect" type="TextureRect" parent="Buttons/Skin3Button"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 3.0
+offset_right = 161.0
+offset_bottom = 200.0
+texture = ExtResource("4_gj35x")
+
+[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin3Button/TextureRect"]
+modulate = Color(0.952446, 0.952446, 3.85046e-06, 1)
+position = Vector2(92, 96)
+scale = Vector2(6.91667, 6.91667)
+texture = ExtResource("5_gj35x")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin3Button/TextureRect/cavaleiro_dos_circuitos"]
+libraries = {
+&"": SubResource("AnimationLibrary_7fsho")
+}
+autoplay = "idle"
+speed_scale = 0.875
 
 [node name="UpgradesButton" type="Button" parent="Buttons"]
-offset_left = 810.0
-offset_top = 46.0
-offset_right = 964.0
-offset_bottom = 118.0
+offset_left = 708.0
+offset_top = 75.0
+offset_right = 909.0
+offset_bottom = 143.0
+theme = ExtResource("3_2w1wo")
 text = "Upgrades"
+
+[node name="VoltarButton" type="Button" parent="Buttons"]
+offset_left = 907.0
+offset_top = 75.0
+offset_right = 1087.0
+offset_bottom = 143.0
+theme = ExtResource("3_2w1wo")
+text = "Voltar"
 
 [node name="Labels" type="Node" parent="."]
 script = ExtResource("3_bphmr")
 
-[node name="PlayerLabel" type="RichTextLabel" parent="Labels"]
-offset_left = 71.0
-offset_top = 51.0
-offset_right = 329.0
-offset_bottom = 119.0
+[node name="PlayerLabel" type="Label" parent="Labels"]
+offset_left = 170.0
+offset_top = 95.0
+offset_right = 258.0
+offset_bottom = 159.0
+label_settings = ExtResource("8_7yj5r")
 
-[node name="Skin1Label" type="RichTextLabel" parent="Labels"]
-offset_left = 131.0
-offset_top = 398.0
-offset_right = 327.0
-offset_bottom = 493.0
+[node name="Estrela" type="Sprite2D" parent="Labels/PlayerLabel"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-21, 5)
+scale = Vector2(4, 4)
+texture = ExtResource("10_gj35x")
+
+[node name="TextureRect" type="TextureRect" parent="Labels"]
+offset_left = 125.0
+offset_top = 382.0
+offset_right = 335.0
+offset_bottom = 567.0
+texture = ExtResource("8_a04mj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Skin1Label" type="RichTextLabel" parent="Labels/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -45.5
+offset_right = 77.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Aqui vai o nome e uma breve descrição da skin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Skin2Label" type="RichTextLabel" parent="Labels"]
-offset_left = 443.0
-offset_top = 393.0
-offset_right = 635.0
-offset_bottom = 494.0
+[node name="TextureRect2" type="TextureRect" parent="Labels"]
+offset_left = 463.0
+offset_top = 382.0
+offset_right = 673.0
+offset_bottom = 567.0
+texture = ExtResource("8_a04mj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Skin2Label" type="RichTextLabel" parent="Labels/TextureRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -46.0
+offset_right = 77.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Aqui vai o nome e uma breve descrição da skin"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Skin3Label" type="RichTextLabel" parent="Labels"]
-offset_left = 805.0
-offset_top = 393.0
-offset_right = 980.0
-offset_bottom = 491.0
+[node name="TextureRect3" type="TextureRect" parent="Labels"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = 58.0
+offset_right = 428.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_a04mj")
+expand_mode = 1
+
+[node name="Skin3Label" type="RichTextLabel" parent="Labels/TextureRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -45.5
+offset_right = 79.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
 text = "Aqui vai o nome e uma breve descrição da skin"
 horizontal_alignment = 1
 vertical_alignment = 1

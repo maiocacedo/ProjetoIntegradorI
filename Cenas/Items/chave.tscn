@@ -150,7 +150,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ugvqg"]
 radius = 5.09902
 
-[node name="Chave" instance=ExtResource("1_xoas7")]
+[node name="Chave" groups=["chave"] instance=ExtResource("1_xoas7")]
 itemId = 1
 itemName = "Chave"
 itemIcon = ExtResource("2_ugvqg")

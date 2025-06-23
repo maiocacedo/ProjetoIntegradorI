@@ -4,17 +4,12 @@ var lastScenePath: String = ""
 var lastDeathCause: String = ""
 const telaMortePath := "res://Cenas/hud e menus/tela_de_morte.tscn"
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
-# Abre a tela de morte e registra a causa da morte
-func abrir_tela_de_morte(causa: String) -> void:
-	var current_scene = get_tree().get_current_scene()
-	if current_scene != null:
-		lastScenePath = current_scene.get_scene_file_path()
-	else:
-		print("Aviso: cena atual não encontrada.")
-		lastScenePath = ""
-	
-	lastDeathCause = causa
+# abre tela de morte e registra causa da morte
+func abrir_tela_de_morte(causa:String) -> void:
+	lastScenePath = get_tree().current_scene.scene_file_path
+	lastDeathCause = causa          
 	get_tree().change_scene_to_file(telaMortePath)

@@ -48,8 +48,6 @@ func _process(delta: float) -> void:
 func _on_voltar_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/hud e menus/menu.tscn")
 
-
-# Leva para area_1
 func _on_level_1_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/fases/fase_1.tscn")
 
@@ -85,10 +83,8 @@ func _on_level_8_pressed() -> void:
 func _on_level_9_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/fases/fase_9.tscn")
 
-
 func _on_level_10_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/fases/fase_10.tscn")
-
 
 func _on_loja_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn")

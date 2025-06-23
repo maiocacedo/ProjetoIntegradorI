@@ -169,8 +169,20 @@ func is_position_free(posicao: Vector2) -> bool:
 	params.collide_with_areas = true
 	params.collide_with_bodies = true
 	var result = space_state.intersect_point(params)
-	print("Checando espaço livre na posição: " + str(posicao) + " - Livre: " + str(result.is_empty()))  # LOG
-	return result.is_empty()
+
+	# Filtrar os objetos que ocupam o espaço
+	for hit in result:
+		var collider = hit.get("collider")
+		if collider != null:
+			if collider.is_in_group("chave"):
+				print("Espaço ocupado, mas é uma chave. Permitido.")  # LOG
+				continue
+			else:
+				print("Espaço ocupado por: " + str(collider))  # LOG
+				return false
+
+	print("Espaço livre ou só com chaves")  # LOG
+	return true
 
 # Faz um raycast para encontrar o chão mais próximo abaixo
 func get_ground_position(start_position: Vector2) -> Vector2:

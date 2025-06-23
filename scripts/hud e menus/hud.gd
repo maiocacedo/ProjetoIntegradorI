@@ -41,6 +41,7 @@ func _on_temporizador_timeout() -> void:
 	seconds -= 1 # decrementa segundos
 	timerCounter.text = str("%02d" % minutes) + ":" +  str("%02d" % seconds) # atualiza texto
 
+
 # reseta timer
 func reset_clock_timer():
 	minutes = defaultMinutes

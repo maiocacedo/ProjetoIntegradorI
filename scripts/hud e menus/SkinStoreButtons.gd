@@ -104,3 +104,6 @@ func ButtonPressed(button):
 		
 		"UpgradesButton":
 			get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn")
+			
+		"VoltarButton":
+			get_tree().change_scene_to_file("res://Cenas/hud e menus/seletor_nivel.tscn")
