@@ -38,6 +38,8 @@ func _on_scene_changed(newScene: Node) -> void:
 			_play_music("res://Assets/music/tema_menu.wav")
 		"Store":
 			_play_music("res://Assets/music/loja.wav")
+		"tela_sucesso":
+			_play_music("res://Assets/sounds/musica_vitoria.wav")
 		_:
 			_stop_music()
 
@@ -49,6 +51,8 @@ func _play_music(path: String) -> void:
 		musica.stream = load(path)
 		musica.play()
 
+func retomar_musica() -> void:
+	musica.play()
 
 # Função para parar música
 func _stop_music() -> void:

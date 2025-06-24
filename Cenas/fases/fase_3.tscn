@@ -215,7 +215,7 @@ text = "Push"
 horizontal_alignment = 1
 
 [node name="placas4" parent="placas" instance=ExtResource("3_scpgx")]
-position = Vector2(2.33333, -5.33333)
+position = Vector2(151.667, -10)
 label_path = NodePath("Label")
 
 [node name="Label" type="Label" parent="placas/placas4"]
@@ -265,6 +265,36 @@ text = "pegue as 3
 chaves "
 horizontal_alignment = 1
 
+[node name="Placa" parent="placas" instance=ExtResource("3_scpgx")]
+position = Vector2(13, -5.33333)
+label_path = NodePath("Label")
+label2_path = NodePath("Label2")
+
+[node name="Label" type="Label" parent="placas/Placa"]
+offset_left = -35.0
+offset_top = -45.0
+offset_right = 90.0
+offset_bottom = -37.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.85098, 0.627451, 0.4, 1)
+theme_override_fonts/font = ExtResource("10_plkc1")
+theme_override_font_sizes/font_size = 8
+text = "Porta Lógica PUSH"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="placas/Placa"]
+offset_left = -45.0
+offset_top = -33.3333
+offset_right = 411.0
+offset_bottom = 20.6667
+scale = Vector2(0.2, 0.2)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_dmcym")
+text = "Essa Porta simula 
+Conexão Direta, portanto,
+ não precisa de nenhuma condição!"
+horizontal_alignment = 1
+
 [node name="espinhos" type="Node2D" parent="."]
 visible = false
 
@@ -281,6 +311,7 @@ scale = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_otsik")]
+visible = false
 offset_top = 1.0
 offset_bottom = 1.0
 

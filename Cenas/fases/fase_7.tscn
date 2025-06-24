@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dno1i16jw2vqf"]
 
-[ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_acoss"]
+[ext_resource type="Script" uid="uid://dlynwdkfyp73q" path="res://Scripts/fases/fase_7.gd" id="1_3lpi3"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_wp4rd"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_drr1u"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="3_rarq1"]
@@ -197,9 +197,9 @@ sources/0 = SubResource("TileSetAtlasSource_tde0f")
 sources/1 = SubResource("TileSetAtlasSource_bsgho")
 
 [node name="fase_7" type="Node2D"]
-script = ExtResource("1_acoss")
+script = ExtResource("1_3lpi3")
 levelName = "fase_7"
-msgPorta = "SE (chaves == 2 E alavancas == 0)"
+msgPorta = "NAND"
 chavesNecessarias = 2
 pathProximaFase = "res://Cenas/fases/fase_8.tscn"
 

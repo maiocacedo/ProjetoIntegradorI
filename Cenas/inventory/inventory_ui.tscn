@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="2_mk05o"]
 [ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_7nilr"]
 [ext_resource type="Texture2D" uid="uid://cqth8yvopl8pb" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
-[ext_resource type="AudioStream" uid="uid://cd3afp4as3st0" path="res://Assets/sounds/paranpanpan.wav" id="5_qbvel"]
+[ext_resource type="AudioStream" uid="uid://dhp7kwyar4ttn" path="res://Assets/sounds/vitoria.wav" id="5_gcsva"]
 [ext_resource type="AudioStream" uid="uid://dkfemybilk875" path="res://Assets/sounds/collect.wav" id="6_0vyaq"]
 [ext_resource type="AudioStream" uid="uid://bwqfptbhjlms4" path="res://Assets/sounds/uu.wav" id="7_gcsva"]
 
@@ -163,7 +163,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_qbvel")
+stream = ExtResource("5_gcsva")
 
 [node name="AudioDrop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0vyaq")

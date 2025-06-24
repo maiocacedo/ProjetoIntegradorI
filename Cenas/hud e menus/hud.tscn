@@ -42,7 +42,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 5
-text = "Timer: "
+text = "Tempo: "
 label_settings = ExtResource("2_f148t")
 
 [node name="timer_counter" type="Label" parent="."]

@@ -1,35 +1,26 @@
-res://Cenas/hud e menus/menu.tscn
-res://Cenas/hud e menus/tres/botao_menu_principal.tres
+res://Cenas/fases/fase_1.tscn
 res://Cenas/hud e menus/tres/botao_menu_opcoes.tres
 res://Cenas/hud e menus/tres/slidervolume.tres
+res://Cenas/hud e menus/tres/botao_menu_principal.tres
 res://Cenas/hud e menus/tres/botao_menu_niveis.tres
-res://Cenas/player/player.tscn
-res://Cenas/fases/fase_8.tscn
-res://Cenas/fases/fase_2.tscn
-res://Cenas/hud e menus/menu_de_pausa.tscn
-res://Cenas/hud e menus/opcoes.tscn
-res://Cenas/hud e menus/tela_sucesso.tscn
 res://Cenas/hud e menus/tres/hud_label_settings.tres
-res://Cenas/hud e menus/tres/menu_label_settings.tres
-res://Cenas/hud e menus/tres/title_label_settings.tres
-res://Scripts/hud e menus/hud.gd
-res://Scripts/hud e menus/menu.gd
-res://Scripts/hud e menus/menu_de_pausa.gd
-res://Scripts/hud e menus/opcoes.gd
-res://Scripts/hud e menus/seletor_nivel.gd
-res://Scripts/hud e menus/tela_de_morte.gd
-res://Scripts/hud e menus/tela_sucesso.gd
-res://Scripts/managers/save_manager.gd
-res://Scripts/managers/game_manager.gd
-res://Scripts/managers/music_manager.gd
-res://Scripts/managers/PlayerData.gd
-res://Scripts/hud e menus/buttons.gd
-res://Cenas/hud e menus/Store.tscn
-res://Cenas/hud e menus/StoreButton.tres
-res://rich_text_loja.tres
-res://Cenas/hud e menus/SkinsStore.tscn
-res://Scripts/player/player.gd
-res://Cenas/inventory/inventory_ui.tscn
+res://Scripts/fases/fase.gd
+res://Cenas/fases/fase_2.tscn
+res://Cenas/fases/fase_3.tscn
+res://Cenas/fases/fase_4.tscn
+res://Cenas/fases/fase_5.tscn
+res://Cenas/fases/fase_6.tscn
+res://Cenas/fases/fase_7.tscn
+res://Cenas/fases/fase_8.tscn
 res://Cenas/hud e menus/hud.tscn
-res://Scripts/inventory/inventory_ui.gd
+res://Cenas/Items/portas.tscn
 res://Cenas/Items/chave.tscn
+res://Scripts/placa/placas.gd
+res://Cenas/managers/game_manager.tscn
+res://Scripts/managers/save_manager.gd
+res://Cenas/hud e menus/tela_de_morte.tscn
+res://Scripts/hud e menus/hud.gd
+res://Scripts/player/player.gd
+res://Cenas/hud e menus/tela_sucesso.tscn
+res://Scripts/managers/music_manager.gd
+res://Scripts/hud e menus/tela_sucesso.gd

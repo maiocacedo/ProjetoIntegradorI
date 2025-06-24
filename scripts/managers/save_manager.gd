@@ -5,7 +5,7 @@ const savePath := "user://progress.json" # Caminho do JSON de salvamento
 
 # Estrelas em função do tempo, para cada level
 @export var recompensaLevels := {
-	"fase_1": { "3": 25.0, "2": 45.0 },
+	"fase_1": { "3": 25.0, "2": 40.0 },
 	"fase_2": { "3": 25.0, "2": 40.0 },
 	"fase_3": { "3": 25.0, "2": 40.0 },
 	"fase_4": { "3": 25.0, "2": 40.0 },

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://b5vtnql7o8qdy"]
 
-[ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_utr60"]
+[ext_resource type="Script" uid="uid://0jnorv3ikx2u" path="res://Scripts/fases/fase_8.gd" id="1_opm0k"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="2_48i21"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="3_qsast"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="4_f1eg7"]
@@ -198,12 +198,10 @@ sources/0 = SubResource("TileSetAtlasSource_h2htq")
 sources/1 = SubResource("TileSetAtlasSource_hopsv")
 
 [node name="fase_8" type="Node2D"]
-script = ExtResource("1_utr60")
+script = ExtResource("1_opm0k")
 levelName = "fase_8"
-msgPorta = "SE (chaves == 3 E alavancas == 2)"
-chavesNecessarias = 3
-alavancasNecessarias = 2
-pathProximaFase = "res://Cenas/fases/fase_9.tscn"
+msgPorta = "XNOR"
+chavesNecessarias = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -253,11 +251,7 @@ horizontal_alignment = 1
 [node name="Chaves" type="Node2D" parent="."]
 
 [node name="Chave4" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(928, 305)
-scale = Vector2(2, 2)
-
-[node name="Chave5" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(850, 142)
+position = Vector2(695, 271)
 scale = Vector2(2, 2)
 
 [node name="Chave6" parent="Chaves" instance=ExtResource("7_faw5x")]
@@ -378,9 +372,6 @@ scale = Vector2(2.08, 3.03069)
 
 [node name="Alavanca" parent="Alavancas" instance=ExtResource("15_utr60")]
 position = Vector2(262, 215)
-
-[node name="Alavanca2" parent="Alavancas" instance=ExtResource("15_utr60")]
-position = Vector2(867, 311)
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]
