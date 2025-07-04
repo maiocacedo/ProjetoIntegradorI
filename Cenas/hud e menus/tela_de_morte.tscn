@@ -83,13 +83,13 @@ theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_jottd")
 
 [node name="voce_perdeu_label2" type="Label" parent="menu_morte"]
+custom_minimum_size = Vector2(1050, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "piriripopop pirpopo poropovis anobis japoris cano
-eliporis tomares que matarres rodolfo anastor 
-gabriel linguiça requeijão
+text = "piriripopop pirpopo poropovis anobis japoris cano eliporis tomares que matarres rodolfo anastor gabriel linguiça requeijão
 matador de porco quatro"
 label_settings = ExtResource("3_uryjm")
+autowrap_mode = 3
 
 [node name="HSeparator3" type="HSeparator" parent="menu_morte"]
 layout_mode = 2

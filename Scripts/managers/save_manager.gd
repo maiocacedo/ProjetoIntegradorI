@@ -4,20 +4,52 @@ const savePath := "user://progress.json" # caminho do json de dados de salvament
 
 # estrelas em função do tempo, para cada level
 @export var recompensaLevels := {
-	"area_1": { "3": 25.0, "2": 45.0 },
-	"area_2": { "3": 25.0, "2": 40.0 },
+	"fase_1": { "3": 25.0, "2": 45.0 },
+	"fase_2": { "3": 25.0, "2": 40.0 },
+	"fase_3": { "3": 25.0, "2": 40.0 },
 
 }
 
 func _ready() -> void:
 	load_progress()
+	for levelName in SaveManager.recompensaLevels.keys():
+		var levelNum   = levelName.get_slice("_", 1).to_int()
+		var estrelas   = SaveManager.progress.get(levelName, {}).get("estrelas", 0)
+		PlayerData.stats["estrelas"] += estrelas
+	
+	PlayerData.hasSpeedUpgrade = SaveManager.progress["itens"]["shoes"]["has"]
+	PlayerData.hasDamageUpgrade = SaveManager.progress["itens"]["cape"]["has"]
+	PlayerData.hasJumpUpgrade = SaveManager.progress["itens"]["refri"]["has"]
+	PlayerData.hasPergaminho = SaveManager.progress["itens"]["pergaminho"]["has"]
+	
+	PlayerData.skins[0]["inUse"] = SaveManager.progress["skins"]["default"]["inuse"]
+	PlayerData.skins[1]["inUse"] = SaveManager.progress["skins"]["skin1"]["inuse"]
+	PlayerData.skins[2]["inUse"] = SaveManager.progress["skins"]["skin2"]["inuse"]
+	
+	PlayerData.skins[1]["purchased"] = SaveManager.progress["skins"]["skin1"]["purchased"]
+	PlayerData.skins[2]["purchased"] = SaveManager.progress["skins"]["skin2"]["purchased"]
 
 
 # carrega progresso
 func load_progress() -> void:
 	# se o arquivo não existir, ele não é carregado
 	if not FileAccess.file_exists(savePath):
-		progress = {}
+		progress = {
+			"fases":{},
+			"itens":
+				{
+				"cape":{"has":false,"purchased":false},
+				"pergaminho":{"has":false,"purchased":false},
+				"refri":{"has":false,"purchased":false},
+				"shoes":{"has":false,"purchased":false}
+				},
+			"skins":
+				{
+				"default": {"inuse": true, "purchased":true},
+				"skin1": {"inuse":false,"purchased":false},
+				"skin2": {"inuse":false,"purchased":false}
+				}
+			}
 		return
 	
 	# acesso .JSON para leitura
@@ -73,9 +105,23 @@ func update_level_progress(nomeLevel: String, tempoDecorrido: float) -> void:
 		estrelas = 2
 	
 	# Verifica se o tempo já escrito lá é maior que o atual e salva.
-	if not progress.has(nomeLevel) or tempoDecorrido < progress[nomeLevel]["tempo"]:
-		progress[nomeLevel] = { 
+	if not progress["fases"].has(nomeLevel) or tempoDecorrido < progress["fases"][nomeLevel]["tempo"]:
+		progress["fases"][nomeLevel] = { 
 			"tempo": tempoDecorrido, 
 			"estrelas": estrelas 
 		}
 		save_progress()
+
+func update_upgrade_progress(nomeUpgrade: String, has: bool, purchased: bool):
+	progress["itens"][nomeUpgrade] = { 
+		"has": has, 
+		"purchased": purchased
+	}
+	save_progress()
+
+func update_skins_progress(nomeSkin: String, inuse:bool, purchased: bool):
+	progress["skins"][nomeSkin] = {
+		"inuse": inuse,
+		"purchased": purchased
+	}
+	save_progress()

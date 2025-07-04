@@ -1,72 +1,114 @@
 extends Control
 
+# Referências aos nós da cena
+@onready var timerCounter: Label = $timer_counter        # Texto do timer (Label)
+@onready var temporizador: Timer = $temporizador         # Timer que aciona decremento a cada segundo
+@onready var menu_de_pausa = $menu_de_pausa              # Menu de pausa
+@onready var menu_de_congratulacoes = $menu_de_congratulacoes  # Menu de resultados
 
-@onready var timerCounter = $timer_counter as Label # texto do timer
-@onready var temporizador = $temporizador as Timer # timer
-@onready var menu_de_pausa = $menu_de_pausa # menu de pausa
-@onready var menu_de_congratulacoes = $menu_de_congratulacoes
-
+# Sinal emitido quando o tempo acaba
 signal times_is_up()
 
-# Variáveis do timer
-var podeContarTempo = true # Para verificar se o temporizador está ativo
-var minutes = 0 # minutos
-var seconds = 0 # segundos
-@export var defaultMinutes := 0 # minutos padrão (definido por fase)
-@export_range(0,59) var defaultSeconds := 30 # segundos  padrão (definido por fase)
+# Variáveis do tempo
+var podeContarTempo := true           # Se o temporizador está ativo
+var minutes: int = 0                  # Minutos restantes
+var seconds: int = 0                  # Segundos restantes
 
+# Tempo padrão por fase (definível no editor)
+@export var defaultMinutes := 0
+@export_range(0, 59) var defaultSeconds := 45.0
+
+# ---------------------------------------
+# Inicialização
+# ---------------------------------------
 func _ready() -> void:
 	podeContarTempo = true
-	if get_tree().current_scene.name == "area_1":
-		defaultMinutes = 2
-		defaultSeconds = 0
-	reset_clock_timer() # Reseta o timer
-	timerCounter.text = str("%02d" % defaultMinutes) + ":" +  str("%02d" % defaultSeconds) # Atualiza o texto
+	reset_clock_timer()
+	atualizar_texto_timer()
 
-
+# ---------------------------------------
+# Atualização a cada frame
+# ---------------------------------------
 func _process(delta: float) -> void:
-	# verifica se o timer chegou a zero
 	if podeContarTempo and minutes == 0 and seconds == 0:
-		emit_signal("times_is_up") # emite sinal de timer zerado
-		reset_clock_timer() # reseta timer
-		podeContarTempo = false # timer não está mais rodando
+		podeContarTempo = false
+		emit_signal("times_is_up")
+		reset_clock_timer()
 
-
-# Função para definir o comportamento do timer
+# ---------------------------------------
+# Timer de 1 segundo expirou
+# ---------------------------------------
 func _on_temporizador_timeout() -> void:
-	# Verifica se os segundos foram zerados
+	if not podeContarTempo:
+		return
+
+	if minutes == 0 and seconds == 0:
+		podeContarTempo = false
+		temporizador.stop()
+		emit_signal("times_is_up")
+		return
+
 	if seconds == 0:
-		minutes -= 1 # diminui um minuto
-		seconds = 60 # define segundo para 60
-	seconds -= 1 # decrementa segundos
-	timerCounter.text = str("%02d" % minutes) + ":" +  str("%02d" % seconds) # atualiza texto
+		if minutes > 0:
+			minutes -= 1
+			seconds = 59
+	else:
+		seconds -= 1
 
+	atualizar_texto_timer()
 
-# reseta timer
-func reset_clock_timer():
+# ---------------------------------------
+# Atualiza o texto do cronômetro na tela
+# ---------------------------------------
+func atualizar_texto_timer() -> void:
+	timerCounter.text = "%02d:%02d" % [minutes, seconds]
+
+# ---------------------------------------
+# Reseta o timer com os valores padrão
+# ---------------------------------------
+func reset_clock_timer() -> void:
 	minutes = defaultMinutes
-	seconds = defaultSeconds
+	seconds = int(defaultSeconds)  # Evita float no contador
 
+# ---------------------------------------
+# Define o tempo do cronômetro manualmente
+# ---------------------------------------
+func set_tempo(min: int, sec: int) -> void:
+	minutes = min
+	seconds = clamp(sec, 0, 59)
+	defaultMinutes = min
+	defaultSeconds = sec
+	atualizar_texto_timer()
 
+# ---------------------------------------
+# Retorna o tempo decorrido em segundos
+# ---------------------------------------
 func get_tempo_decorrido() -> float:
-	var initial = defaultMinutes*60 + defaultSeconds
-	var remaining = minutes*60 + seconds
-	return initial - remaining
+	var total_inicial = defaultMinutes * 60 + int(defaultSeconds)
+	var restante = minutes * 60 + seconds
+	return total_inicial - restante
 
-
-# exibe resultados
-func mostra_resultado(tempoDecorrido: float, estrelas: int) -> void:
+# ---------------------------------------
+# Exibe o menu de resultados
+# ---------------------------------------
+func mostra_resultado(tempoDecorrido: float, estrelas: int, proxFase: String) -> void:
+	podeContarTempo = false  # Impede que o timeout continue contando
+	temporizador.stop()      # Para o Timer ativo
 	menu_de_congratulacoes.visible = true
-	menu_de_congratulacoes.resultados(tempoDecorrido, estrelas)
+	MusicManager._play_music("res://Assets/music/musica_vitoria.wav")
+	menu_de_congratulacoes.resultados(tempoDecorrido, estrelas, proxFase)
 
-
-# Função para pausar o jogo
+# ---------------------------------------
+# Botão de pausa pressionado
+# ---------------------------------------
 func _on_botao_pause_pressed() -> void:
-	if menu_de_congratulacoes.visible != true:
+	if not menu_de_congratulacoes.visible:
 		menu_de_pausa.visible = true
 		get_tree().paused = true
 
-
-# quando o tempo zera, chama tela de morte
+# ---------------------------------------
+# Ação quando o tempo se esgota
+# ---------------------------------------
 func _on_times_is_up() -> void:
-	GameManager.call_deferred("abrir_tela_de_morte", "Tempo esgotado")
+	if podeContarTempo:
+		GameManager.call_deferred("abrir_tela_de_morte", "Tempo esgotado")

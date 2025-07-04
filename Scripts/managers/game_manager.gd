@@ -1,15 +1,28 @@
 extends Node
 
-var lastScenePath: String = ""
-var lastDeathCause: String = ""
-const telaMortePath := "res://Cenas/hud e menus/tela_de_morte.tscn"
+# Caminho da tela de morte
+const TELA_MORTE_PATH := "res://Cenas/hud e menus/tela_de_morte.tscn"
 
-# Called when the node enters the scene tree for the first time.
+# Variáveis para guardar o estado antes da morte
+var last_scene_path: String = ""
+var last_death_cause: String = ""
+
+# Executado quando o nó entra na árvore da cena
 func _ready() -> void:
-	pass
+	pass  # Pode ser usado futuramente para lógica de inicialização, se necessário
 
-# abre tela de morte e registra causa da morte
-func abrir_tela_de_morte(causa:String) -> void:
-	lastScenePath = get_tree().current_scene.scene_file_path
-	lastDeathCause = causa          
-	get_tree().change_scene_to_file(telaMortePath)
+# Função para abrir a tela de morte e registrar a causa
+func abrir_tela_de_morte(causa: String) -> void:
+	# Verifica se há uma cena atual carregada antes de acessar sua propriedade
+	var cena_atual = self.get_tree().current_scene
+	
+	if cena_atual != null:
+		last_scene_path = cena_atual.scene_file_path
+	else:
+		last_scene_path = "cena_indefinida"  # Caso não haja uma cena carregada
+	
+	# Salva a causa da morte
+	last_death_cause = causa
+
+	# Muda para a cena da tela de morte
+	get_tree().change_scene_to_file(TELA_MORTE_PATH)

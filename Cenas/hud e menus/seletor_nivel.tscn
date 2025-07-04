@@ -35,7 +35,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = -7.0
+offset_top = -7.0
 offset_right = 12.0
 offset_bottom = 15.0
 grow_horizontal = 2
@@ -88,134 +89,134 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer1" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="level_1" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="level_1" type="Button" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 text = "Fase 1"
 
-[node name="estrelas_1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 
-[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_1"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_1"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_1"]
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_1"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 
-[node name="level_4" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="level_4" type="Button" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 4
 "
 
-[node name="estrelas_4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 
-[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_4"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_4"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_4"]
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_4"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 
-[node name="level_7" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="level_7" type="Button" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 7
 "
 
-[node name="estrelas_7" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_7" type="HBoxContainer" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 
-[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_7"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_7"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_7"]
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_7"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
 
-[node name="level_10" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="level_10" type="Button" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme = ExtResource("2_gqlks")
 disabled = true
 text = "Fase 10"
 
-[node name="estrelas_10" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="estrelas_10" type="HBoxContainer" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 
-[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+[node name="estrela_1" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_10"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+[node name="estrela_2" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_10"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer/estrelas_10"]
+[node name="estrela_3" type="TextureRect" parent="HBoxContainer/VBoxContainer1/estrelas_10"]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer1"]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
@@ -438,10 +439,26 @@ layout_mode = 2
 texture = ExtResource("5_qoxf0")
 stretch_mode = 4
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_7" to="." method="_on_level_7_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/level_10" to="." method="_on_level_10_pressed"]
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_tcltt")
+
+[node name="loja" type="Button" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme = ExtResource("2_gqlks")
+text = "Loja
+"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/level_7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer1/level_10" to="." method="_on_level_10_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/level_8" to="." method="_on_level_8_pressed"]
@@ -449,3 +466,4 @@ stretch_mode = 4
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer3/level_9" to="." method="_on_level_9_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer3/loja" to="." method="_on_loja_pressed"]

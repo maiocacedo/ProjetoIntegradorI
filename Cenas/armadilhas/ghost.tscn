@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://durn1jaddvq3j"]
+
+[ext_resource type="Script" uid="uid://5ymluixygy" path="res://Scripts/armadilhas/ghost_follow.gd" id="1_ysyse"]
+[ext_resource type="Texture2D" uid="uid://cbyyvuqixpbmd" path="res://Assets/spritesheets/fantasma-sheet.png" id="2_2xjgm"]
+[ext_resource type="AudioStream" uid="uid://dh3qtaigwn8ah" path="res://Assets/sounds/dano_letal.wav" id="3_fcbqk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcbqk"]
+atlas = ExtResource("2_2xjgm")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oppa5"]
+atlas = ExtResource("2_2xjgm")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26t2r"]
+atlas = ExtResource("2_2xjgm")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ggg3"]
+atlas = ExtResource("2_2xjgm")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybi5e"]
+atlas = ExtResource("2_2xjgm")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rupxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcbqk")
+}],
+"loop": false,
+"name": &"hide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oppa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26t2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ggg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybi5e")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ysyse"]
+radius = 6.08276
+
+[node name="ghost" type="CharacterBody2D"]
+script = ExtResource("1_ysyse")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.746745, 0.659915)
+sprite_frames = SubResource("SpriteFrames_rupxb")
+animation = &"moving"
+
+[node name="ReturnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="colision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ysyse")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fcbqk")
+
+[connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
