@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://bycx5btccname"]
+
+[ext_resource type="Script" uid="uid://cv14lpvs4ctll" path="res://Scripts/hud e menus/menu_de_pausa.gd" id="1_e7xrw"]
+[ext_resource type="LabelSettings" uid="uid://cuqghwtdf0bxd" path="res://Cenas/hud e menus/tres/title_label_settings.tres" id="2_dhtm7"]
+[ext_resource type="PackedScene" uid="uid://cykqlwsj53mpa" path="res://Cenas/hud e menus/opcoes.tscn" id="3_008jy"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="3_dhtm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7um4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_008jy"]
+
+[node name="menu_de_pausa" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_e7xrw")
+
+[node name="fundo_transparente" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.533333)
+
+[node name="fundo_solido" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 315.0
+offset_top = 132.0
+offset_right = 855.0
+offset_bottom = 482.0
+color = Color(0.263724, 0.296133, 0.422682, 1)
+
+[node name="fundo_solido2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_left = 305.0
+offset_top = 139.0
+offset_right = 845.0
+offset_bottom = 489.0
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="pausado" type="Label" parent="."]
+offset_left = 416.0
+offset_top = 161.0
+offset_right = 710.0
+offset_bottom = 209.0
+text = "Pausado"
+label_settings = ExtResource("2_dhtm7")
+
+[node name="menu_1_container" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -92.0
+offset_right = 232.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="retomar" type="Button" parent="menu_1_container"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_dhtm7")
+text = "Retomar"
+
+[node name="HSeparator2" type="HSeparator" parent="menu_1_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_g7um4")
+
+[node name="opcoes" type="Button" parent="menu_1_container"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_dhtm7")
+text = "Opções"
+
+[node name="HSeparator" type="HSeparator" parent="menu_1_container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_008jy")
+
+[node name="sair" type="Button" parent="menu_1_container"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_dhtm7")
+text = "Voltar para o Menu"
+
+[node name="opcoes" parent="." instance=ExtResource("3_008jy")]
+visible = false
+
+[connection signal="pressed" from="menu_1_container/retomar" to="." method="_on_retomar_pressed"]
+[connection signal="pressed" from="menu_1_container/opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="menu_1_container/sair" to="." method="_on_sair_pressed"]

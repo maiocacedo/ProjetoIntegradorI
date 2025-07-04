@@ -1,18 +1,11 @@
-res://Cenas/Store.tscn
-res://inventory/players_inv.tres
-res://inventory/items/heart.tres
-res://Cenas/enemy.gd
-res://Assets/Scripts/area_morte.gd
-res://Assets/Scripts/PlayerData.gd
-res://Assets/Scripts/Armadilhas.gd
-res://Cenas/Areas/node_2d.tscn
-res://Cenas/character_body_2d.tscn
-res://Cenas/placas.tscn
-res://Cenas/key.tscn
-res://Cenas/plataforma.tscn
-res://Cenas/area_morte.tscn
-res://inventory/inn_ui.tscn
-res://inventory/inv_ui_slot.tscn
-res://Cenas/Areas/area_2.tscn
-res://Cenas/SkinsStore.tscn
-res://Cenas/Enemy.tscn
+res://Cenas/hud e menus/menu.tscn
+res://Cenas/hud e menus/tres/botao_menu_principal.tres
+res://Scripts/player/player.gd
+res://Scripts/managers/PlayerData.gd
+res://Scripts/hud e menus/buttons.gd
+res://Scripts/armadilhas/fire_trap.gd
+res://Cenas/armadilhas/fire_trap.tscn
+res://Scripts/armadilhas/Armadilhas.gd
+res://Scripts/armadilhas/spike_area.gd
+res://Cenas/armadilhas/spike_area.tscn
+res://Scripts/armadilhas/ghost_follow.gd
