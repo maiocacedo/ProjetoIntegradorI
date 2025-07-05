@@ -18,7 +18,7 @@ script = ExtResource("1_24wr4")
 position = Vector2(0, -6)
 scale = Vector2(0.75, 0.785157)
 sprite_frames = ExtResource("2_ynsop")
-animation = &"corre"
+animation = &"die"
 autoplay = "parado"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]

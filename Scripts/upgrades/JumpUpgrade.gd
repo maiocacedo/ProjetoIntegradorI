@@ -4,7 +4,7 @@ extends Resource
 
 var atributes = {
 	"jumpBonus" : 70.0, #caso queira mudar o tamanho do buff, so mudar o valor
-	"price" : 12 
+	"price" : 12
 }
 
 func Aplicar():

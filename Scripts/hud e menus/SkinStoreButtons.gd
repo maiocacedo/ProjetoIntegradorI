@@ -17,7 +17,7 @@ func _ready() -> void:
 	for Buttons in get_children():
 		if Buttons is Button:
 			Buttons.pressed.connect(ButtonPressed.bind(Buttons))
-	
+			
 	print(PlayerData.skins[0]["inUse"])
 	print(PlayerData.skins[1]["inUse"])
 	print(PlayerData.skins[2]["inUse"])
@@ -28,7 +28,7 @@ func _ready() -> void:
 	if PlayerData.skins[2]["inUse"]:
 		$Skin3Button/TextureRect.texture = load(releasedpressedText)
 		
-	if not skin2Purchased:
+	if not skin1Purchased:
 		$Skin2Button/TextureRect/skin2.modulate = Color(0.8, 0.8, 0.8, 0.6)
 	if not skin2Purchased:
 		$Skin3Button/TextureRect/skin3.modulate = Color(0.8, 0.8, 0.8, 0.6)
@@ -54,13 +54,13 @@ func ButtonPressed(button):
 				for skin in PlayerData.skins:
 					if skin["name"] != "default":
 						skin["inUse"] = false
-
-		
 		"Skin2Button":
 			if not skin1Purchased:
 				if PlayerData.stats["estrelas"] >= PlayerData.skins[1]["price"]:
 					skin1Purchased = true
+					$Skin2Button/TextureRect/skin2.modulate = Color(1, 1, 1, 1)
 					PlayerData.skins[1]["inUse"] = true
+					PlayerData.skins[1]["purchased"] = true
 					$Skin1Button/TextureRect.texture = textVazia
 					$Skin2Button/TextureRect.texture = text
 					$Skin3Button/TextureRect.texture = textVazia
@@ -69,6 +69,7 @@ func ButtonPressed(button):
 							skin["inUse"] = false
 							
 			elif skin1Purchased:
+				$Skin2Button/TextureRect/skin2.modulate = Color(1, 1, 1, 1)
 				if !PlayerData.skins[1]["inUse"]:
 					PlayerData.skins[1]["inUse"] = !PlayerData.skins[1]["inUse"]
 				if PlayerData.skins[1]["inUse"]:
@@ -84,15 +85,18 @@ func ButtonPressed(button):
 		"Skin3Button":
 			if not skin2Purchased:
 				if PlayerData.stats["estrelas"] >= PlayerData.skins[2]["price"]:
+					$Skin3Button/TextureRect/skin3.modulate = Color(1, 1, 1, 1)
 					skin2Purchased = true
 					PlayerData.skins[2]["inUse"] = true
+					PlayerData.skins[2]["purchased"] = true
 					$Skin1Button/TextureRect.texture = textVazia
 					$Skin2Button/TextureRect.texture = textVazia
 					$Skin3Button/TextureRect.texture = text
 					for skin in PlayerData.skins:
-						if skin["name"] != "skin2":
+						if skin["name"] != "skin1":
 							skin["inUse"] = false
 			elif skin2Purchased:
+				$Skin3Button/TextureRect/skin3.modulate = Color(1, 1, 1, 1)
 				if !PlayerData.skins[2]["inUse"]:
 					PlayerData.skins[2]["inUse"] = !PlayerData.skins[2]["inUse"]
 				if PlayerData.skins[2]["inUse"]:
@@ -101,7 +105,7 @@ func ButtonPressed(button):
 					$Skin3Button/TextureRect.texture = text
 				if PlayerData.skins[2]["inUse"]:
 					for skin in PlayerData.skins:
-						if skin["name"] != "skin3":
+						if skin["name"] != "skin2":
 							skin["inUse"] = false
 		"UpgradesButton":
 			SaveManager.update_skins_progress("default", PlayerData.skins[0]["inUse"], true)

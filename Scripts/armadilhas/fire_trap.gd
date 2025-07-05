@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Scripts/armadilhas/Armadilhas.gd"
 
 @onready var animation = $AnimationPlayer
 @onready var stateTimer = $Timer
@@ -22,13 +22,8 @@ func _on_timer_timeout() -> void:
 	animation.play(currentState)
 
 
-func _on_fire_body_entered(_body: Node2D) -> void: #quando o player enconstar reseta a fase
-	if _body.is_in_group("player"): # grupo que o player
-		_body.die()
-	
-		morte.playing = true 
-		timer.start()
-
+func _on_fire_body_entered(body: Node2D) -> void: #quando o player enconstar reseta a fase
+	Verificacao(body, morte, timer)
 
 func _on_timer_2_timeout() -> void:
 	GameManager.call_deferred("abrir_tela_de_morte","Brincou com fogo!")

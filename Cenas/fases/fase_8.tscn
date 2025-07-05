@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5vtnql7o8qdy"]
+[gd_scene load_steps=26 format=3 uid="uid://b5vtnql7o8qdy"]
 
 [ext_resource type="Script" uid="uid://dighb7gxhhoxs" path="res://Scripts/fases/fase_8.gd" id="1_opm0k"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="2_48i21"]
@@ -197,11 +197,88 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_h2htq")
 sources/1 = SubResource("TileSetAtlasSource_hopsv")
 
+[sub_resource type="Animation" id="Animation_3gorx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(688, 197)]
+}
+
+[sub_resource type="Animation" id="Animation_1cxah"]
+resource_name = "sansa"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 197), Vector2(685, 325)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nrrl"]
+_data = {
+&"RESET": SubResource("Animation_3gorx"),
+&"sansa": SubResource("Animation_1cxah")
+}
+
+[sub_resource type="Animation" id="Animation_i3oxg"]
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plataforma/plataforma3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(261, 419), Vector2(261, 533)]
+}
+
+[sub_resource type="Animation" id="Animation_opm0k"]
+resource_name = "salamaleko"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Plataforma/plataforma3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(261, 419), Vector2(261, 533)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1cxah"]
+_data = {
+&"RESET": SubResource("Animation_i3oxg"),
+&"salamaleko": SubResource("Animation_opm0k")
+}
+
 [node name="fase_8" type="Node2D"]
 script = ExtResource("1_opm0k")
 levelName = "fase_8"
-msgPorta = "XNOR"
-chavesNecessarias = 1
+msgPorta = "OU negue OU aceite "
+pathProximaFase = "res://Cenas/fases/fase_9.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -213,70 +290,96 @@ layer_0/tile_data = PackedInt32Array(1114112, 65536, 0, 1114113, 65536, 0, 11141
 position = Vector2(193, 554)
 scale = Vector2(3, 3)
 
-[node name="placas5" parent="placas" instance=ExtResource("4_f1eg7")]
-visible = false
-position = Vector2(391.333, 0.333334)
+[node name="placas4" parent="placas" instance=ExtResource("4_f1eg7")]
+position = Vector2(-13.6667, -5.33333)
 label_path = NodePath("Label")
+label2_path = NodePath("Label2")
 
-[node name="Label" type="Label" parent="placas/placas5"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
+[node name="Label" type="Label" parent="placas/placas4"]
+offset_left = -31.6667
+offset_top = -36.3333
+offset_right = 93.3333
+offset_bottom = -17.3333
 scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("5_vgjuq")
+theme_override_colors/font_color = Color(0.85098, 0.627451, 0.4, 1)
+theme_override_fonts/font = ExtResource("9_opm0k")
 theme_override_font_sizes/font_size = 8
-text = "Fica 
-Flinstones"
+text = "Porta Lógica XNOR
+"
 horizontal_alignment = 1
 
-[node name="placas3" parent="placas" instance=ExtResource("4_f1eg7")]
-visible = false
-position = Vector2(-5.33334, 0)
+[node name="Label2" type="Label" parent="placas/placas4"]
+offset_left = -44.6667
+offset_top = -27.0
+offset_right = 128.333
+offset_bottom = 25.0
+scale = Vector2(0.545, 0.545)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_vgjuq")
+theme_override_font_sizes/font_size = 8
+text = "Porta logica que não 
+aceita indecisão, ou 
+nega tudo ou aceita tudo
 
-[node name="Label" type="Label" parent="placas/placas3"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
+"
+horizontal_alignment = 1
+
+[node name="Placa3" parent="placas" instance=ExtResource("4_f1eg7")]
+position = Vector2(209.333, -133.667)
+label_path = NodePath("Label")
+
+[node name="Label" type="Label" parent="placas/Placa3"]
+offset_left = -34.3333
+offset_top = -25.0
+offset_right = 103.667
+offset_bottom = 5.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("5_vgjuq")
 theme_override_font_sizes/font_size = 8
-text = "pegue as 3 
-chaves "
+text = "Você realemnte gosta 
+de chaves "
 horizontal_alignment = 1
 
 [node name="Chaves" type="Node2D" parent="."]
 
 [node name="Chave4" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(695, 271)
+position = Vector2(880, 297)
+scale = Vector2(2, 2)
+
+[node name="Chave5" parent="Chaves" instance=ExtResource("7_faw5x")]
+position = Vector2(889, 134)
+scale = Vector2(2, 2)
+
+[node name="Chave7" parent="Chaves" instance=ExtResource("7_faw5x")]
+position = Vector2(582, 354)
 scale = Vector2(2, 2)
 
 [node name="Chave6" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(111, 254)
+position = Vector2(100, 237)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("8_pqemu")]
+offset_left = -10.0
 offset_top = 1.0
+offset_right = -10.0
 offset_bottom = 1.0
 
 [node name="Porta" parent="." instance=ExtResource("9_3yw2g")]
-position = Vector2(1052, 499)
+position = Vector2(1011, 500)
 scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="Porta"]
-offset_left = -55.6667
-offset_top = -23.0
-offset_right = 322.333
-offset_bottom = -7.00001
+offset_left = -50.0
+offset_top = -32.0
+offset_right = 284.0
+offset_bottom = 15.0
 scale = Vector2(0.3, 0.3)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_opm0k")
 horizontal_alignment = 1
+justification_flags = 171
 
 [node name="player" parent="." instance=ExtResource("10_b7dk1")]
 position = Vector2(41, 544)
@@ -300,16 +403,12 @@ scale = Vector2(3, 3)
 
 [node name="Plataforma" type="Node2D" parent="."]
 
-[node name="plataforma_cai" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(188, 479)
-scale = Vector2(3, 3)
-
 [node name="plataforma_cai2" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(104, 408)
+position = Vector2(180, 387)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai4" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(722, 368)
+position = Vector2(688, 363)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai5" parent="Plataforma" instance=ExtResource("13_wmixn")]
@@ -317,33 +416,41 @@ position = Vector2(582, 399)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai6" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(694, 168)
+position = Vector2(688, 165)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai7" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(107, 271)
+position = Vector2(100, 283)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai8" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(103, 343)
+position = Vector2(100, 342)
 scale = Vector2(3, 3)
 
 [node name="plataforma" parent="Plataforma" instance=ExtResource("15_48i21")]
-position = Vector2(704, 300)
-scale = Vector2(8.48001, 1.56)
-
-[node name="plataforma2" parent="Plataforma" instance=ExtResource("15_48i21")]
-position = Vector2(647, 517)
-scale = Vector2(10.32, 1.84)
-
-[node name="plataforma_cai9" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(653, 232)
+position = Vector2(688, 197)
 scale = Vector2(3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma/plataforma"]
+libraries = {
+&"": SubResource("AnimationLibrary_7nrrl")
+}
+
+[node name="plataforma3" parent="Plataforma" instance=ExtResource("15_48i21")]
+position = Vector2(261, 419)
+scale = Vector2(3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma/plataforma3"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_1cxah")
+}
+autoplay = "RESET"
 
 [node name="Ghost" type="Node2D" parent="."]
 
 [node name="ghost" parent="Ghost" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("14_wbejg")]
-position = Vector2(229, 513)
+position = Vector2(322, 516)
 scale = Vector2(3, 3)
 pointA = NodePath("../pointA")
 pointB = NodePath("../pointB")
@@ -351,7 +458,7 @@ pointC = NodePath("../pointC")
 pointD = NodePath("../pointD")
 
 [node name="pointA" type="Marker2D" parent="Ghost"]
-position = Vector2(278, 520)
+position = Vector2(275, 518)
 
 [node name="pointB" type="Marker2D" parent="Ghost"]
 position = Vector2(968, 516)
@@ -371,7 +478,8 @@ scale = Vector2(2.08, 3.03069)
 [node name="Alavancas" type="Node" parent="."]
 
 [node name="Alavanca" parent="Alavancas" instance=ExtResource("15_utr60")]
-position = Vector2(262, 215)
+position = Vector2(242, 197)
+scale = Vector2(2.715, 2.715)
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]

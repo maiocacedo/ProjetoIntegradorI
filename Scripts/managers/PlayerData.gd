@@ -1,7 +1,7 @@
 extends Node
 
 var stats = { #guarda informações do player
-	"speed": 200.0,
+	"speed": 300.0,
 	"jumpSpeed": -300.0,
 	"estrelas": 35
 }
@@ -32,3 +32,4 @@ func ResetVariables() -> void: #aqui reseta as variaveis de uso para evitar mal 
 	damageUpgradeApplied = false
 	jumpUpgradeApplied = false
 	pergaminhoUsado = false
+	stats["speed"] = 300

@@ -4,7 +4,6 @@ extends Control
 var inventory = [null, null, null, null]
 
 func _ready():
-	verificarUpgrades()  # Verifica os upgrades do player ao iniciar
 	add_to_group("inventory")  # Adiciona este nó ao grupo "inventory"
 	print("Inventory pronto e grupo adicionado")  # LOG
 
@@ -44,50 +43,46 @@ func addItem(item):
 
 # Remove um item do inventário e dropa no mundo
 func removerItem(itemRemover, posicaoDrop):
-	# Upgrades não podem ser removidos
-	if itemRemover["id"] != 1:
-		print("Tentativa de remover item não removível (upgrade). Ação bloqueada.")  # LOG
-		show_message("Este item não pode ser descartado!")
-		return
-
 	print("Tentando remover item: " + str(itemRemover) + " na posição: " + str(posicaoDrop))  # LOG
 
-	# Se não tem espaço na posição de drop, cancela
-	if not is_position_free(posicaoDrop):
-		show_message("Sem espaço para dropar aqui!")
-		print("Drop cancelado: posição ocupada")  # LOG
-		return
+	# Procura o item no inventário
+	for i in range(inventory.size()):
+		var item = inventory[i]
+		if item != null and item["id"] == itemRemover["id"]:
+			
+			# Se for o slot da chave (slot 3), faz o drop normalmente
+			if i == 3:
+				if not is_position_free(posicaoDrop):
+					show_message("Sem espaço para dropar aqui!")
+					print("Drop cancelado: posição ocupada")  # LOG
+					return
 
-	# Calcula a posição no chão (um pouco acima)
-	var ground_position = get_ground_position(posicaoDrop)
-	print("Posição de drop ajustada para o chão: " + str(ground_position))  # LOG
+				var ground_position = get_ground_position(posicaoDrop)
+				print("Posição de drop ajustada para o chão: " + str(ground_position))  # LOG
 
-	var i = 3  # Slot da chave
-	var item = inventory[i]
-	if item != null and item["id"] == itemRemover["id"]:
-		# Instancia a chave no mundo
-		var key_scene = preload("res://Cenas/Items/chave.tscn")
-		var key_instance = key_scene.instantiate()
-		key_instance.scale = Vector2(2, 2)
-		get_tree().current_scene.add_child(key_instance)
-		key_instance.global_position = ground_position
-		print("Item droppado na cena")  # LOG
+				var key_scene = preload("res://Cenas/Items/chave.tscn")
+				var key_instance = key_scene.instantiate()
+				key_instance.scale = Vector2(2, 2)
+				get_tree().current_scene.add_child(key_instance)
+				key_instance.global_position = ground_position
+				print("Item droppado na cena")  # LOG
+			else:
+				print("Item não será droppado pois não está no slot da chave")  # LOG
 
-		# Diminui a quantidade ou remove do inventário
-		if item["quantity"] > 1:
-			item["quantity"] -= 1
-			print("Quantidade do item diminuída para: " + str(item["quantity"]))  # LOG
-		else:
-			inventory[i] = null
-			print("Item removido do inventário")  # LOG
+			# Diminui a quantidade ou remove do inventário
+			if item["quantity"] > 1:
+				item["quantity"] -= 1
+				print("Quantidade do item diminuída para: " + str(item["quantity"]))  # LOG
+			else:
+				inventory[i] = null
+				print("Item removido do inventário")  # LOG
 
-		show_message("O(a) " + item["name"] + " foi jogado fora!")
-		$AudioDrop.playing = true
-		updateUI()
-		return
+			show_message("O(a) " + item["name"] + " foi utilizado(a)!")
+			$AudioDrop.playing = true
+			updateUI()
+			return
 
-	print("Item não encontrado no slot da chave")  # LOG
-
+	print("Item não encontrado no inventário")  # LOG
 # Retorna a quantidade de um determinado item no inventário
 func getQtdItem(item):
 	for i in range(len(inventory)):

@@ -139,15 +139,18 @@ func _on_return_timer_timeout() -> void:
 
 
 # Se o inimigo colidir com o jogador, reinicia a cena
-func _on_area_2d_body_entered(_body: Node2D) -> void:
-	if _body.is_in_group("player"):
-		_body.die()
-	
-		morte.playing = true 
-		timer.start()
-		
-		
-
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"): #verifica o grupo
+		if PlayerData.hasDamageUpgrade and not PlayerData.damageUpgradeApplied:
+			PlayerData.damageUpgradeApplied = true #impede que seja usado de novo
+			var inventory = get_tree().get_first_node_in_group("inventory")
+			inventory.removerItem(ItemDB.getItem(5), null)
+			queue_free()
+		else:
+			body.die()
+			morte.playing = true 
+			timer.start()
+			PlayerData.damageUpgradeApplied = false
 
 # Verifica se o jogador está dentro da área de patrulha (horizontal e vertical)
 func isPlayerInsidePatrolArea() -> bool:
@@ -165,4 +168,4 @@ func isPlayerInsidePatrolArea() -> bool:
 
 
 func _on_timer_timeout() -> void:
-	GameManager.call_deferred("abrir_tela_de_morte","O fantasma te pegou!")
+	GameManager.call_deferred("abrir_tela_de_morte","Fantasma te pegou!")

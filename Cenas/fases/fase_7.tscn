@@ -212,11 +212,11 @@ layer_0/tile_data = PackedInt32Array(1114112, 65536, 0, 1114113, 65536, 0, 11141
 [node name="Chaves" type="Node2D" parent="."]
 
 [node name="Chave4" parent="Chaves" instance=ExtResource("6_qd44v")]
-position = Vector2(890, 302)
+position = Vector2(881, 278)
 scale = Vector2(2, 2)
 
 [node name="Chave5" parent="Chaves" instance=ExtResource("6_qd44v")]
-position = Vector2(599, 529)
+position = Vector2(599, 517)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -258,19 +258,19 @@ scale = Vector2(3, 3)
 [node name="Plataforma" type="Node2D" parent="."]
 
 [node name="plataforma_cai" parent="Plataforma" instance=ExtResource("12_77vkj")]
-position = Vector2(222, 504)
+position = Vector2(264, 473)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai2" parent="Plataforma" instance=ExtResource("12_77vkj")]
-position = Vector2(221, 463)
+position = Vector2(263, 432)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai3" parent="Plataforma" instance=ExtResource("12_77vkj")]
-position = Vector2(221, 420)
+position = Vector2(263, 389)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai4" parent="Plataforma" instance=ExtResource("12_77vkj")]
-position = Vector2(722, 368)
+position = Vector2(703, 368)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai5" parent="Plataforma" instance=ExtResource("12_77vkj")]
@@ -314,7 +314,7 @@ position = Vector2(743, 547)
 [node name="Alavancas" type="Node2D" parent="."]
 
 [node name="Alavanca" parent="Alavancas" instance=ExtResource("11_idn4u")]
-position = Vector2(254, 206)
+position = Vector2(256, 201)
 scale = Vector2(1.39311, 2.26785)
 
 [node name="Espinhos" type="Node2D" parent="."]
@@ -330,34 +330,18 @@ position = Vector2(123, 550)
 scale = Vector2(3, 3)
 
 [node name="placas2" parent="Placas/placas" instance=ExtResource("3_rarq1")]
-position = Vector2(274, -5)
+position = Vector2(260, -4)
 label_path = NodePath("Label")
 
 [node name="Label" type="Label" parent="Placas/placas/placas2"]
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_q81ii")
+offset_left = -30.6667
+offset_top = -21.0
+offset_right = 79.3333
+offset_bottom = 2.00003
+scale = Vector2(0.575, 0.575)
+theme_override_fonts/font = ExtResource("7_3lpi3")
 theme_override_font_sizes/font_size = 8
 text = "NAND = AND + NOT"
-horizontal_alignment = 1
-
-[node name="placas4" parent="Placas/placas" instance=ExtResource("3_rarq1")]
-position = Vector2(2.33333, -5.33333)
-label_path = NodePath("Label")
-
-[node name="Label" type="Label" parent="Placas/placas/placas4"]
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_q81ii")
-theme_override_font_sizes/font_size = 8
-text = "A porta está usando
-um circuito da NAND"
 horizontal_alignment = 1
 
 [node name="placas5" parent="Placas/placas" instance=ExtResource("3_rarq1")]
@@ -365,16 +349,51 @@ position = Vector2(72, -48.3333)
 label_path = NodePath("Label")
 
 [node name="Label" type="Label" parent="Placas/placas/placas5"]
-offset_left = -80.6667
-offset_top = -27.6667
-offset_right = 229.333
-offset_bottom = 2.33333
-scale = Vector2(0.5, 0.5)
+offset_left = -62.3333
+offset_top = -27.3334
+offset_right = 154.667
+offset_bottom = 2.66664
+scale = Vector2(0.595, 0.595)
 theme_override_fonts/font = ExtResource("4_q81ii")
 theme_override_font_sizes/font_size = 8
-text = "Para isso é necessário você pegar duas chaves para
- ativação da AND e desativar a alavanca para ativar 
-o efeito da not"
+text = "aqui é necessário negar a 
+alavanca e juntar as chaves"
+horizontal_alignment = 1
+
+[node name="placas4" parent="Placas" instance=ExtResource("3_rarq1")]
+position = Vector2(117, 537)
+scale = Vector2(3, 3)
+label_path = NodePath("Label")
+label2_path = NodePath("Label2")
+
+[node name="Label" type="Label" parent="Placas/placas4"]
+offset_left = -34.3333
+offset_top = -40.3333
+offset_right = 90.6667
+offset_bottom = -21.3333
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.85098, 0.627451, 0.4, 1)
+theme_override_fonts/font = ExtResource("7_3lpi3")
+theme_override_font_sizes/font_size = 8
+text = "Porta Lógica NAND
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Placas/placas4"]
+offset_left = -38.6667
+offset_top = -33.0
+offset_right = 110.333
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_q81ii")
+theme_override_font_sizes/font_size = 8
+text = "Porta logica contraria
+ a AND portanto precisa 
+negar o \"sim\"
+duas vezes
+
+"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]

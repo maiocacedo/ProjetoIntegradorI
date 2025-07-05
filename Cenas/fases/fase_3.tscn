@@ -1,18 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0ivid4x75h32"]
+[gd_scene load_steps=13 format=3 uid="uid://c0ivid4x75h32"]
 
 [ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_plkc1"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_y40j2"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_twd00"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="3_scpgx"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_dmcym"]
-[ext_resource type="PackedScene" uid="uid://8u5btptcigf6" path="res://Cenas/armadilhas/spike_area.tscn" id="5_7sapq"]
-[ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="7_gwui6"]
 [ext_resource type="PackedScene" uid="uid://dbnwk1sjyjngp" path="res://Cenas/hud e menus/hud.tscn" id="10_otsik"]
 [ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="10_plkc1"]
 [ext_resource type="PackedScene" uid="uid://dn1w05eqaqpdc" path="res://Cenas/Items/portas.tscn" id="11_o56vc"]
 [ext_resource type="PackedScene" uid="uid://bq72xujbqyik1" path="res://Cenas/player/player.tscn" id="12_ao7l8"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2gn6h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjl7g"]
 texture = ExtResource("1_y40j2")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -33,7 +31,7 @@ texture = ExtResource("1_y40j2")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjm1m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j5gw2"]
 texture = ExtResource("2_twd00")
 1:1/0 = 0
 2:1/0 = 0
@@ -180,14 +178,15 @@ texture = ExtResource("2_twd00")
 
 [sub_resource type="TileSet" id="TileSet_twd00"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2gn6h")
-sources/1 = SubResource("TileSetAtlasSource_tjm1m")
+sources/0 = SubResource("TileSetAtlasSource_mjl7g")
+sources/1 = SubResource("TileSetAtlasSource_j5gw2")
 
 [node name="fase_3" type="Node2D"]
 script = ExtResource("1_plkc1")
 levelName = "fase_3"
 msgPorta = "Conexão Direta"
 pathProximaFase = "res://Cenas/fases/fase_4.tscn"
+segundosFase = 15.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -199,82 +198,16 @@ layer_0/tile_data = PackedInt32Array(1114112, 65536, 0, 1114113, 65536, 0, 11141
 position = Vector2(193, 554)
 scale = Vector2(3, 3)
 
-[node name="placas2" parent="placas" instance=ExtResource("3_scpgx")]
-position = Vector2(239, -5.33333)
-label_path = NodePath("Label")
-
-[node name="Label" type="Label" parent="placas/placas2"]
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_dmcym")
-theme_override_font_sizes/font_size = 8
-text = "Push"
-horizontal_alignment = 1
-
-[node name="placas4" parent="placas" instance=ExtResource("3_scpgx")]
-position = Vector2(151.667, -10)
-label_path = NodePath("Label")
-
-[node name="Label" type="Label" parent="placas/placas4"]
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_dmcym")
-theme_override_font_sizes/font_size = 8
-text = "PROCURE A
-PORTA"
-horizontal_alignment = 1
-
-[node name="placas5" parent="placas" instance=ExtResource("3_scpgx")]
-visible = false
-position = Vector2(391.333, 0.333334)
-label_path = NodePath("Label")
-
-[node name="Label" type="Label" parent="placas/placas5"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_dmcym")
-theme_override_font_sizes/font_size = 8
-text = "Fica 
-Flinstones"
-horizontal_alignment = 1
-
-[node name="placas3" parent="placas" instance=ExtResource("3_scpgx")]
-visible = false
-position = Vector2(-5.33334, 0)
-
-[node name="Label" type="Label" parent="placas/placas3"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_dmcym")
-theme_override_font_sizes/font_size = 8
-text = "pegue as 3 
-chaves "
-horizontal_alignment = 1
-
 [node name="Placa" parent="placas" instance=ExtResource("3_scpgx")]
-position = Vector2(13, -5.33333)
+position = Vector2(125, -5.33333)
 label_path = NodePath("Label")
 label2_path = NodePath("Label2")
 
 [node name="Label" type="Label" parent="placas/Placa"]
-offset_left = -35.0
-offset_top = -45.0
-offset_right = 90.0
-offset_bottom = -37.0
+offset_left = -35.6667
+offset_top = -42.3333
+offset_right = 89.3333
+offset_bottom = -34.3333
 scale = Vector2(0.6, 0.6)
 theme_override_colors/font_color = Color(0.85098, 0.627451, 0.4, 1)
 theme_override_fonts/font = ExtResource("10_plkc1")
@@ -298,25 +231,16 @@ horizontal_alignment = 1
 [node name="espinhos" type="Node2D" parent="."]
 visible = false
 
-[node name="spike-area" parent="espinhos" instance=ExtResource("5_7sapq")]
-position = Vector2(504, 609)
-
 [node name="Chaves" type="Node2D" parent="."]
-
-[node name="Chave4" parent="Chaves" instance=ExtResource("7_gwui6")]
-visible = false
-position = Vector2(463, 614)
-scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_otsik")]
-visible = false
 offset_top = 1.0
 offset_bottom = 1.0
 
 [node name="Porta" parent="." instance=ExtResource("11_o56vc")]
-position = Vector2(1034, 497)
+position = Vector2(1045, 498)
 scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="Porta"]
