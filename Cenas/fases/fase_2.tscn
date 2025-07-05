@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dkkj8rxk1n0lp" path="res://Cenas/armadilhas/plataforma_cai.tscn" id="11_kdogn"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="11_ymsu3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrjsg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gr68"]
 texture = ExtResource("4_gel1r")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -35,7 +35,7 @@ texture = ExtResource("4_gel1r")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdogn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m228d"]
 texture = ExtResource("2_fqp72")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -190,8 +190,8 @@ texture = ExtResource("2_fqp72")
 
 [sub_resource type="TileSet" id="TileSet_4gr68"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_hrjsg")
-sources/1 = SubResource("TileSetAtlasSource_kdogn")
+sources/0 = SubResource("TileSetAtlasSource_4gr68")
+sources/1 = SubResource("TileSetAtlasSource_m228d")
 
 [node name="fase_2" type="Node2D"]
 script = ExtResource("1_y2s4l")

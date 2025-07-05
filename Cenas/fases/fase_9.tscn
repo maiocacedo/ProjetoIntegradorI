@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bv27w8eloe7th"]
+[gd_scene load_steps=27 format=3 uid="uid://bv27w8eloe7th"]
 
 [ext_resource type="Script" uid="uid://b8w6ir8ji2kb1" path="res://Scripts/fases/fase_9.gd" id="1_fxc20"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_gibis"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma/plataforma.tscn" id="10_6uf4h"]
 [ext_resource type="PackedScene" uid="uid://dkkj8rxk1n0lp" path="res://Cenas/armadilhas/plataforma_cai.tscn" id="11_emqau"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="12_5bgqv"]
+[ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/armadilhas/ghost.tscn" id="14_fxc20"]
 [ext_resource type="PackedScene" uid="uid://cskeghnjtijmk" path="res://Cenas/alavanca/alavanca.tscn" id="15_psm12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxc20"]
@@ -282,6 +283,7 @@ _data = {
 
 [node name="fase_9" type="Node2D"]
 script = ExtResource("1_fxc20")
+pathProximaFase = "res://Cenas/fases/fase_10.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -420,7 +422,6 @@ scale = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("6_vm1nd")]
-visible = false
 offset_top = 1.0
 offset_bottom = 1.0
 
@@ -527,35 +528,45 @@ rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap5" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2158, 1013)
+position = Vector2(-2161, 969)
 rotation = 1.57079
-scale = Vector2(3, 4.5)
-
-[node name="fireTrap9" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2161, 792)
-rotation = 1.57079
-scale = Vector2(3, 4.5)
-
-[node name="fireTrap11" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2027, 920)
-rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap12" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2031, 679)
+position = Vector2(-2032, 786)
 rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap13" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2164, 569)
+position = Vector2(-2161, 581)
 rotation = 1.57079
 scale = Vector2(3, 4.5)
 
 [node name="inimigo" type="Node2D" parent="."]
 position = Vector2(222, 22)
 
+[node name="ghost" parent="inimigo" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("14_fxc20")]
+position = Vector2(288, 74)
+scale = Vector2(3, 3)
+pointA = NodePath("cima")
+pointB = NodePath("baixo")
+pointC = NodePath("esquerda")
+pointD = NodePath("direita")
+
+[node name="cima" type="Marker2D" parent="inimigo/ghost"]
+position = Vector2(6, -31.6667)
+
+[node name="baixo" type="Marker2D" parent="inimigo/ghost"]
+position = Vector2(10, 31.3333)
+
+[node name="esquerda" type="Marker2D" parent="inimigo/ghost"]
+position = Vector2(-103.333, -3.66667)
+
+[node name="direita" type="Marker2D" parent="inimigo/ghost"]
+position = Vector2(124.667, -3)
+
 [node name="Portas" parent="." instance=ExtResource("7_mp75s")]
-position = Vector2(2000, 513)
+position = Vector2(1975, 513)
 scale = Vector2(2, 2)
 
 [node name="Alavanca" parent="." instance=ExtResource("15_psm12")]
@@ -565,3 +576,5 @@ scale = Vector2(1.985, 2.075)
 [node name="Alavanca2" parent="." instance=ExtResource("15_psm12")]
 position = Vector2(793, -436)
 scale = Vector2(1.985, 2.075)
+
+[connection signal="body_entered" from="Portas" to="." method="_on_portas_body_entered"]

@@ -12,9 +12,10 @@ extends Node2D
 @onready var alavancas = get_tree().get_nodes_in_group("alavanca")
 
 var completed = false
+var plataforma_liberada = false
 var inventario_node = null
 var chave_item = null
-var erro_item_reportado: bool = false  # NOVO: controle para evitar spam de erro
+var erro_item_reportado: bool = false
 
 func _ready() -> void:
 	hud.set_tempo(minutosFase, segundosFase)
@@ -23,8 +24,8 @@ func _ready() -> void:
 	inventario_node = get_tree().get_first_node_in_group("inventory")
 	if inventario_node == null:
 		print("ERRO: Nó de inventário não encontrado no grupo 'inventory'!")
-
-	# Tenta buscar o item apenas uma vez e evita print repetido
+	
+	# Busca a chave (ID 1)
 	if chave_item == null and not erro_item_reportado:
 		if ItemDB.has_method("getItem"):
 			chave_item = ItemDB.getItem(1)
@@ -35,39 +36,33 @@ func _ready() -> void:
 			print("ERRO: ItemDB não possui o método 'getItem'.")
 			erro_item_reportado = true
 
-func _process(delta: float) -> void:
-	if completed:
+func atualizar_estado_plataforma() -> void:
+	if plataforma_liberada or completed:
 		return
 
-	verificar_logica_plataforma()
-
-func verificar_logica_plataforma() -> void:
-	if inventario_node == null or chave_item == null:
-		return
-
-	# --- Condição 1: Verifica alavancas ativadas ---
+	# --- Verifica alavancas ativadas ---
 	var alavancas_ativadas = 0
 	for alavanca in alavancas:
-		if "ativada" in alavanca:
-			if alavanca.ativada:
-				alavancas_ativadas += 1
-		else:
-			print("AVISO: Alavanca sem variável 'ativada'!")
+		if alavanca.ativada:
+			alavancas_ativadas += 1
+	var condicao_alavancas = alavancas_ativadas >= alavancasNecessarias
 
-	var condicao_alavancas = (alavancas_ativadas >= alavancasNecessarias)
+	# --- Verifica se há chave ---
+	var condicao_chave = false
+	if inventario_node != null and chave_item != null:
+		if inventario_node.has_method("getQtdItem"):
+			var qtd_chaves = inventario_node.getQtdItem(chave_item)
+			condicao_chave = qtd_chaves >= chavesNecessarias
 
-	# --- Condição 2: Verifica chaves no inventário ---
-	var qtdChaves = 0
-	if inventario_node.has_method("getQtdItem"):
-		qtdChaves = inventario_node.getQtdItem(chave_item)
-	else:
-		print("Inventário não possui o método 'getQtdItem'!")
+	# --- Libera plataforma se uma das condições for satisfeita ---
+	if condicao_chave or condicao_alavancas:
+		plataforma_logica.visible = true
+		plataforma_liberada = true
+		print("Plataforma liberada: condição satisfeita.")
 
-	var condicao_chave = (qtdChaves >= chavesNecessarias)
 
-	plataforma_logica.visible = condicao_alavancas or condicao_chave
 
-func _on_Porta_body_entered(body: Node2D) -> void:
+func _on_portas_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player") or completed:
 		return
 

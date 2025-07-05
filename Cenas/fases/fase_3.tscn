@@ -229,7 +229,6 @@ Conexão Direta, portanto,
 horizontal_alignment = 1
 
 [node name="espinhos" type="Node2D" parent="."]
-visible = false
 
 [node name="Chaves" type="Node2D" parent="."]
 
