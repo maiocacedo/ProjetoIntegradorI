@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bip7hv2u13twp"]
+
+[ext_resource type="Script" uid="uid://ekyllxa7or1x" path="res://Scripts/alavanca/alavanca.gd" id="1_28nmg"]
+[ext_resource type="Texture2D" uid="uid://bvgeotxp3dbla" path="res://Assets/alavanca/alavancaEsquerda.png" id="2_pr2kg"]
+[ext_resource type="Texture2D" uid="uid://c7mmohiojnib3" path="res://Assets/alavanca/alavancaDireita.png" id="3_j2p4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2i24"]
+size = Vector2(20, 4)
+
+[node name="Alavanca" type="Node2D"]
+position = Vector2(6, 5)
+script = ExtResource("1_28nmg")
+sprite_esquerda = ExtResource("2_pr2kg")
+sprite_direita = ExtResource("3_j2p4l")
+
+[node name="SpriteAlavanca" type="Sprite2D" parent="."]
+position = Vector2(10, -2)
+scale = Vector2(2.00488, 1.22008)
+texture = ExtResource("2_pr2kg")
+
+[node name="DetectorColisao" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorColisao"]
+position = Vector2(10, 6)
+shape = SubResource("RectangleShape2D_l2i24")

@@ -1,0 +1,280 @@
+[gd_scene load_steps=10 format=3 uid="uid://csl3i2m7e2o46"]
+
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_c1od1"]
+[ext_resource type="Script" uid="uid://7k4rdfwao0d1" path="res://Scripts/hud e menus/creditos.gd" id="1_peec1"]
+[ext_resource type="LabelSettings" uid="uid://dv05upwbm0w17" path="res://Cenas/hud e menus/tres/menu_label_settings.tres" id="2_74png"]
+[ext_resource type="LabelSettings" uid="uid://dpsk2jqt5reyp" path="res://Cenas/hud e menus/tres/credits_desc_label_settings.tres" id="3_74png"]
+[ext_resource type="Theme" uid="uid://bbr5200q147wf" path="res://Cenas/hud e menus/tres/botao_menu_principal.tres" id="3_i2vs2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eupk3"]
+font = ExtResource("1_c1od1")
+font_size = 48
+outline_size = 5
+outline_color = Color(0.305882, 0.345098, 0.486275, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_peec1"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(3, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eupk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_peec1"]
+
+[node name="creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_peec1")
+
+[node name="fundo_solido" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="creditos_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 73.0
+offset_right = 127.5
+offset_bottom = 121.0
+grow_horizontal = 2
+text = "Créditos"
+label_settings = SubResource("LabelSettings_eupk3")
+
+[node name="voltar" type="Button" parent="."]
+layout_mode = 2
+offset_left = 472.0
+offset_top = 480.0
+offset_right = 672.0
+offset_bottom = 514.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_i2vs2")
+text = "Voltar"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.5
+offset_top = -113.0
+offset_right = 122.5
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="caio_macedo" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Caio Macedo"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="caio_macedo2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lider, Audio designer 
+HUD Screen"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator12" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="igor_carvalho" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Igor Carvalho"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator8" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="igor_carvalho2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Enemies, Traps Dev"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator13" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="bruno_alcantara" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bruno Alcantara"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator6" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="bruno_alcantara2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Inventory, Items Dev"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator14" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="ian_batista" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ian Batista"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator7" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="ian_batista2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Upgrades Dev"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator15" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_peec1")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="gustavo_mazur" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Gustavo Mazur"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="gustavo_mazur2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Lider, Level Designer
+"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator16" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="jefferson_korte" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Jefferson Korte"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator9" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="jefferson_korte2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Movement Dev"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator17" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="gabriel_dupim" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Gabriel Dupim"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator10" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="gabriel_dupim2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Sprites Designer"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator18" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
+
+[node name="agnaldo_da_costa" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Agnaldo da costa"
+label_settings = ExtResource("2_74png")
+horizontal_alignment = 1
+
+[node name="HSeparator11" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
+
+[node name="agnaldo_da_costa2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Orientador"
+label_settings = ExtResource("3_74png")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]
