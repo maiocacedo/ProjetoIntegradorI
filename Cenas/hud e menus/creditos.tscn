@@ -46,7 +46,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
+offset_left = -8.0
+offset_top = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.102998, 0.119671, 0.185393, 1)
@@ -107,7 +108,8 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="caio_macedo2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Viado"
+text = "Lider, Audio designer 
+HUD Screen"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -117,20 +119,20 @@ layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_eupk3")
 
-[node name="gustavo_mazur" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="igor_carvalho" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Gustavo Mazur"
+text = "Igor Carvalho"
 label_settings = ExtResource("2_74png")
 horizontal_alignment = 1
 
-[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+[node name="HSeparator8" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
-[node name="gustavo_mazur2" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="igor_carvalho2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Gustavo Mazur"
+text = "Enemies, Traps Dev"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -152,7 +154,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="bruno_alcantara2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Bruno Alcantara"
+text = "Inventory, Items Dev"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -174,7 +176,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="ian_batista2" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Ian Batista"
+text = "Upgrades Dev"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -191,20 +193,21 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_peec1")
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="igor_carvalho" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="gustavo_mazur" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Igor Carvalho"
+text = "Gustavo Mazur"
 label_settings = ExtResource("2_74png")
 horizontal_alignment = 1
 
-[node name="HSeparator8" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 1
 theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
-[node name="igor_carvalho2" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="gustavo_mazur2" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Igor Carvalho"
+text = "Lider, Level Designer
+"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -226,7 +229,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="jefferson_korte2" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Jefferson Korte"
+text = "Movement Dev"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -248,7 +251,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="gabriel_dupim2" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Gabriel Dupim"
+text = "Sprites Designer"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 
@@ -270,7 +273,7 @@ theme_override_styles/separator = SubResource("StyleBoxFlat_peec1")
 
 [node name="agnaldo_da_costa2" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Agnaldo da costa"
+text = "Orientador"
 label_settings = ExtResource("3_74png")
 horizontal_alignment = 1
 

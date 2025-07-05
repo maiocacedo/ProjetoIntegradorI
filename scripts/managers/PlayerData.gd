@@ -1,16 +1,15 @@
 extends Node
 
 var stats = { #guarda informações do player
-	"speed": 200.0,
+	"speed": 300.0,
 	"jumpSpeed": -300.0,
 	"estrelas": 0
 }
 
 var skins = [ #guarda informações das skins
-	{"name": "Default" , "price": 0 , "inUse": true},
-	{"name": "Skin1" , "price": 10 , "inUse": false},
-	{"name": "Skin2" , "price": 20 , "inUse": false},
-	{"name": "Skin3" , "price": 30 , "inUse": false}
+	{"name": "default" , "price": 0 , "inUse": true},
+	{"name": "skin1" , "price": 15 , "inUse": false, "purchased": false},
+	{"name": "skin2" , "price": 30 , "inUse": false, "purchased": false},
 ]
 
 #aqui vai as variaveis relacionadas ao player
@@ -33,3 +32,5 @@ func ResetVariables() -> void: #aqui reseta as variaveis de uso para evitar mal 
 	damageUpgradeApplied = false
 	jumpUpgradeApplied = false
 	pergaminhoUsado = false
+	stats["speed"] = 300
+	stats["jumpSpeed"] = -300

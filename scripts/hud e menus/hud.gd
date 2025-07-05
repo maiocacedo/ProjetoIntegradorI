@@ -95,6 +95,7 @@ func mostra_resultado(tempoDecorrido: float, estrelas: int, proxFase: String) ->
 	podeContarTempo = false  # Impede que o timeout continue contando
 	temporizador.stop()      # Para o Timer ativo
 	menu_de_congratulacoes.visible = true
+	MusicManager._play_music("res://Assets/music/musica_vitoria.wav")
 	menu_de_congratulacoes.resultados(tempoDecorrido, estrelas, proxFase)
 
 # ---------------------------------------

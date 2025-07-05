@@ -17,6 +17,14 @@ func _on_body_entered(body):
 	print("Só para testar", body.name)
 	if body.is_in_group("player"): 
 		alternar_estado()
+		if estado == 1:
+			for plataforma in get_tree().get_nodes_in_group("bloqueio_porta"):
+				plataforma.visible = false
+				var colisor = plataforma.get_node_or_null("CollisionShape2D")
+				if colisor:
+					colisor.set_deferred("disabled", true)
+				if plataforma.has_method("set_deferred"):
+						plataforma.set_deferred("disabled", true)
 
 func alternar_estado():
 	estado = 1 - estado

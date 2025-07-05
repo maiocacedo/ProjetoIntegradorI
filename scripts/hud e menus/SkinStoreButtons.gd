@@ -1,109 +1,86 @@
 extends Node
 
-#referencias aos botões na cena
+# Referências aos botões
 @onready var skin1Button = $Skin1Button
 @onready var skin2Button = $Skin2Button
 @onready var skin3Button = $Skin3Button
 
-var skin1Purchased: bool = false
-var skin2Purchased: bool = false
-var skin3Purchased: bool = false
+var pressedText = "res://Assets/Inventory/slot_inv_pressed.png"
+var releasedText = "res://Assets/Inventory/slot_inv.png"
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for Buttons in get_children():
-		if Buttons is Button:
-			Buttons.pressed.connect(ButtonPressed.bind(Buttons))
+	for button in get_children():
+		if button is Button:
+			button.pressed.connect(ButtonPressed.bind(button))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if not skin1Purchased:
-		skin1Button.text = str(PlayerData.skins[1]["price"]) + " Estrelas"
-	elif skin1Purchased:
-		if PlayerData.skins[1]["inUse"]:
-			skin1Button.text = "Selecionada"
-		else:
-			skin1Button.text = "Não Selecionada"
-	
-	if not skin2Purchased:
-		skin2Button.text = str(PlayerData.skins[2]["price"]) + " Estrelas"
-	elif skin2Purchased:
-		if PlayerData.skins[2]["inUse"]:
-			skin2Button.text = "Selecionada"
-		else:
-			skin2Button.text = "Não selecionada"
-			
-	if not skin3Purchased:
-		skin3Button.text = str(PlayerData.skins[3]["price"]) + " Estrelas"
-	elif skin3Purchased:
-		if PlayerData.skins[3]["inUse"]:
-			skin3Button.text = "Selecionada"
-		else:
-			skin3Button.text = "Não selecionada"
+	# Define aparência inicial com base em quais skins estão em uso
+	update_selected_skin()
+
+	# Desativa visuais se a skin não estiver comprada
+	if not PlayerData.skins[1]["purchased"]:
+		$Skin2Button/TextureRect/skin2.modulate = Color(0.8, 0.8, 0.8, 0.6)
+	if not PlayerData.skins[2]["purchased"]:
+		$Skin3Button/TextureRect/skin3.modulate = Color(0.8, 0.8, 0.8, 0.6)
+
 
 func ButtonPressed(button):
+	var selectedTexture = load(pressedText)
+	var emptyTexture = load(releasedText)
+
 	match button.name:
 		"Skin1Button":
-			if not skin1Purchased:
-				if PlayerData.stats["estrelas"] >= PlayerData.skins[1]["price"]:
-					skin1Purchased = true
-					PlayerData.skins[1]["inUse"] = true
-					
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin1":
-							skin["inUse"] = false
-			
-			elif skin1Purchased:
-				PlayerData.skins[1]["inUse"] = !PlayerData.skins[1]["inUse"]
-				
-				if PlayerData.skins[1]["inUse"]:
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin1":
-							skin["inUse"] = false
-				else:
-					PlayerData.skins[0]["inUse"] = true
-		
+			select_skin(0)
+
 		"Skin2Button":
-			if not skin2Purchased:
-				if PlayerData.stats["estrelas"] >= PlayerData.skins[2]["price"]:
-					skin2Purchased = true
-					PlayerData.skins[2]["inUse"] = true
-					
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin2":
-							skin["inUse"] = false
-							
-			elif skin2Purchased:
-				PlayerData.skins[2]["inUse"] = !PlayerData.skins[2]["inUse"]
-				
-				if PlayerData.skins[2]["inUse"]:
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin2":
-							skin["inUse"] = false
+			if not PlayerData.skins[1]["purchased"]:
+				if PlayerData.stats["estrelas"] >= PlayerData.skins[1]["price"]:
+					PlayerData.skins[1]["purchased"] = true
+					$Skin2Button/TextureRect/skin2.modulate = Color(1, 1, 1, 1)
 				else:
-					PlayerData.skins[0]["inUse"] = true
-		
+					return
+			select_skin(1)
+
 		"Skin3Button":
-			if not skin3Purchased:
-				if PlayerData.stats["estrelas"] >= PlayerData.skins[3]["price"]:
-					skin3Purchased = true
-					PlayerData.skins[3]["inUse"] = true
-					
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin3":
-							skin["inUse"] = false
-			elif skin1Purchased:
-				PlayerData.skins[3]["inUse"] = !PlayerData.skins[3]["inUse"]
-				
-				if PlayerData.skins[3]["inUse"]:
-					for skin in PlayerData.skins:
-						if skin["name"] != "Skin3":
-							skin["inUse"] = false
+			if not PlayerData.skins[2]["purchased"]:
+				if PlayerData.stats["estrelas"] >= PlayerData.skins[2]["price"]:
+					PlayerData.skins[2]["purchased"] = true
+					$Skin3Button/TextureRect/skin3.modulate = Color(1, 1, 1, 1)
 				else:
-					PlayerData.skins[0]["inUse"] = true
-		
+					return
+			select_skin(2)
+
 		"UpgradesButton":
+			save_skins()
 			get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn")
-			
+
 		"VoltarButton":
+			save_skins()
 			get_tree().change_scene_to_file("res://Cenas/hud e menus/seletor_nivel.tscn")
+
+
+func select_skin(index: int):
+	for i in range(PlayerData.skins.size()):
+		PlayerData.skins[i]["inUse"] = (i == index)
+
+	update_selected_skin()
+
+
+func update_selected_skin():
+	var selectedTexture = load(pressedText)
+	var emptyTexture = load(releasedText)
+
+	$Skin1Button/TextureRect.texture = emptyTexture
+	$Skin2Button/TextureRect.texture = emptyTexture
+	$Skin3Button/TextureRect.texture = emptyTexture
+
+	if PlayerData.skins[0]["inUse"]:
+		$Skin1Button/TextureRect.texture = selectedTexture
+	if PlayerData.skins[1]["inUse"]:
+		$Skin2Button/TextureRect.texture = selectedTexture
+	if PlayerData.skins[2]["inUse"]:
+		$Skin3Button/TextureRect.texture = selectedTexture
+
+func save_skins():
+	SaveManager.update_skins_progress("default", PlayerData.skins[0]["inUse"], true)
+	SaveManager.update_skins_progress("skin1", PlayerData.skins[1]["inUse"], PlayerData.skins[1]["purchased"])
+	SaveManager.update_skins_progress("skin2", PlayerData.skins[2]["inUse"], PlayerData.skins[2]["purchased"])

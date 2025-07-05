@@ -24,15 +24,19 @@ var pergaminhoPurchased : bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SaveManager.load_progress()
-	#shoesPurchased = SaveManager.progress["itens"]["shoes"]["purchased"]
-	#capePurchased = SaveManager.progress["itens"]["shoes"]["purchased"]
-	#refriPurchased  = SaveManager.progress["itens"]["shoes"]["purchased"]
-	#pergaminhoPurchased = SaveManager.progress["itens"]["shoes"]["purchased"]
 	shoesPurchased = SaveManager.progress.get("itens", {}).get("shoes", {}).get("purchased", false)
 	capePurchased = SaveManager.progress.get("itens", {}).get("cape", {}).get("purchased", false)
 	refriPurchased = SaveManager.progress.get("itens", {}).get("refri", {}).get("purchased", false)
 	pergaminhoPurchased = SaveManager.progress.get("itens", {}).get("pergaminho", {}).get("purchased", false)
-
+	if not shoesPurchased:
+		$ShoesButton/TenisMoldura.modulate = Color(0.8, 0.8, 0.8, 0.6)
+	if not capePurchased:
+		$CapeButton/EscudoEspinhosMoldura.modulate = Color(0.8, 0.8, 0.8, 0.6)
+	if not refriPurchased:
+		$RefriButton/RefrigeranteMoldura.modulate =  Color(0.8, 0.8, 0.8, 0.6)
+	if not pergaminhoPurchased:
+		$PergaminhoButton/EscudoMoldura.modulate =  Color(0.8, 0.8, 0.8, 0.6)
+	
 	for Buttons in get_children():
 		if Buttons is Button:
 			Buttons.pressed.connect(_on_button_Pressed.bind(Buttons))
@@ -45,10 +49,10 @@ func _ready() -> void:
 		$RefriButton/RefriText.texture = load(releasedpressedText)
 	if(PlayerData.hasPergaminho):
 		$PergaminhoButton/PergaminhoText.texture = load(releasedpressedText)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	
 	if not shoesPurchased: #caso ele não tenha sido "comprado"
 		shoesButton.text = str(speedUpgradeScript.atributes["price"]) + " Estrelas" #vai aparecer apenas o preço
@@ -92,9 +96,11 @@ func _on_button_Pressed(button):
 		"ShoesButton": #nome do botão
 			if shoesPurchased == false: #caso não tenha sido comprado
 				if PlayerData.stats["estrelas"] >= speedUpgradeScript.atributes["price"]: #verifica se o player já tem a quantidade de dinheiro
-					$ShoesButton/ShoesText.texture = text
 					if not (PlayerData.hasDamageUpgrade and PlayerData.hasJumpUpgrade and PlayerData.hasPergaminho):
 						PlayerData.hasSpeedUpgrade = true #quando compra já marca como ativado, para impedir mal entendidos
+						$ShoesButton/ShoesText.texture = text
+					else: 
+						print("já tem 3 ai papai")
 					shoesPurchased = true #marca como comprado
 			elif shoesPurchased == true: #caso já tenha sido comprado permite ativar e desativar
 				if PlayerData.hasSpeedUpgrade:
@@ -110,9 +116,12 @@ func _on_button_Pressed(button):
 		"CapeButton":
 			if not capePurchased:
 				if PlayerData.stats["estrelas"] >= damageUpgradeScript.atributes["price"]:
-					$CapeButton/CapeText.texture = text
+					
 					if not (PlayerData.hasSpeedUpgrade and PlayerData.hasJumpUpgrade and PlayerData.hasPergaminho):
 						PlayerData.hasDamageUpgrade = true
+						$CapeButton/CapeText.texture = text
+					else: 
+						print("já tem 3 ai papai")
 					capePurchased = true
 			elif capePurchased:
 				if PlayerData.hasDamageUpgrade:
@@ -127,9 +136,12 @@ func _on_button_Pressed(button):
 		"RefriButton":
 			if not refriPurchased:
 				if PlayerData.stats["estrelas"] >= jumpUpgradeScript.atributes["price"]:
-					$RefriButton/RefriText.texture = text
+					
 					if not (PlayerData.hasSpeedUpgrade and PlayerData.hasDamageUpgrade and PlayerData.hasPergaminho):
 						PlayerData.hasJumpUpgrade = true
+						$RefriButton/RefriText.texture = text
+					else: 
+						print("já tem 3 ai papai")
 					refriPurchased = true
 			elif refriPurchased:
 				if PlayerData.hasJumpUpgrade:
@@ -145,9 +157,11 @@ func _on_button_Pressed(button):
 		"PergaminhoButton":
 			if not pergaminhoPurchased:
 				if PlayerData.stats["estrelas"] >= pergaminhoScript.atributes["price"]:
-					$PergaminhoButton/PergaminhoText.texture = text
 					if not (PlayerData.hasSpeedUpgrade and PlayerData.hasDamageUpgrade and PlayerData.hasJumpUpgrade):
 						PlayerData.hasPergaminho = true
+						$PergaminhoButton/PergaminhoText.texture = text
+					else: 
+						print("já tem 3 ai papai")
 					pergaminhoPurchased = true
 			elif pergaminhoPurchased:
 				if PlayerData.hasPergaminho:
@@ -176,6 +190,15 @@ func _on_button_Pressed(button):
 			
 			get_tree().change_scene_to_file("res://Cenas/hud e menus/seletor_nivel.tscn")
 			
+	if shoesPurchased:
+		$ShoesButton/TenisMoldura.modulate = Color(1, 1, 1, 1)
+	if capePurchased:
+		$CapeButton/EscudoEspinhosMoldura.modulate = Color(1, 1, 1, 1)
+	if refriPurchased:
+		$RefriButton/RefrigeranteMoldura.modulate =  Color(1, 1, 1, 1)
+	if pergaminhoPurchased:
+		$PergaminhoButton/EscudoMoldura.modulate =  Color(1, 1, 1, 1)
+		
 func _on_button_up(button):
 	var text = load(releasedpressedText)
 	print("A")

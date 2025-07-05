@@ -11,12 +11,10 @@ func _ready() -> void:
 	
 	for levelName in SaveManager.recompensaLevels.keys():
 		var levelNum   = levelName.get_slice("_", 1).to_int()
-		var estrelas   = SaveManager.progress.get(levelName, {}).get("estrelas", 0)
+		var estrelas   = SaveManager.progress.get("fases").get(levelName, {}).get("estrelas", 0)
 		total_estrelas += estrelas
 		
-		# 1) Coluna de 1 a 3, usando resto:
-		# levelNum=1,2,3 → colIdx=1,2,3
-		# levelNum=4,5,6 → colIdx=1,2,3 de novo
+
 		var colIdx   = (levelNum - 1) % 3 + 1
 		var vboxName = "VBoxContainer%d" % colIdx
 		

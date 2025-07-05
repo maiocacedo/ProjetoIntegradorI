@@ -4,7 +4,7 @@ extends Resource
 
 var atributes = {
 	"speedBuff": 50.0,
-	"price": 10
+	"price": 6
 }
 
 var speedBuff: float = 50.0 #se quiser mudar a quantidade de buff, é só mudar o valor

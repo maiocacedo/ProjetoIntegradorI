@@ -10,5 +10,5 @@ RichTextLabel/constants/outline_size = 8
 RichTextLabel/constants/shadow_offset_x = 2
 RichTextLabel/constants/shadow_offset_y = 4
 RichTextLabel/constants/shadow_outline_size = 3
-RichTextLabel/font_sizes/normal_font_size = 15
+RichTextLabel/font_sizes/normal_font_size = 13
 RichTextLabel/fonts/normal_font = ExtResource("1_q81sy")

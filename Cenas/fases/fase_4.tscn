@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://1ux44abs8ej0"]
+[gd_scene load_steps=18 format=3 uid="uid://1ux44abs8ej0"]
 
 [ext_resource type="Script" uid="uid://dyiagun7ywke6" path="res://Scripts/fases/fase.gd" id="1_2nanc"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_f0a64"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_vavc2"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="3_1y3sd"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="4_y20om"]
-[ext_resource type="PackedScene" uid="uid://8u5btptcigf6" path="res://Cenas/armadilhas/spike_area.tscn" id="5_e8naj"]
 [ext_resource type="PackedScene" uid="uid://dkkj8rxk1n0lp" path="res://Cenas/armadilhas/plataforma_cai.tscn" id="6_7im2g"]
 [ext_resource type="PackedScene" uid="uid://d2staw4b6tp1g" path="res://Cenas/Items/chave.tscn" id="7_sqim8"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="8_050sx"]
@@ -203,6 +202,7 @@ msgPorta = "SE (chaves == 1 E alavancas  == 1)"
 chavesNecessarias = 1
 alavancasNecessarias = 1
 pathProximaFase = "res://Cenas/fases/fase_5.tscn"
+minutosFase = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -213,9 +213,6 @@ layer_0/tile_data = PackedInt32Array(1114112, 65536, 0, 1114113, 65536, 0, 11141
 [node name="espinhos" type="Node2D" parent="."]
 visible = false
 
-[node name="spike-area" parent="espinhos" instance=ExtResource("5_e8naj")]
-position = Vector2(504, 609)
-
 [node name="Chaves" type="Node2D" parent="."]
 
 [node name="Chave4" parent="Chaves" instance=ExtResource("7_sqim8")]
@@ -223,7 +220,6 @@ position = Vector2(1062, 377)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_qymqf")]
 offset_top = 1.0
@@ -264,21 +260,21 @@ position = Vector2(863, 534)
 scale = Vector2(3, 3)
 
 [node name="Alavanca" parent="." instance=ExtResource("12_f0a64")]
-position = Vector2(1078, 114)
-scale = Vector2(2, 2)
+position = Vector2(1069, 103)
+scale = Vector2(2.73, 2.73)
 
 [node name="Plataforma" type="Node2D" parent="."]
 
 [node name="plataforma_cai" parent="Plataforma" instance=ExtResource("6_7im2g")]
-position = Vector2(78, 448)
+position = Vector2(65, 449)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai2" parent="Plataforma" instance=ExtResource("6_7im2g")]
-position = Vector2(181, 363)
+position = Vector2(165, 378)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai3" parent="Plataforma" instance=ExtResource("6_7im2g")]
-position = Vector2(77, 260)
+position = Vector2(88, 218)
 scale = Vector2(3, 3)
 
 [node name="Porta" parent="." instance=ExtResource("11_dcrdh")]
@@ -333,54 +329,37 @@ position = Vector2(193, 554)
 scale = Vector2(3, 3)
 
 [node name="placas4" parent="placas" instance=ExtResource("3_1y3sd")]
-position = Vector2(10.3333, -5.33333)
+position = Vector2(15.6667, -5.33333)
 label_path = NodePath("Label")
+label2_path = NodePath("Label2")
 
 [node name="Label" type="Label" parent="placas/placas4"]
-offset_left = -27.6667
-offset_top = -37.3333
-offset_right = 99.3333
-offset_bottom = -7.33333
+offset_left = -28.6667
+offset_top = -34.3333
+offset_right = 90.3333
+offset_bottom = -15.3333
 scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_y20om")
+theme_override_colors/font_color = Color(0.85098, 0.627451, 0.4, 1)
+theme_override_fonts/font = ExtResource("13_ygppw")
 theme_override_font_sizes/font_size = 8
 text = "Porta Lógica AND
-- Pegue uma Chave
-- Ative uma Alavanca"
-
-[node name="placas5" parent="placas" instance=ExtResource("3_1y3sd")]
-visible = false
-position = Vector2(391.333, 0.333334)
-label_path = NodePath("Label")
-
-[node name="Label" type="Label" parent="placas/placas5"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
-theme_override_fonts/font = ExtResource("4_y20om")
-theme_override_font_sizes/font_size = 8
-text = "Fica 
-Flinstones"
+"
 horizontal_alignment = 1
 
-[node name="placas3" parent="placas" instance=ExtResource("3_1y3sd")]
-visible = false
-position = Vector2(-5.33334, 0)
-
-[node name="Label" type="Label" parent="placas/placas3"]
-visible = false
-offset_left = -22.6667
-offset_top = -19.6667
-offset_right = 68.3333
-offset_bottom = 3.33333
-scale = Vector2(0.5, 0.5)
+[node name="Label2" type="Label" parent="placas/placas4"]
+offset_left = -39.6667
+offset_top = -28.6667
+offset_right = 120.333
+offset_bottom = 23.3333
+scale = Vector2(0.545, 0.545)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("4_y20om")
 theme_override_font_sizes/font_size = 8
-text = "pegue as 3 
-chaves "
+text = "Porta logica que precisa 
+de dois \"sim\" , sim chave 
+e sim alavanca!!!
+
+"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]

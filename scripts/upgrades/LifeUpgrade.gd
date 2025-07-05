@@ -2,7 +2,7 @@ class_name LifeUpgrade
 extends Resource
 
 var atributes = {
-	"price" : 30
+	"price" : 18
 }
 
 func Aplicar():

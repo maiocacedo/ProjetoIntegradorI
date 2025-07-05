@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+var SPEED: float
 const ACCELERATION = 900.0
 const FRICTION = 900.0
-const JUMP_VELOCITY = -300.0
+var JUMP_VELOCITY: float
 const EXTRA_GRAVITY = 800.0
 
 const COYOTE_TIME = 0.15
@@ -23,6 +23,11 @@ var jumpUpgradeScript := preload("res://Scripts/upgrades/JumpUpgrade.gd").new()
 @export var hasEscudo: bool
 @export var hasEscudoEspinhos: bool
 
+var currentskin: SpriteFrames
+var default: SpriteFrames = load("res://Cenas/player/playerdefault.tres") 
+var skin1: SpriteFrames = load("res://Cenas/player/playerskin1.tres")
+var skin2: SpriteFrames = load("res://Cenas/player/playerskin2.tres")
+
 var knockbackHorizontal = 800
 var knockbackVertical = -300
 
@@ -40,20 +45,44 @@ var has_jumped = false
 
 # Verifica os upgrades
 func _ready() -> void:
+	PlayerData.ResetVariables()
 	if PlayerData.hasJumpUpgrade:
 		hasRefrigerante = true
 	if PlayerData.hasSpeedUpgrade:
 		hasTenis = true
 	if PlayerData.hasDamageUpgrade:
-		hasEscudo = true
-	if PlayerData.hasPergaminho:
 		hasEscudoEspinhos = true
+	if PlayerData.hasPergaminho:
+		hasEscudo = true
+	
+	ApplyUpgrade(speedUpgradeScript)
+	SPEED = PlayerData.stats["speed"]
+	
+	ApplyUpgrade(jumpUpgradeScript)
+	JUMP_VELOCITY = PlayerData.stats["jumpSpeed"]
+	
+	var inventory = get_tree().get_first_node_in_group("inventory")
+	
+	inventory.verificarUpgrades()
+	
+	for skin in PlayerData.skins:
+		if skin["inUse"]:
+			
+			if skin["name"] == "default":
+				currentskin = default
+			if skin["name"] == "skin1":
+				currentskin = skin1
+			if skin["name"] == "skin2":
+				currentskin = skin2
+	
+	animated_sprite_2d.sprite_frames = currentskin
 
 func _physics_process(delta: float) -> void:
 	if not alive:
 		if animated_sprite_2d.animation != "die":
 			animated_sprite_2d.play("die")
 		return
+		
 
 	# Temporizadores
 	if not is_on_floor():

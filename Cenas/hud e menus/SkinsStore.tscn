@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5wllx01h6pqs"]
+[gd_scene load_steps=17 format=3 uid="uid://5wllx01h6pqs"]
 
 [ext_resource type="Texture2D" uid="uid://drprns1suecoh" path="res://Assets/sprites/menu_mercado_mockup.png" id="1_frgl3"]
 [ext_resource type="Script" uid="uid://v6fj0kmdayre" path="res://Scripts/hud e menus/SkinStoreButtons.gd" id="2_2bh30"]
@@ -6,10 +6,13 @@
 [ext_resource type="Theme" uid="uid://p3mjdw5vhdb0" path="res://Cenas/hud e menus/StoreButton.tres" id="3_67pyf"]
 [ext_resource type="Script" uid="uid://4kw0yu1um4vm" path="res://Scripts/hud e menus/SkinStoreLabels.gd" id="3_bphmr"]
 [ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="4_gj35x"]
-[ext_resource type="Texture2D" uid="uid://cuwavmrvh1vpg" path="res://Assets/sprites/player_breathing (1).png" id="5_gj35x"]
+[ext_resource type="Texture2D" uid="uid://dqvleg5sv87rb" path="res://Assets/spritesheets/skin1_breathing.png" id="5_f7ngf"]
+[ext_resource type="Texture2D" uid="uid://cqew6syu3baf5" path="res://Assets/spritesheets/player_breathing.png" id="5_sbihw"]
+[ext_resource type="Texture2D" uid="uid://da7fkkyav1k1r" path="res://Assets/spritesheets/gold_breathing.png" id="7_sbihw"]
 [ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="8_7yj5r"]
 [ext_resource type="Texture2D" uid="uid://cpto0txrmllto" path="res://Assets/sprites/descricacao_item.png" id="8_a04mj"]
 [ext_resource type="Texture2D" uid="uid://bxcm8oasgop6y" path="res://Assets/sprites/estrela.png" id="10_gj35x"]
+[ext_resource type="Theme" uid="uid://cytrg3c2hrooa" path="res://rich_text_loja.tres" id="13_doxrh"]
 
 [sub_resource type="Animation" id="Animation_ica3m"]
 length = 0.001
@@ -50,7 +53,7 @@ _data = {
 &"idle": SubResource("Animation_ua8by")
 }
 
-[node name="Control" type="Control"]
+[node name="SkinsStore" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,14 +93,14 @@ offset_right = 152.0
 offset_bottom = 197.0
 texture = ExtResource("4_gj35x")
 
-[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin1Button/TextureRect"]
-modulate = Color(0.843137, 0.482353, 0.721569, 1)
-position = Vector2(92, 96)
+[node name="skin1" type="Sprite2D" parent="Buttons/Skin1Button/TextureRect"]
+position = Vector2(90, 94)
 scale = Vector2(6.91667, 6.91667)
-texture = ExtResource("5_gj35x")
+texture = ExtResource("5_sbihw")
 hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin1Button/TextureRect/cavaleiro_dos_circuitos"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin1Button/TextureRect/skin1"]
+active = false
 libraries = {
 &"": SubResource("AnimationLibrary_7fsho")
 }
@@ -119,14 +122,14 @@ offset_right = 198.0
 offset_bottom = 197.0
 texture = ExtResource("4_gj35x")
 
-[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin2Button/TextureRect"]
-modulate = Color(0.6, 0.898039, 0.313726, 1)
-position = Vector2(92, 96)
+[node name="skin2" type="Sprite2D" parent="Buttons/Skin2Button/TextureRect"]
+position = Vector2(70, 96)
 scale = Vector2(6.91667, 6.91667)
-texture = ExtResource("5_gj35x")
+texture = ExtResource("5_f7ngf")
 hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin2Button/TextureRect/cavaleiro_dos_circuitos"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin2Button/TextureRect/skin2"]
+active = false
 libraries = {
 &"": SubResource("AnimationLibrary_7fsho")
 }
@@ -149,14 +152,14 @@ offset_right = 161.0
 offset_bottom = 200.0
 texture = ExtResource("4_gj35x")
 
-[node name="cavaleiro_dos_circuitos" type="Sprite2D" parent="Buttons/Skin3Button/TextureRect"]
-modulate = Color(0.952446, 0.952446, 3.85046e-06, 1)
+[node name="skin3" type="Sprite2D" parent="Buttons/Skin3Button/TextureRect"]
 position = Vector2(92, 96)
 scale = Vector2(6.91667, 6.91667)
-texture = ExtResource("5_gj35x")
+texture = ExtResource("7_sbihw")
 hframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin3Button/TextureRect/cavaleiro_dos_circuitos"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Skin3Button/TextureRect/skin3"]
+active = false
 libraries = {
 &"": SubResource("AnimationLibrary_7fsho")
 }
@@ -195,6 +198,48 @@ position = Vector2(-21, 5)
 scale = Vector2(4, 4)
 texture = ExtResource("10_gj35x")
 
+[node name="PlayerLabel3" type="Label" parent="Labels"]
+offset_left = 985.0
+offset_top = 343.0
+offset_right = 1073.0
+offset_bottom = 407.0
+text = "x30"
+label_settings = ExtResource("8_7yj5r")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PlayerLabel3"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("10_gj35x")
+
+[node name="PlayerLabel5" type="Label" parent="Labels"]
+offset_left = 317.0
+offset_top = 343.0
+offset_right = 405.0
+offset_bottom = 407.0
+text = "x0"
+label_settings = ExtResource("8_7yj5r")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PlayerLabel5"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("10_gj35x")
+
+[node name="PlayerLabel4" type="Label" parent="Labels"]
+offset_left = 646.0
+offset_top = 343.0
+offset_right = 734.0
+offset_bottom = 407.0
+text = "x15"
+label_settings = ExtResource("8_7yj5r")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PlayerLabel4"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("10_gj35x")
+
 [node name="TextureRect" type="TextureRect" parent="Labels"]
 offset_left = 125.0
 offset_top = 382.0
@@ -211,13 +256,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -45.5
-offset_right = 77.5
-offset_bottom = 49.5
+offset_left = -71.0
+offset_top = -56.5
+offset_right = 78.0
+offset_bottom = 66.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Aqui vai o nome e uma breve descrição da skin"
+theme = ExtResource("13_doxrh")
+theme_override_font_sizes/normal_font_size = 13
+text = "Cavaleiro dos Circuitos - \"Busco o poder das portas\""
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -237,13 +284,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -65.5
-offset_top = -46.0
-offset_right = 77.5
-offset_bottom = 50.0
+offset_left = -65.0
+offset_top = -58.5
+offset_right = 78.0
+offset_bottom = 64.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Aqui vai o nome e uma breve descrição da skin"
+theme = ExtResource("13_doxrh")
+theme_override_font_sizes/normal_font_size = 13
+text = "Cavaleiro do LED - \"Glória ao LED!\""
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -270,11 +319,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -69.0
-offset_top = -45.5
+offset_top = -54.5
 offset_right = 79.0
-offset_bottom = 49.5
+offset_bottom = 63.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Aqui vai o nome e uma breve descrição da skin"
+theme = ExtResource("13_doxrh")
+theme_override_font_sizes/normal_font_size = 13
+text = "Mestre dos Circuitos - \"Masmorras na palma da mão\""
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -32,14 +32,14 @@ func _on_scene_changed(newScene: Node) -> void:
 	print("Cena mudou para:", newScene.name)
 	# Toca música de acordo com a cena
 	match newScene.name:
-		"fase_1", "fase_2":
+		"fase_1", "fase_2","fase_3","fase_4","fase_5":
 			_play_music("res://Assets/music/tema_level_1.wav")
+		"fase_6", "fase_7","fase_8","fase_9","fase_10":
+			_play_music("res://Assets/music/tema_level_2.wav")
 		"menu_principal", "seletor_nivel", "opcoes", "creditos":
 			_play_music("res://Assets/music/tema_menu.wav")
-		"Store":
+		"Store","SkinsStore":
 			_play_music("res://Assets/music/loja.wav")
-		"tela_sucesso":
-			_play_music("res://Assets/sounds/musica_vitoria.wav")
 		_:
 			_stop_music()
 
@@ -51,7 +51,7 @@ func _play_music(path: String) -> void:
 		musica.stream = load(path)
 		musica.play()
 
-func retomar_musica() -> void:
+func retomar_musica():
 	musica.play()
 
 # Função para parar música

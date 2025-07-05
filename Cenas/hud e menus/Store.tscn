@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cu0gmuhlgenk" path="res://Assets/Items/tenis_moldura.png" id="4_rfy1p"]
 [ext_resource type="Texture2D" uid="uid://dh4kt3ctbfvc3" path="res://Assets/Items/escudo_moldura.png" id="5_dbkna"]
 [ext_resource type="Texture2D" uid="uid://cpto0txrmllto" path="res://Assets/sprites/descricacao_item.png" id="6_kgbig"]
-[ext_resource type="Texture2D" uid="uid://doktd7pjpt507" path="res://Assets/Items/escudo_espinhos_moldura.png" id="6_pccvn"]
 [ext_resource type="Texture2D" uid="uid://dy6j8mulfaixv" path="res://Assets/Items/refrigerante_moldura.png" id="7_hk7pa"]
+[ext_resource type="Texture2D" uid="uid://bensiw1colrq1" path="res://Assets/Items/faquinha_moldura.png" id="7_johrv"]
 [ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="12_hk7pa"]
 [ext_resource type="Theme" uid="uid://cytrg3c2hrooa" path="res://rich_text_loja.tres" id="12_johrv"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="13_27d78"]
@@ -102,9 +102,9 @@ offset_bottom = 180.0
 texture = ExtResource("4_johrv")
 
 [node name="EscudoEspinhosMoldura" type="Sprite2D" parent="Buttons/CapeButton"]
-position = Vector2(92, 94)
-scale = Vector2(5, 5)
-texture = ExtResource("6_pccvn")
+position = Vector2(93, 90)
+scale = Vector2(7.1875, 7.1875)
+texture = ExtResource("7_johrv")
 
 [node name="RefriButton" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(180, 180)
@@ -241,7 +241,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("12_johrv")
-text = "Escudo com Espinhos - Derrota inimigos ao atingi-los"
+text = "Faquinha - Derrota inimigos ao enconstá-los"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -272,10 +272,66 @@ offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("12_johrv")
-text = "Refrigerante Higher - Pule mais alto "
+text = "Refrigerante Pulante \"Higher\" - Pule mais alto "
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="DamagePrice" type="Label" parent="Labels"]
+offset_left = 813.0
+offset_top = 343.0
+offset_right = 901.0
+offset_bottom = 407.0
+text = "x22"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/DamagePrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="RefriPrice" type="Label" parent="Labels"]
+offset_left = 1073.0
+offset_top = 343.0
+offset_right = 1161.0
+offset_bottom = 407.0
+text = "x12"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/RefriPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="ShoesPrice" type="Label" parent="Labels"]
+offset_left = 253.0
+offset_top = 343.0
+offset_right = 341.0
+offset_bottom = 407.0
+text = "x6"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/ShoesPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="PergaminhoPrice" type="Label" parent="Labels"]
+offset_left = 519.0
+offset_top = 343.0
+offset_right = 607.0
+offset_bottom = 407.0
+text = "x18"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PergaminhoPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
 
 [node name="PlayerLabel" type="Label" parent="Labels"]
 offset_left = 170.0
