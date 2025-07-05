@@ -1,0 +1,347 @@
+[gd_scene load_steps=16 format=3 uid="uid://ckkbbeftedlp7"]
+
+[ext_resource type="Texture2D" uid="uid://drprns1suecoh" path="res://Assets/sprites/menu_mercado_mockup.png" id="1_a8hi1"]
+[ext_resource type="Script" uid="uid://blrlapiodpiiv" path="res://Scripts/hud e menus/labels.gd" id="2_te8ty"]
+[ext_resource type="Script" uid="uid://wpjkg81trmum" path="res://Scripts/hud e menus/buttons.gd" id="2_xmw48"]
+[ext_resource type="Theme" uid="uid://p3mjdw5vhdb0" path="res://Cenas/hud e menus/StoreButton.tres" id="3_dbkna"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="4_bvf40"]
+[ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="4_johrv"]
+[ext_resource type="Texture2D" uid="uid://cu0gmuhlgenk" path="res://Assets/Items/tenis_moldura.png" id="4_rfy1p"]
+[ext_resource type="Texture2D" uid="uid://dh4kt3ctbfvc3" path="res://Assets/Items/escudo_moldura.png" id="5_dbkna"]
+[ext_resource type="Texture2D" uid="uid://cpto0txrmllto" path="res://Assets/sprites/descricacao_item.png" id="6_kgbig"]
+[ext_resource type="Texture2D" uid="uid://dy6j8mulfaixv" path="res://Assets/Items/refrigerante_moldura.png" id="7_hk7pa"]
+[ext_resource type="Texture2D" uid="uid://bensiw1colrq1" path="res://Assets/Items/faquinha_moldura.png" id="7_johrv"]
+[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="12_hk7pa"]
+[ext_resource type="Theme" uid="uid://cytrg3c2hrooa" path="res://rich_text_loja.tres" id="12_johrv"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="13_27d78"]
+[ext_resource type="Texture2D" uid="uid://bxcm8oasgop6y" path="res://Assets/sprites/estrela.png" id="13_wbrb5"]
+
+[node name="Store" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprites" type="Node" parent="."]
+
+[node name="StoreBackground" type="Sprite2D" parent="Sprites"]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_a8hi1")
+
+[node name="ColorRect" type="ColorRect" parent="Sprites"]
+offset_left = 67.0
+offset_top = 194.0
+offset_right = 1095.0
+offset_bottom = 589.0
+color = Color(0.219608, 0.25098, 0.364706, 1)
+
+[node name="Buttons" type="Node" parent="."]
+script = ExtResource("2_xmw48")
+
+[node name="ShoesButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(180, 180)
+offset_left = 80.0
+offset_top = 205.0
+offset_right = 260.0
+offset_bottom = 385.0
+theme = ExtResource("3_dbkna")
+metadata/_edit_use_anchors_ = true
+
+[node name="ShoesText" type="TextureRect" parent="Buttons/ShoesButton"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = ExtResource("4_johrv")
+
+[node name="TenisMoldura" type="Sprite2D" parent="Buttons/ShoesButton"]
+position = Vector2(91, 84)
+scale = Vector2(5, 5)
+texture = ExtResource("4_rfy1p")
+
+[node name="PergaminhoButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(180, 180)
+offset_left = 350.0
+offset_top = 203.0
+offset_right = 530.0
+offset_bottom = 383.0
+theme = ExtResource("3_dbkna")
+metadata/_edit_use_anchors_ = true
+
+[node name="PergaminhoText" type="TextureRect" parent="Buttons/PergaminhoButton"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 178.0
+offset_bottom = 182.0
+texture = ExtResource("4_johrv")
+
+[node name="EscudoMoldura" type="Sprite2D" parent="Buttons/PergaminhoButton"]
+position = Vector2(86, 94)
+scale = Vector2(5, 5)
+texture = ExtResource("5_dbkna")
+
+[node name="CapeButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(180, 180)
+offset_left = 645.0
+offset_top = 205.0
+offset_right = 825.0
+offset_bottom = 385.0
+theme = ExtResource("3_dbkna")
+metadata/_edit_use_anchors_ = true
+
+[node name="CapeText" type="TextureRect" parent="Buttons/CapeButton"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = ExtResource("4_johrv")
+
+[node name="EscudoEspinhosMoldura" type="Sprite2D" parent="Buttons/CapeButton"]
+position = Vector2(93, 90)
+scale = Vector2(7.1875, 7.1875)
+texture = ExtResource("7_johrv")
+
+[node name="RefriButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(180, 180)
+offset_left = 905.0
+offset_top = 205.0
+offset_right = 1085.0
+offset_bottom = 385.0
+theme = ExtResource("3_dbkna")
+metadata/_edit_use_anchors_ = true
+
+[node name="RefriText" type="TextureRect" parent="Buttons/RefriButton"]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = ExtResource("4_johrv")
+
+[node name="RefrigeranteMoldura" type="Sprite2D" parent="Buttons/RefriButton"]
+position = Vector2(93, 86)
+scale = Vector2(5, 5)
+texture = ExtResource("7_hk7pa")
+
+[node name="SkinsButton" type="Button" parent="Buttons"]
+offset_left = 728.0
+offset_top = 75.0
+offset_right = 908.0
+offset_bottom = 143.0
+theme = ExtResource("4_bvf40")
+text = "Skins"
+metadata/_edit_use_anchors_ = true
+
+[node name="VoltarButton" type="Button" parent="Buttons"]
+offset_left = 909.0
+offset_top = 75.0
+offset_right = 1089.0
+offset_bottom = 143.0
+theme = ExtResource("4_bvf40")
+text = "Voltar"
+
+[node name="Labels" type="Node" parent="."]
+script = ExtResource("2_te8ty")
+
+[node name="TextureRect" type="TextureRect" parent="Labels"]
+anchors_preset = -1
+anchor_right = 0.0147569
+anchor_bottom = 0.0231481
+offset_left = 52.0
+offset_top = 383.0
+offset_right = 262.0
+offset_bottom = 568.0
+texture = ExtResource("6_kgbig")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ShoesLabel" type="RichTextLabel" parent="Labels/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521674
+anchor_top = 0.5075
+anchor_right = 0.521674
+anchor_bottom = 0.5075
+offset_left = -82.42
+offset_top = -60.5
+offset_right = 82.58
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_johrv")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/normal_font = ExtResource("13_27d78")
+text = "Tenis Veloz - Corra mais Rápido"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Labels"]
+anchors_preset = -1
+anchor_right = 0.0147569
+anchor_bottom = 0.0231481
+offset_left = 322.0
+offset_top = 385.0
+offset_right = 532.0
+offset_bottom = 570.0
+texture = ExtResource("6_kgbig")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CapeLabel" type="RichTextLabel" parent="Labels/TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.516667
+anchor_top = 0.513513
+anchor_right = 0.516667
+anchor_bottom = 0.545946
+offset_left = -79.5
+offset_top = -57.0
+offset_right = 79.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_johrv")
+text = "Escudo Salva Vida - sobreviva ao primeiro dano"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="Labels"]
+anchors_preset = -1
+anchor_right = 0.015625
+anchor_bottom = 0.0246914
+offset_left = 618.0
+offset_top = 385.0
+offset_right = 828.0
+offset_bottom = 570.0
+texture = ExtResource("6_kgbig")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RefriLabel" type="RichTextLabel" parent="Labels/TextureRect3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.502488
+anchor_right = 0.5
+anchor_bottom = 0.547264
+offset_left = -81.0
+offset_top = -56.0
+offset_right = 81.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_johrv")
+text = "Faquinha - Derrota inimigos ao enconstá-los"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="Labels"]
+anchors_preset = -1
+anchor_left = -0.0130208
+anchor_bottom = 0.0200617
+offset_left = 892.0
+offset_top = 385.0
+offset_right = 1102.0
+offset_bottom = 570.0
+texture = ExtResource("6_kgbig")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PergaminhoLabel" type="RichTextLabel" parent="Labels/TextureRect4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508889
+anchor_top = 0.55303
+anchor_right = 0.508889
+anchor_bottom = 0.55303
+offset_left = -81.5
+offset_top = -57.5
+offset_right = 81.5
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_johrv")
+text = "Refrigerante Pulante \"Higher\" - Pule mais alto "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DamagePrice" type="Label" parent="Labels"]
+offset_left = 813.0
+offset_top = 343.0
+offset_right = 901.0
+offset_bottom = 407.0
+text = "x22"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/DamagePrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="RefriPrice" type="Label" parent="Labels"]
+offset_left = 1073.0
+offset_top = 343.0
+offset_right = 1161.0
+offset_bottom = 407.0
+text = "x12"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/RefriPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="ShoesPrice" type="Label" parent="Labels"]
+offset_left = 253.0
+offset_top = 343.0
+offset_right = 341.0
+offset_bottom = 407.0
+text = "x6"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/ShoesPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="PergaminhoPrice" type="Label" parent="Labels"]
+offset_left = 519.0
+offset_top = 343.0
+offset_right = 607.0
+offset_bottom = 407.0
+text = "x18"
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PergaminhoPrice"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-20, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")
+
+[node name="PlayerLabel" type="Label" parent="Labels"]
+offset_left = 170.0
+offset_top = 95.0
+offset_right = 258.0
+offset_bottom = 159.0
+label_settings = ExtResource("12_hk7pa")
+
+[node name="Estrela" type="Sprite2D" parent="Labels/PlayerLabel"]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+position = Vector2(-21, 5)
+scale = Vector2(4, 4)
+texture = ExtResource("13_wbrb5")

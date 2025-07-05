@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbnwk1sjyjngp"]
+
+[ext_resource type="Script" uid="uid://4karp4wjuj7q" path="res://Scripts/hud e menus/hud.gd" id="1_xiwd3"]
+[ext_resource type="PackedScene" uid="uid://bycx5btccname" path="res://Cenas/hud e menus/menu_de_pausa.tscn" id="2_0bjgd"]
+[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="2_f148t"]
+[ext_resource type="PackedScene" uid="uid://bivmjihra5h5g" path="res://Cenas/hud e menus/tela_sucesso.tscn" id="3_sqf27"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="4_1xaho"]
+[ext_resource type="PackedScene" uid="uid://bihqieswng1g3" path="res://Cenas/inventory/inventory_ui.tscn" id="6_kg46m"]
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_xiwd3")
+
+[node name="menu_de_pausa" parent="." instance=ExtResource("2_0bjgd")]
+visible = false
+
+[node name="menu_de_congratulacoes" parent="." instance=ExtResource("3_sqf27")]
+visible = false
+
+[node name="texture_rect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 122.0
+offset_right = 153.0
+offset_bottom = 250.0
+
+[node name="temporizador" type="Timer" parent="."]
+autostart = true
+
+[node name="timer_label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 179.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 5
+text = "Tempo: "
+label_settings = ExtResource("2_f148t")
+
+[node name="timer_counter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 32.0
+offset_right = 298.0
+offset_bottom = 56.0
+text = "00:00"
+label_settings = ExtResource("2_f148t")
+
+[node name="botao_pause" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 24.0
+offset_right = 1121.0
+offset_bottom = 77.0
+theme = ExtResource("4_1xaho")
+text = "II"
+
+[node name="InventoryUI" parent="." instance=ExtResource("6_kg46m")]
+offset_left = 188.0
+offset_top = 515.0
+offset_right = 588.0
+offset_bottom = 576.0
+scale = Vector2(2, 2)
+
+[connection signal="times_is_up" from="." to="." method="_on_times_is_up"]
+[connection signal="timeout" from="temporizador" to="." method="_on_temporizador_timeout"]
+[connection signal="pressed" from="botao_pause" to="." method="_on_botao_pause_pressed"]

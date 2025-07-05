@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://hw5oqh8xa4au"]
+
+[ext_resource type="Script" uid="uid://bnmew726tydj0" path="res://Scripts/hud e menus/tela_de_morte.gd" id="1_1n8eh"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_hpf3u"]
+[ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="3_uryjm"]
+[ext_resource type="Theme" uid="uid://13k87xtq212r" path="res://Cenas/hud e menus/tres/botao_menu_niveis.tres" id="4_6440j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1on44"]
+line_spacing = 1.0
+font = ExtResource("1_hpf3u")
+font_size = 42
+font_color = Color(1, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jottd"]
+
+[node name="tela_de_morte" type="CanvasLayer"]
+script = ExtResource("1_1n8eh")
+
+[node name="fundo_transparente" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192157, 0.0941176, 0.0941176, 1)
+
+[node name="fundo_solido" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1100, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -543.0
+offset_top = -301.0
+offset_right = 557.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.263724, 0.296133, 0.422682, 1)
+
+[node name="fundo_solido2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1100, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -501.0
+offset_top = -294.0
+offset_right = 499.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="menu_morte" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = -217.0
+offset_right = -29.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="voce_perdeu_label" type="Label" parent="menu_morte"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Você perdeu!"
+label_settings = SubResource("LabelSettings_1on44")
+
+[node name="HSeparator2" type="HSeparator" parent="menu_morte"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jottd")
+
+[node name="voce_perdeu_label2" type="Label" parent="menu_morte"]
+custom_minimum_size = Vector2(1050, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "piriripopop pirpopo poropovis anobis japoris cano eliporis tomares que matarres rodolfo anastor gabriel linguiça requeijão
+matador de porco quatro"
+label_settings = ExtResource("3_uryjm")
+autowrap_mode = 3
+
+[node name="HSeparator3" type="HSeparator" parent="menu_morte"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jottd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 30.0
+offset_top = 465.0
+offset_right = 1125.0
+offset_bottom = 573.0
+
+[node name="tentar_novamente" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_6440j")
+text = "Tentar novamente"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jottd")
+
+[node name="voltar_menu_principal" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_6440j")
+text = "Voltar para o Menu"
+
+[connection signal="pressed" from="VBoxContainer/tentar_novamente" to="." method="_on_tentar_novamente_pressed"]
+[connection signal="pressed" from="VBoxContainer/voltar_menu_principal" to="." method="_on_voltar_menu_principal_pressed"]

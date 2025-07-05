@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cytrg3c2hrooa"]
+
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_q81sy"]
+
+[resource]
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 7
+RichTextLabel/constants/outline_size = 8
+RichTextLabel/constants/shadow_offset_x = 2
+RichTextLabel/constants/shadow_offset_y = 4
+RichTextLabel/constants/shadow_outline_size = 3
+RichTextLabel/font_sizes/normal_font_size = 13
+RichTextLabel/fonts/normal_font = ExtResource("1_q81sy")
