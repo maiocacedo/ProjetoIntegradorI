@@ -191,7 +191,7 @@ levelName = "fase_1"
 msgPorta = "SE (chaves == 1)"
 chavesNecessarias = 1
 pathProximaFase = "res://Cenas/fases/fase_2.tscn"
-minutosFase = 3.0
+segundosFase = 5.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
