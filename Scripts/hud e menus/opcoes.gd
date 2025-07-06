@@ -1,8 +1,8 @@
 extends Control
 
 # 
-@onready var music_slider     = $HBoxContainer/VBoxContainer2/music_slider
-@onready var sounds_slider    = $HBoxContainer/VBoxContainer2/volume_slider
+@onready var music_slider     = $HBoxContainer/VBoxContainer/music_slider
+@onready var sounds_slider    = $HBoxContainer/VBoxContainer/volume_slider
 @onready var mute_music_btn   = $HBoxContainer/VBoxContainer/mute_music
 @onready var mute_sounds_btn  = $HBoxContainer/VBoxContainer/mute_sounds
 
@@ -19,8 +19,6 @@ func _ready() -> void:
 	# Usa propriedade correta e método correto
 	mute_music_btn.button_pressed  = AudioServer.is_bus_mute(musicBusIndex)
 	mute_sounds_btn.button_pressed = AudioServer.is_bus_mute(soundsBusIndex)
-
-
 
 
 func _on_music_value_changed(value: float) -> void:

@@ -12,7 +12,8 @@ const savePath := "user://progress.json" # caminho do json de dados de salvament
 	"fase_6": { "3": 60.0, "2": 120.0 },
 	"fase_7": { "3": 60.0, "2": 120.0 },
 	"fase_8": { "3": 60.0, "2": 120.0 },
-	"fase_9": { "3": 60.0, "2": 120.0 }
+	"fase_9": { "3": 60.0, "2": 120.0 },
+	"fase_10": { "3": 60.0, "2": 120.0 }
 }
 
 func _ready() -> void:
@@ -114,7 +115,6 @@ func update_level_progress(nomeLevel: String, tempoDecorrido: float) -> void:
 	
 	# Verifica se o tempo já escrito lá é maior que o atual e salva.
 	if not progress["fases"].has(nomeLevel) or tempoDecorrido < progress["fases"][nomeLevel]["tempo"]:
-		PlayerData.stats["estrelas"] += estrelas
 		progress["fases"][nomeLevel] = { 
 			"tempo": tempoDecorrido, 
 			"estrelas": estrelas 

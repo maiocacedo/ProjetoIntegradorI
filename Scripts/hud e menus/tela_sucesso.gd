@@ -24,11 +24,6 @@ func _ready() -> void:
 			Você está prestes a explorar o mundo mágico da Lógica Digital!
 			Neste reino, os sinais viajam como feitiços: ligados (1) ou desligados (0).\n
 			Prepare sua mente... e que a lógica esteja com você!"
-			# POSSIVEL IDEIA
-			#$fundo_solido4/texto_conclusao.text = "Tutorial Iniciado: Cavaleiro dos Circuitos"
-			#$fundo_solido4/texto_fase.text = "Curiosidades Descobertas:"
-			#$fundo_solido4/texto_descritivo.text = "
-			#\"==\" é a mesma coisa que \"igual\"!"
 		"fase_2":
 			$fundo_solido4/texto_conclusao.text = "Fase Concluída: Porta PUSH (Buffer)"
 			$fundo_solido4/texto_fase.text = "Parabéns, você dominou a Porta PUSH!"
@@ -93,9 +88,12 @@ func _ready() -> void:
 			Se as entradas forem diferentes, a saída ficará desligada.\n
 			Você provou que sabe reconhecer quando as coisas combinam perfeitamente!"
 		"fase_10":
+			$fundo_solido2/VBoxContainer/proxima_fase.text = "Continuar"
 			$fundo_solido4/texto_conclusao.text = "Fase Desafio"
-			$fundo_solido4/texto_fase.text = ""
-			$fundo_solido4/texto_descritivo.text = ""
+			$fundo_solido4/texto_fase.text = "Parabéns, Você concluiu a jornada dos circuitos!"
+			$fundo_solido4/texto_descritivo.text = "
+			Muito obrigado por jogar! Sua dedicação, coragem e persistência levaram você até o fim dessa aventura.
+			Esperamos que tenha se divertido tanto quanto nós ao criar esse mundo para você explorar."
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

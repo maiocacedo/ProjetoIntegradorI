@@ -239,7 +239,6 @@ func _on_touch_button_slot_2_released() -> void:
 
 # Quando o botão do slot 3 (chave) for pressionado
 func _on_touch_button_slot_3_pressed() -> void:
-	$AudioSlotClick.playing = true
 	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_chave_pressed.png")
 	var player = get_tree().get_first_node_in_group("player")
 	if player != null:
@@ -248,6 +247,7 @@ func _on_touch_button_slot_3_pressed() -> void:
 		print("Botão pressionado - Drop na posição: " + str(drop_position))  # LOG
 		if getQtdItem(ItemDB.getItem(1)) == 0:
 			show_message("Sem Chave no Slot.")
+			$AudioSlotClick.playing = true
 		else:
 			removerItem(ItemDB.getItem(1), drop_position)
 	else:

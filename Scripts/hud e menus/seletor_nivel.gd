@@ -36,6 +36,7 @@ func _ready() -> void:
 		if estrelas > 0 and has_node(nextBtnPath):
 			get_node(nextBtnPath).disabled = false
 			
+	PlayerData.stats["estrelas"] = total_estrelas
 	estrelas_label.text = "   x%d" % total_estrelas
 
 func _process(delta: float) -> void:
