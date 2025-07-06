@@ -1,0 +1,134 @@
+[gd_scene load_steps=9 format=3 uid="uid://cykqlwsj53mpa"]
+
+[ext_resource type="Script" uid="uid://bt2aud8j6mj3r" path="res://Scripts/hud e menus/opcoes.gd" id="1_2frap"]
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_x3dmd"]
+[ext_resource type="LabelSettings" uid="uid://dv05upwbm0w17" path="res://Cenas/hud e menus/tres/menu_label_settings.tres" id="2_m71of"]
+[ext_resource type="Theme" uid="uid://dwaq2f2bmquea" path="res://Cenas/hud e menus/tres/botao_menu_opcoes.tres" id="3_m71of"]
+[ext_resource type="Theme" uid="uid://cs5em1cxg8xc4" path="res://Cenas/hud e menus/tres/slidervolume.tres" id="4_m71of"]
+[ext_resource type="Theme" uid="uid://bbr5200q147wf" path="res://Cenas/hud e menus/tres/botao_menu_principal.tres" id="5_xawcl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xawcl"]
+font = ExtResource("1_x3dmd")
+font_size = 48
+outline_size = 5
+outline_color = Color(0.305882, 0.345098, 0.486275, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7sf0"]
+
+[node name="opcoes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2frap")
+
+[node name="fundo_solido" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.102998, 0.119671, 0.185393, 1)
+
+[node name="opcoes_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 73.0
+offset_right = 127.5
+offset_bottom = 121.0
+grow_horizontal = 2
+text = "Opções"
+label_settings = SubResource("LabelSettings_xawcl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -135.0
+offset_right = 205.5
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="volume_label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume:"
+label_settings = ExtResource("2_m71of")
+
+[node name="volume_slider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_m71of")
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
+
+[node name="volume_musica_label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume Musica:"
+label_settings = ExtResource("2_m71of")
+
+[node name="music_slider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_m71of")
+tick_count = 1
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
+
+[node name="mute_music" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m71of")
+text = "Silenciar Musica"
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
+
+[node name="mute_sounds" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_m71of")
+text = "Silenciar  Efeitos"
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
+
+[node name="voltar" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_xawcl")
+text = "Voltar
+"
+
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/volume_slider" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/music_slider" to="." method="_on_music_value_changed"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/mute_music" to="." method="_on_mute_music_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/mute_sounds" to="." method="_on_mute_sounds_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/voltar" to="." method="_on_voltar_pressed"]
