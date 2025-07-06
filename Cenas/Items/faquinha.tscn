@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnjfs8w6ui7fy"]
+
+[ext_resource type="PackedScene" uid="uid://b43bnin2cm4dq" path="res://Cenas/Items/item.tscn" id="1_cjt6y"]
+[ext_resource type="Texture2D" uid="uid://bensiw1colrq1" path="res://Assets/Items/faquinha_moldura.png" id="2_8a2rc"]
+
+[node name="EscudoComEspinhos" instance=ExtResource("1_cjt6y")]
+itemId = 5
+itemName = "Escudo com Espinhos"
+itemIcon = ExtResource("2_8a2rc")

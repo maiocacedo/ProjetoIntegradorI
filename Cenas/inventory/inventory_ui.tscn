@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=3 uid="uid://bihqieswng1g3"]
+
+[ext_resource type="Script" uid="uid://cgr7yohoeixrn" path="res://Scripts/inventory/inventory_ui.gd" id="1_jfabt"]
+[ext_resource type="Texture2D" uid="uid://ipygxa0b3qjo" path="res://Assets/Inventory/slot_inv.png" id="2_mk05o"]
+[ext_resource type="FontFile" uid="uid://dshmu3ukt60ch" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_7nilr"]
+[ext_resource type="Texture2D" uid="uid://cqth8yvopl8pb" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
+[ext_resource type="AudioStream" uid="uid://dhp7kwyar4ttn" path="res://Assets/sounds/vitoria.wav" id="5_gcsva"]
+[ext_resource type="AudioStream" uid="uid://dkfemybilk875" path="res://Assets/sounds/collect.wav" id="6_0vyaq"]
+[ext_resource type="AudioStream" uid="uid://w0aoe5endjw8" path="res://Assets/sounds/negacao.wav" id="7_gcsva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk05o"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf1n3"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7k7bf"]
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbvel"]
+size = Vector2(36, 36)
+
+[node name="InventoryUI" type="Control" groups=["inventory"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 404.0
+offset_bottom = 65.0
+script = ExtResource("1_jfabt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 12.0
+offset_right = 309.0
+offset_bottom = 60.0
+alignment = 1
+
+[node name="Slot0" type="Node2D" parent="HBoxContainer"]
+
+[node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot0"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot0" type="TouchScreenButton" parent="HBoxContainer/Slot0/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_mk05o")
+
+[node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot0"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SlotQtd" type="Label" parent="HBoxContainer/Slot0"]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("3_7nilr")
+
+[node name="Slot1" type="Node2D" parent="HBoxContainer"]
+
+[node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot1"]
+offset_left = 49.0
+offset_right = 89.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot1" type="TouchScreenButton" parent="HBoxContainer/Slot1/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_uf1n3")
+
+[node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot1"]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 57.0
+offset_top = 8.0
+offset_right = 89.0
+offset_bottom = 40.0
+
+[node name="SlotQtd" type="Label" parent="HBoxContainer/Slot1"]
+offset_left = 81.0
+offset_top = 32.0
+offset_right = 97.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("3_7nilr")
+
+[node name="Slot2" type="Node2D" parent="HBoxContainer"]
+
+[node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot2"]
+offset_left = 98.0
+offset_right = 138.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_mk05o")
+
+[node name="TouchButtonSlot2" type="TouchScreenButton" parent="HBoxContainer/Slot2/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_7k7bf")
+
+[node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot2"]
+offset_left = 106.0
+offset_top = 8.0
+offset_right = 138.0
+offset_bottom = 40.0
+
+[node name="SlotQtd" type="Label" parent="HBoxContainer/Slot2"]
+offset_left = 130.0
+offset_top = 32.0
+offset_right = 146.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("3_7nilr")
+
+[node name="Slot3" type="Node2D" parent="HBoxContainer"]
+
+[node name="SlotBackground" type="TextureRect" parent="HBoxContainer/Slot3"]
+offset_left = 170.0
+offset_right = 210.0
+offset_bottom = 40.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_rqqdd")
+
+[node name="TouchButtonSlot3" type="TouchScreenButton" parent="HBoxContainer/Slot3/SlotBackground"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_qbvel")
+
+[node name="SlotItem" type="TextureRect" parent="HBoxContainer/Slot3"]
+offset_left = 178.0
+offset_top = 8.0
+offset_right = 210.0
+offset_bottom = 40.0
+
+[node name="SlotQtd" type="Label" parent="HBoxContainer/Slot3"]
+offset_left = 202.0
+offset_top = 32.0
+offset_right = 218.0
+offset_bottom = 48.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("3_7nilr")
+
+[node name="LabelInfo" type="Label" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7nilr")
+horizontal_alignment = 1
+
+[node name="TimerInfo" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gcsva")
+bus = &"sounds"
+
+[node name="AudioDrop" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0vyaq")
+bus = &"sounds"
+
+[node name="AudioSlotClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gcsva")
+bus = &"sounds"
+
+[connection signal="pressed" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_pressed"]
+[connection signal="released" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_released"]
+[connection signal="pressed" from="HBoxContainer/Slot1/SlotBackground/TouchButtonSlot1" to="." method="_on_touch_button_slot_1_pressed"]
+[connection signal="released" from="HBoxContainer/Slot1/SlotBackground/TouchButtonSlot1" to="." method="_on_touch_button_slot_1_released"]
+[connection signal="pressed" from="HBoxContainer/Slot2/SlotBackground/TouchButtonSlot2" to="." method="_on_touch_button_slot_2_pressed"]
+[connection signal="released" from="HBoxContainer/Slot2/SlotBackground/TouchButtonSlot2" to="." method="_on_touch_button_slot_2_released"]
+[connection signal="pressed" from="HBoxContainer/Slot3/SlotBackground/TouchButtonSlot3" to="." method="_on_touch_button_slot_3_pressed"]
+[connection signal="released" from="HBoxContainer/Slot3/SlotBackground/TouchButtonSlot3" to="." method="_on_touch_button_slot_3_released"]
+[connection signal="timeout" from="TimerInfo" to="." method="_on_timer_info_timeout"]
