@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bbr5200q147wf"]
+
+[ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_jupgq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oiv7"]
+bg_color = Color(0.305882, 0.345098, 0.486275, 1)
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.227451, 0.333333, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8py8"]
+bg_color = Color(0.304765, 0.344317, 0.486495, 1)
+border_width_left = 2
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.199461, 0.228375, 0.333479, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing_size = 0.883
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xojk"]
+bg_color = Color(0.127372, 0.148381, 0.224993, 1)
+
+[resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.340339, 0.340339, 0.340339, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_jupgq")
+Button/styles/hover = SubResource("StyleBoxFlat_2oiv7")
+Button/styles/normal = SubResource("StyleBoxFlat_s8py8")
+Button/styles/pressed = SubResource("StyleBoxFlat_7xojk")
