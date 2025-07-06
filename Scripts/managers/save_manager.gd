@@ -4,10 +4,16 @@ const savePath := "user://progress.json" # caminho do json de dados de salvament
 
 # estrelas em função do tempo, para cada level
 @export var recompensaLevels := {
-	"fase_1": { "3": 25.0, "2": 45.0 },
-	"fase_2": { "3": 25.0, "2": 40.0 },
-	"fase_3": { "3": 25.0, "2": 40.0 },
-
+	"fase_1": { "3": 60.0, "2": 120.0 },
+	"fase_2": { "3": 60.0, "2": 120.0 },
+	"fase_3": { "3": 60.0, "2": 120.0 },
+	"fase_4": { "3": 60.0, "2": 120.0 },
+	"fase_5": { "3": 60.0, "2": 120.0 },
+	"fase_6": { "3": 60.0, "2": 120.0 },
+	"fase_7": { "3": 60.0, "2": 120.0 },
+	"fase_8": { "3": 60.0, "2": 120.0 },
+	"fase_9": { "3": 60.0, "2": 120.0 },
+	"fase_10": { "3": 60.0, "2": 120.0 }
 }
 
 func _ready() -> void:
@@ -96,13 +102,16 @@ func save_progress() -> void:
 # Atualiza progresso do level
 func update_level_progress(nomeLevel: String, tempoDecorrido: float) -> void:
 	
+	print("tempo decorrido: " + str(tempoDecorrido))
+	
 	var rn = recompensaLevels.get(nomeLevel, {}) # recebe recompensas referentes ao level
 	var estrelas = 1 # estrelas começa em 1
 	# verifica o desempenho por tempo e atualiza estrelas
+	print("tempo decorrido: " + str(tempoDecorrido) + " / rn: " + str(rn.get("3", 0.0)))
 	if tempoDecorrido <= rn.get("3", 0.0):
 		estrelas = 3
 	elif tempoDecorrido <= rn.get("2", 0.0):
-		estrelas = 2
+		estrelas = 2 
 	
 	# Verifica se o tempo já escrito lá é maior que o atual e salva.
 	if not progress["fases"].has(nomeLevel) or tempoDecorrido < progress["fases"][nomeLevel]["tempo"]:

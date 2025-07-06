@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cykqlwsj53mpa"]
+[gd_scene load_steps=9 format=3 uid="uid://cykqlwsj53mpa"]
 
 [ext_resource type="Script" uid="uid://bt2aud8j6mj3r" path="res://Scripts/hud e menus/opcoes.gd" id="1_2frap"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="1_x3dmd"]
@@ -17,8 +17,6 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(5, 2)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7sf0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qt2dq"]
 
 [node name="opcoes" type="Control"]
 layout_mode = 3
@@ -63,10 +61,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -267.0
-offset_top = -88.0
-offset_right = 268.0
-offset_bottom = 88.0
+offset_left = -205.5
+offset_top = -135.0
+offset_right = 205.5
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -78,6 +76,10 @@ layout_mode = 2
 text = "Volume:"
 label_settings = ExtResource("2_m71of")
 
+[node name="volume_slider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_m71of")
+
 [node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -88,6 +90,12 @@ layout_mode = 2
 text = "Volume Musica:"
 label_settings = ExtResource("2_m71of")
 
+[node name="music_slider" type="HSlider" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("4_m71of")
+tick_count = 1
+
 [node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -96,7 +104,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
 [node name="mute_music" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_m71of")
-text = "Musica"
+text = "Silenciar Musica"
 
 [node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -106,7 +114,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
 [node name="mute_sounds" type="CheckBox" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_m71of")
-text = "Efeitos"
+text = "Silenciar  Efeitos"
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -119,36 +127,8 @@ theme = ExtResource("5_xawcl")
 text = "Voltar
 "
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxEmpty_qt2dq")
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="volume_slider" type="HSlider" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme = ExtResource("4_m71of")
-
-[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 16
-theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
-
-[node name="music_slider" type="HSlider" parent="HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme = ExtResource("4_m71of")
-tick_count = 1
-
-[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_constants/separation = 100
-theme_override_styles/separator = SubResource("StyleBoxEmpty_y7sf0")
-
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/volume_slider" to="." method="_on_volume_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/VBoxContainer/music_slider" to="." method="_on_music_value_changed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/mute_music" to="." method="_on_mute_music_toggled"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/mute_sounds" to="." method="_on_mute_sounds_toggled"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/voltar" to="." method="_on_voltar_pressed"]
-[connection signal="value_changed" from="HBoxContainer/VBoxContainer2/volume_slider" to="." method="_on_volume_value_changed"]
-[connection signal="value_changed" from="HBoxContainer/VBoxContainer2/music_slider" to="." method="_on_music_value_changed"]

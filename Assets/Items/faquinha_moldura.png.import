@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bensiw1colrq1"
-path="res://.godot/imported/faquinha.png-fd9740644f215f6882c6bafcb6c455aa.ctex"
+path="res://.godot/imported/faquinha_moldura.png-c3918476a991d3650345d370801ca6e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/faquinha.png"
-dest_files=["res://.godot/imported/faquinha.png-fd9740644f215f6882c6bafcb6c455aa.ctex"]
+source_file="res://Assets/Items/faquinha_moldura.png"
+dest_files=["res://.godot/imported/faquinha_moldura.png-c3918476a991d3650345d370801ca6e6.ctex"]
 
 [params]
 

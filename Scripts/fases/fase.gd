@@ -2,7 +2,6 @@ extends Node2D
 
 #XOR
 
-
 # Referência à HUD
 @onready var hud = $CanvasLayer/Hud
 

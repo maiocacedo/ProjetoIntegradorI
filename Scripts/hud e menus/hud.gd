@@ -25,15 +25,7 @@ func _ready() -> void:
 	podeContarTempo = true
 	reset_clock_timer()
 	atualizar_texto_timer()
-
-# ---------------------------------------
-# Atualização a cada frame
-# ---------------------------------------
-func _process(delta: float) -> void:
-	if podeContarTempo and minutes == 0 and seconds == 0:
-		podeContarTempo = false
-		emit_signal("times_is_up")
-		reset_clock_timer()
+	temporizador.start()  # Inicia o temporizador
 
 # ---------------------------------------
 # Timer de 1 segundo expirou
@@ -42,10 +34,13 @@ func _on_temporizador_timeout() -> void:
 	if not podeContarTempo:
 		return
 
+	print(str(seconds) + " " + str(minutes))
+
 	if minutes == 0 and seconds == 0:
+		print("a")
 		podeContarTempo = false
+		GameManager.call_deferred("abrir_tela_de_morte", "Tempo esgotado")
 		temporizador.stop()
-		emit_signal("times_is_up")
 		return
 
 	if seconds == 0:
@@ -107,8 +102,28 @@ func _on_botao_pause_pressed() -> void:
 		get_tree().paused = true
 
 # ---------------------------------------
-# Ação quando o tempo se esgota
+# Botões da Movimentação
 # ---------------------------------------
-func _on_times_is_up() -> void:
-	if podeContarTempo:
-		GameManager.call_deferred("abrir_tela_de_morte", "Tempo esgotado")
+
+func _on_esquerda_pressed() -> void:
+	Input.action_press("esquerda")
+
+
+func _on_direita_pressed() -> void:
+	Input.action_press("direita")
+
+
+func _on_pulo_pressed() -> void:
+	Input.action_press("pular")
+
+
+func _on_esquerda_released() -> void:
+	Input.action_release("esquerda")
+
+
+func _on_direita_released() -> void:
+	Input.action_release("direita")
+
+
+func _on_pulo_released() -> void:
+	Input.action_release("pular")

@@ -1,15 +1,10 @@
 extends Control
 
-
-
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-
 func _process(delta: float) -> void:
 	pass
-
 
 # Leva para seletor de niveis
 func _on_start_pressed() -> void:

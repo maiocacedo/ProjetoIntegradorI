@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqth8yvopl8pb" path="res://Assets/Inventory/slot_inv_chave.png" id="4_rqqdd"]
 [ext_resource type="AudioStream" uid="uid://dhp7kwyar4ttn" path="res://Assets/sounds/vitoria.wav" id="5_gcsva"]
 [ext_resource type="AudioStream" uid="uid://dkfemybilk875" path="res://Assets/sounds/collect.wav" id="6_0vyaq"]
-[ext_resource type="AudioStream" uid="uid://bwqfptbhjlms4" path="res://Assets/sounds/uu.wav" id="7_gcsva"]
+[ext_resource type="AudioStream" uid="uid://w0aoe5endjw8" path="res://Assets/sounds/negacao.wav" id="7_gcsva"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mk05o"]
 size = Vector2(36, 36)
@@ -164,12 +164,15 @@ one_shot = true
 
 [node name="AudioPowerUp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gcsva")
+bus = &"sounds"
 
 [node name="AudioDrop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0vyaq")
+bus = &"sounds"
 
 [node name="AudioSlotClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_gcsva")
+bus = &"sounds"
 
 [connection signal="pressed" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_pressed"]
 [connection signal="released" from="HBoxContainer/Slot0/SlotBackground/TouchButtonSlot0" to="." method="_on_touch_button_slot_0_released"]

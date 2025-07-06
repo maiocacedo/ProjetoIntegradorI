@@ -53,7 +53,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
 	
 	if not shoesPurchased: #caso ele não tenha sido "comprado"
 		shoesButton.text = str(speedUpgradeScript.atributes["price"]) + " Estrelas" #vai aparecer apenas o preço

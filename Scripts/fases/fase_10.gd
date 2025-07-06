@@ -1,6 +1,8 @@
+
 extends Node2D
 
-# XOR
+#XOR
+
 
 # Referência à HUD
 @onready var hud = $CanvasLayer/Hud
@@ -20,13 +22,20 @@ var completed = false
 # Chamado ao iniciar a cena
 func _ready() -> void:
 	hud.set_tempo(minutosFase, segundosFase)
+	pass  # Por enquanto nada aqui
 
 # Chamado a cada frame
 func _process(delta: float) -> void:
-	pass
+	pass  # Por enquanto nada aqui
 
 # Quando o corpo entra em uma porta
-func _on_porta_body_entered(body: Node2D) -> void:
+
+
+# Quando o corpo sai da porta, limpa a mensagem
+
+
+
+func _on_portas_body_entered(body: Node2D) -> void:
 	# Ignora se não for o jogador
 	if not body.is_in_group("player"):
 		return
@@ -45,20 +54,22 @@ func _on_porta_body_entered(body: Node2D) -> void:
 	var chave = ItemDB.getItem(1)
 	var qtdChaves = inventory_node.getQtdItem(chave)
 
+	if qtdChaves != chavesNecessarias:
+		
+		print("Você precisa de %d chaves para passar de fase." % chavesNecessarias)
+		return
+
 	# Verifica se a quantidade necessária de alavancas foi ativada
 	var alavancas = get_tree().get_nodes_in_group("alavanca")
 	var alavancas_ativadas = 0
+
 	for alavanca in alavancas:
 		if alavanca.ativada:
 			alavancas_ativadas += 1
 
-	# Verifica lógica XOR (apenas uma condição verdadeira)
-	var tem_chave = qtdChaves == chavesNecessarias
-	var tem_alavanca = alavancas_ativadas == alavancasNecessarias
-
-	if tem_chave == tem_alavanca:
+	if alavancas_ativadas != alavancasNecessarias:
 		$Porta/Label.text = msgPorta
-		print("Você precisa ter APENAS a chave OU APENAS a alavanca ativada — não ambos.")
+		print("Você precisa ativar %d alavancas." % alavancasNecessarias)
 		return
 
 	# Se tudo estiver OK, marca como concluído
@@ -80,7 +91,3 @@ func _on_porta_body_entered(body: Node2D) -> void:
 
 	# Mostra resultado e troca de cena
 	hud.mostra_resultado(tempoDecorrido, estrelas, pathProximaFase)
-
-# Quando o corpo sai da porta, limpa a mensagem
-func _on_porta_body_exited(body: Node2D) -> void:
-	$Porta/Label.text = ""

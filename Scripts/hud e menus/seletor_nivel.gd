@@ -36,6 +36,7 @@ func _ready() -> void:
 		if estrelas > 0 and has_node(nextBtnPath):
 			get_node(nextBtnPath).disabled = false
 			
+	PlayerData.stats["estrelas"] = total_estrelas
 	estrelas_label.text = "   x%d" % total_estrelas
 
 func _process(delta: float) -> void:
@@ -85,4 +86,13 @@ func _on_level_10_pressed() -> void:
 	get_tree().change_scene_to_file("res://Cenas/fases/fase_10.tscn")
 
 func _on_loja_pressed() -> void:
+	var total_estrelas := 0
+	
+	for levelName in SaveManager.recompensaLevels.keys():
+		var levelNum   = levelName.get_slice("_", 1).to_int()
+		var estrelas   = SaveManager.progress.get("fases").get(levelName, {}).get("estrelas", 0)
+		total_estrelas += estrelas
+			
+	PlayerData.stats["estrelas"] = total_estrelas
+
 	get_tree().change_scene_to_file("res://Cenas/hud e menus/Store.tscn")

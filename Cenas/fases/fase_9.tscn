@@ -1,6 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://bv27w8eloe7th"]
+[gd_scene load_steps=27 format=3 uid="uid://bv27w8eloe7th"]
 
-[ext_resource type="Script" uid="uid://b8w6ir8ji2kb1" path="res://Scripts/fases/fase_9.gd" id="1_fxc20"]
+[ext_resource type="Script" uid="uid://dvvhtbra52u4i" path="res://Scripts/fases/fase_9.gd" id="1_fxc20"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_gibis"]
 [ext_resource type="Texture2D" uid="uid://f6ia5oa3758x" path="res://Assets/Dungeon Tile Set.png" id="2_xv3by"]
 [ext_resource type="PackedScene" uid="uid://dlu75gsrwm4nq" path="res://Cenas/placa/placas.tscn" id="3_hxnal"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma/plataforma.tscn" id="10_6uf4h"]
 [ext_resource type="PackedScene" uid="uid://dkkj8rxk1n0lp" path="res://Cenas/armadilhas/plataforma_cai.tscn" id="11_emqau"]
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="12_5bgqv"]
+[ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/armadilhas/ghost.tscn" id="14_fxc20"]
 [ext_resource type="PackedScene" uid="uid://cskeghnjtijmk" path="res://Cenas/alavanca/alavanca.tscn" id="15_psm12"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxc20"]
@@ -282,6 +283,7 @@ _data = {
 
 [node name="fase_9" type="Node2D"]
 script = ExtResource("1_fxc20")
+pathProximaFase = "res://Cenas/fases/fase_10.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -492,6 +494,30 @@ scale = Vector2(4, 4)
 position = Vector2(1007, 216)
 scale = Vector2(4, 4)
 
+[node name="plataforma_cai8" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1152, 549)
+scale = Vector2(4, 4)
+
+[node name="plataforma_cai9" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1280, 549)
+scale = Vector2(4, 4)
+
+[node name="plataforma_cai10" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1408, 549)
+scale = Vector2(4, 4)
+
+[node name="plataforma_cai11" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1536, 549)
+scale = Vector2(4, 4)
+
+[node name="plataforma_cai12" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1665, 549)
+scale = Vector2(4, 4)
+
+[node name="plataforma_cai13" parent="Plataformas" instance=ExtResource("11_emqau")]
+position = Vector2(1793, 549)
+scale = Vector2(4, 4)
+
 [node name="fogo" type="Node2D" parent="."]
 
 [node name="fireTrap10" parent="fogo" instance=ExtResource("12_5bgqv")]
@@ -510,6 +536,18 @@ scale = Vector2(3, 3)
 position = Vector2(-1121, 533)
 scale = Vector2(3, 3)
 
+[node name="fireTrap17" parent="fogo" instance=ExtResource("12_5bgqv")]
+position = Vector2(-1072, 695)
+scale = Vector2(2.6, 2.6)
+
+[node name="fireTrap18" parent="fogo" instance=ExtResource("12_5bgqv")]
+position = Vector2(-1040, 695)
+scale = Vector2(2.6, 2.6)
+
+[node name="fireTrap19" parent="fogo" instance=ExtResource("12_5bgqv")]
+position = Vector2(-1008, 695)
+scale = Vector2(2.6, 2.6)
+
 [node name="fireTrap2" parent="fogo" instance=ExtResource("12_5bgqv")]
 position = Vector2(16, -220)
 rotation = 1.57079
@@ -526,35 +564,45 @@ rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap5" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2158, 1013)
+position = Vector2(-2161, 969)
 rotation = 1.57079
-scale = Vector2(3, 4.5)
-
-[node name="fireTrap9" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2161, 792)
-rotation = 1.57079
-scale = Vector2(3, 4.5)
-
-[node name="fireTrap11" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2027, 920)
-rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap12" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2031, 679)
+position = Vector2(-2032, 786)
 rotation = 4.71238
 scale = Vector2(3, 4.5)
 
 [node name="fireTrap13" parent="fogo" instance=ExtResource("12_5bgqv")]
-position = Vector2(-2164, 569)
+position = Vector2(-2161, 581)
 rotation = 1.57079
 scale = Vector2(3, 4.5)
 
-[node name="inimigo" type="Node2D" parent="."]
-position = Vector2(222, 22)
+[node name="Ghost" type="Node2D" parent="."]
+position = Vector2(-45, -353)
+
+[node name="ghost" parent="Ghost" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("14_fxc20")]
+position = Vector2(313, 517)
+scale = Vector2(3, 3)
+pointA = NodePath("../pointA")
+pointB = NodePath("../pointB")
+pointC = NodePath("../pointC")
+pointD = NodePath("../pointD")
+
+[node name="pointA" type="Marker2D" parent="Ghost"]
+position = Vector2(278, 520)
+
+[node name="pointB" type="Marker2D" parent="Ghost"]
+position = Vector2(968, 516)
+
+[node name="pointC" type="Marker2D" parent="Ghost"]
+position = Vector2(663, 455)
+
+[node name="pointD" type="Marker2D" parent="Ghost"]
+position = Vector2(743, 547)
 
 [node name="Portas" parent="." instance=ExtResource("7_mp75s")]
-position = Vector2(2000, 513)
+position = Vector2(1975, 513)
 scale = Vector2(2, 2)
 
 [node name="Alavanca" parent="." instance=ExtResource("15_psm12")]
@@ -564,3 +612,5 @@ scale = Vector2(1.985, 2.075)
 [node name="Alavanca2" parent="." instance=ExtResource("15_psm12")]
 position = Vector2(793, -436)
 scale = Vector2(1.985, 2.075)
+
+[connection signal="body_entered" from="Portas" to="." method="_on_portas_body_entered"]

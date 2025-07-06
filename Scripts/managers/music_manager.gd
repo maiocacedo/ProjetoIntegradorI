@@ -6,7 +6,6 @@ var lastScene: Node = null
 func _ready():
 	# Faz este nó rodar mesmo quando a árvore for pausada
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
 	musica = AudioStreamPlayer.new() # Instancia um AudioStreamPlayer
 	add_child(musica) 
 	musica.bus = "music" # define canal onde a música deve tocar

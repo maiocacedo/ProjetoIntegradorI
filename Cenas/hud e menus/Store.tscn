@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dh4kt3ctbfvc3" path="res://Assets/Items/escudo_moldura.png" id="5_dbkna"]
 [ext_resource type="Texture2D" uid="uid://cpto0txrmllto" path="res://Assets/sprites/descricacao_item.png" id="6_kgbig"]
 [ext_resource type="Texture2D" uid="uid://dy6j8mulfaixv" path="res://Assets/Items/refrigerante_moldura.png" id="7_hk7pa"]
-[ext_resource type="Texture2D" uid="uid://bensiw1colrq1" path="res://Assets/Items/faquinha.png" id="7_johrv"]
+[ext_resource type="Texture2D" uid="uid://bensiw1colrq1" path="res://Assets/Items/faquinha_moldura.png" id="7_johrv"]
 [ext_resource type="LabelSettings" uid="uid://451o6h7f5dwi" path="res://Cenas/hud e menus/tres/hud_label_settings.tres" id="12_hk7pa"]
 [ext_resource type="Theme" uid="uid://cytrg3c2hrooa" path="res://rich_text_loja.tres" id="12_johrv"]
 [ext_resource type="FontFile" uid="uid://bheljxbnad55u" path="res://Assets/fonts/PixelOperator8.ttf" id="13_27d78"]
@@ -241,7 +241,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("12_johrv")
-text = "Faquinha - Derrota inimigos ao atingi-los"
+text = "Faquinha - Derrota inimigos ao enconstá-los"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true

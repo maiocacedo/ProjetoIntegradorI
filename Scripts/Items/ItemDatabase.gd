@@ -41,10 +41,10 @@ var items = {
 	# Escudo com Espinhos
 	5: {
 		"id": 5,
-		"name": "Escudo com Espinhos",
+		"name": "Faquinha",
 		"description": "Permite derrotar um inimigo!",
-		"icon": preload("res://Assets/Items/escudo_espinhos_moldura.png"),
-		"scene": preload("res://Cenas/Items/escudo_com_espinhos.tscn"),
+		"icon": preload("res://Assets/Items/faquinha_moldura.png"),
+		"scene": preload("res://Cenas/Items/faquinha.tscn"),
 		"quantity": 1
 	}
 }

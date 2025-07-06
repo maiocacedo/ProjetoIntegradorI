@@ -277,8 +277,9 @@ _data = {
 [node name="fase_8" type="Node2D"]
 script = ExtResource("1_opm0k")
 levelName = "fase_8"
-msgPorta = "OU negue OU aceite "
+msgPorta = "SE (chaves ==  alavancas)"
 pathProximaFase = "res://Cenas/fases/fase_9.tscn"
+minutosFase = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -336,26 +337,14 @@ offset_bottom = 5.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("5_vgjuq")
 theme_override_font_sizes/font_size = 8
-text = "Você realemnte gosta 
+text = "Você realmente gosta 
 de chaves "
 horizontal_alignment = 1
 
 [node name="Chaves" type="Node2D" parent="."]
 
-[node name="Chave4" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(880, 297)
-scale = Vector2(2, 2)
-
 [node name="Chave5" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(889, 134)
-scale = Vector2(2, 2)
-
-[node name="Chave7" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(582, 354)
-scale = Vector2(2, 2)
-
-[node name="Chave6" parent="Chaves" instance=ExtResource("7_faw5x")]
-position = Vector2(100, 237)
+position = Vector2(863, 134)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -416,7 +405,7 @@ position = Vector2(582, 399)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai6" parent="Plataforma" instance=ExtResource("13_wmixn")]
-position = Vector2(688, 165)
+position = Vector2(684, 166)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai7" parent="Plataforma" instance=ExtResource("13_wmixn")]
@@ -478,8 +467,8 @@ scale = Vector2(2.08, 3.03069)
 [node name="Alavancas" type="Node" parent="."]
 
 [node name="Alavanca" parent="Alavancas" instance=ExtResource("15_utr60")]
-position = Vector2(242, 197)
-scale = Vector2(2.715, 2.715)
+position = Vector2(255, 205)
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]

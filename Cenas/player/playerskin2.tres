@@ -133,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_13ktv")
 }],
-"loop": true,
+"loop": false,
 "name": &"pula",
 "speed": 5.0
 }]

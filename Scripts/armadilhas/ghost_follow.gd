@@ -17,7 +17,7 @@ extends CharacterBody2D
 var patrolTarget: Marker2D
 
 # Estados possíveis do inimigo
-enum State { PATROLLING, CHASING, HIDING }
+enum State { PATROLLING, CHASING, HIDING, STUN }
 var state: State = State.PATROLLING
 
 var player: CharacterBody2D
@@ -73,6 +73,12 @@ func _physics_process(delta: float) -> void:
 			elif not $ReturnTimer.is_stopped():
 				pass
 				
+		State.STUN:
+			velocity = Vector2.ZERO
+			$anim.play("hide")
+			await get_tree().create_timer(3).timeout
+			state = State.PATROLLING
+			
 func patrol(delta):
 	var toTarget = patrolTarget.global_position - global_position
 	var distance = toTarget.length()
@@ -141,17 +147,43 @@ func _on_return_timer_timeout() -> void:
 # Se o inimigo colidir com o jogador, reinicia a cena
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"): #verifica o grupo
-		if PlayerData.hasDamageUpgrade and not PlayerData.damageUpgradeApplied:
-			PlayerData.damageUpgradeApplied = true #impede que seja usado de novo
-			var inventory = get_tree().get_first_node_in_group("inventory")
-			inventory.removerItem(ItemDB.getItem(5), null)
-			queue_free()
+		if PlayerData.hasPergaminho and PlayerData.hasDamageUpgrade:
+			if PlayerData.damageUpgradeApplied:
+				ActivateProtection()
+				body.Knockback(global_position) #chama a função
+				
+				return
+			else:
+				ActivateDamageUpgrade()
+				return
+		elif PlayerData.hasDamageUpgrade and not PlayerData.damageUpgradeApplied:
+			ActivateDamageUpgrade()
+			return
+		elif PlayerData.hasPergaminho and not PlayerData.pergaminhoUsado:
+			ActivateProtection()
+			body.Knockback(global_position) #chama a função
+			return
 		else:
 			body.die()
 			morte.playing = true 
 			timer.start()
 			PlayerData.damageUpgradeApplied = false
-
+			PlayerData.pergaminhoUsado = false
+			
+func ActivateDamageUpgrade() -> void:
+		if PlayerData.hasDamageUpgrade and not PlayerData.damageUpgradeApplied:
+			PlayerData.damageUpgradeApplied = true
+			var inventory = get_tree().get_first_node_in_group("inventory")
+			inventory.removerItem(ItemDB.getItem(5), null)
+			queue_free()
+			
+func ActivateProtection() -> void:
+	if PlayerData.hasPergaminho and not PlayerData.pergaminhoUsado:
+		PlayerData.pergaminhoUsado = true
+		state = State.STUN
+		var inventory = get_tree().get_first_node_in_group("inventory")
+		inventory.removerItem(ItemDB.getItem(4), null)
+		
 # Verifica se o jogador está dentro da área de patrulha (horizontal e vertical)
 func isPlayerInsidePatrolArea() -> bool:
 	var minX = min(pointA.global_position.x, pointB.global_position.x)
@@ -168,4 +200,4 @@ func isPlayerInsidePatrolArea() -> bool:
 
 
 func _on_timer_timeout() -> void:
-	GameManager.call_deferred("abrir_tela_de_morte","Fantasma te pegou!")
+	GameManager.call_deferred("abrir_tela_de_morte","Morte Morrida")

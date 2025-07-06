@@ -202,8 +202,7 @@ msgPorta = "SE (chaves == 1 E alavancas  == 1)"
 chavesNecessarias = 1
 alavancasNecessarias = 1
 pathProximaFase = "res://Cenas/fases/fase_5.tscn"
-minutosFase = 1.0
-segundosFase = 20.0
+minutosFase = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(2, 2)
@@ -275,7 +274,7 @@ position = Vector2(165, 378)
 scale = Vector2(3, 3)
 
 [node name="plataforma_cai3" parent="Plataforma" instance=ExtResource("6_7im2g")]
-position = Vector2(77, 260)
+position = Vector2(88, 218)
 scale = Vector2(3, 3)
 
 [node name="Porta" parent="." instance=ExtResource("11_dcrdh")]
