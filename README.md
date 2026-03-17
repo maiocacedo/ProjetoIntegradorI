@@ -413,9 +413,45 @@ completed = true
 
 ---
 
+## ⚠️ Proteção Intelectual
+
+> **AVISO IMPORTANTE — PROPRIEDADE INTELECTUAL**
+
+**Cavaleiro dos Circuitos** é uma obra original protegida pelas leis de **Direito Autoral** vigentes no Brasil (Lei nº 9.610/1998) e encontra-se em **processo de registro de patente junto ao INPI (Instituto Nacional da Propriedade Industrial)**.
+
+Todos os direitos sobre o conceito, design, mecânicas, narrativa, código-fonte, assets visuais e sonoros são reservados aos seus autores.
+
+### O que é permitido ✅
+
+- Uso pessoal e educacional do jogo (jogar, apresentar em sala de aula)
+- Citação do projeto em trabalhos acadêmicos, desde que com devida referência
+- Compartilhamento do jogo para fins não comerciais, mantendo os créditos originais
+
+### O que é proibido ❌
+
+- Reprodução, distribuição ou comercialização sem autorização expressa dos autores
+- Modificação, adaptação ou criação de obras derivadas sem consentimento
+- Remoção ou alteração dos créditos e avisos de propriedade intelectual
+- Uso do conceito pedagógico, mecânicas ou narrativa em outros produtos sem licença
+
+### Publicação Científica
+
+Este projeto é objeto de **artigo científico em elaboração** por **Gustavo Mazur**, que descreve sua metodologia de desenvolvimento, fundamentos pedagógicos e resultados de aplicação em contexto educacional. A citação correta do projeto deve seguir o formato:
+
+```
+MAZUR, Gustavo; et al. Cavaleiro dos Circuitos: um jogo educativo
+para o ensino de portas lógicas digitais. [Artigo em elaboração]. 2025.
+```
+
+Para solicitações de licenciamento, parcerias ou uso em pesquisas, entre em contato com **Gustavo Mazur** (responsável pelo processo de registro e publicação científica).
+
+---
+
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins educacionais como **Projeto Integrador** de curso. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes sobre os termos de uso.
+© 2025 **Gustavo Mazur e colaboradores**. Todos os direitos reservados.
+
+O processo de registro junto ao **INPI** (Patente Pendente) e a publicação científica estão sendo conduzidos por **Gustavo Mazur**. O código-fonte está disponível para consulta e fins educacionais, mas **não pode ser reutilizado, redistribuído ou adaptado comercialmente** sem autorização prévia e expressa do responsável legal.
 
 ---
 
@@ -424,5 +460,7 @@ Este projeto foi desenvolvido para fins educacionais como **Projeto Integrador**
 Desenvolvido com ❤️ e muita lógica digital.
 
 *"Que a lógica esteja com você!"*
+
+© 2025 Gustavo Mazur — Todos os direitos reservados.
 
 </div>
