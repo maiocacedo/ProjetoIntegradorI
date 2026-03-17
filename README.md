@@ -449,7 +449,7 @@ Para solicitações de licenciamento, parcerias ou uso em pesquisas, entre em co
 
 ## 📄 Licença
 
-© 2025 **Gustavo Mazur e colaboradores**. Todos os direitos reservados.
+© 2026 **Gustavo Mazur e colaboradores**. Todos os direitos reservados.
 
 O processo de registro junto ao **INPI** (Patente Pendente) e a publicação científica estão sendo conduzidos por **Gustavo Mazur**. O código-fonte está disponível para consulta e fins educacionais, mas **não pode ser reutilizado, redistribuído ou adaptado comercialmente** sem autorização prévia e expressa do responsável legal.
 
@@ -461,6 +461,6 @@ Desenvolvido com ❤️ e muita lógica digital.
 
 *"Que a lógica esteja com você!"*
 
-© 2025 Gustavo Mazur — Todos os direitos reservados.
+© 2026 Gustavo Mazur — Todos os direitos reservados.
 
 </div>
