@@ -14,9 +14,9 @@ func _ready():
 	$DetectorColisao.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
+	print("Só para testar", body.name)
 	if body.is_in_group("player"): 
 		alternar_estado()
-
 		if estado == 1:
 			for plataforma in get_tree().get_nodes_in_group("bloqueio_porta"):
 				plataforma.visible = false
@@ -24,17 +24,15 @@ func _on_body_entered(body):
 				if colisor:
 					colisor.set_deferred("disabled", true)
 				if plataforma.has_method("set_deferred"):
-					plataforma.set_deferred("disabled", true)
-
-			#  Chama a função da fase para verificar se a plataforma deve aparecer
-			var fase_node = get_tree().current_scene
-			if fase_node != null and fase_node.has_method("atualizar_estado_plataforma"):
-				fase_node.atualizar_estado_plataforma()
+						plataforma.set_deferred("disabled", true)
 
 func alternar_estado():
 	estado = 1 - estado
 	atualizar_visual()
+	
+	# Define ativada conforme o estado
 	ativada = estado == 1
+	
 	print("Estado da alavanca:", estado)
 	print("Alavanca ativada:", ativada)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://05mwbm41y5a1"]
+[gd_scene load_steps=16 format=3 uid="uid://05mwbm41y5a1"]
 
 [ext_resource type="LabelSettings" uid="uid://cuqghwtdf0bxd" path="res://Cenas/hud e menus/tres/title_label_settings.tres" id="1_1djae"]
 [ext_resource type="Script" uid="uid://g523ra776iqg" path="res://Scripts/hud e menus/menu.gd" id="1_rwb3b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cnv3nqw56skur" path="res://Assets/sprites/cap1.png" id="7_thrbc"]
 [ext_resource type="Texture2D" uid="uid://vyvjvd4tilsn" path="res://Assets/sprites/bateria.png" id="8_mq37e"]
 [ext_resource type="Texture2D" uid="uid://cuwavmrvh1vpg" path="res://Assets/sprites/player_breathing (1).png" id="8_nndfb"]
+[ext_resource type="Texture2D" uid="uid://cyyaj15lbi87" path="res://Assets/image-842-90ff92f74e3b87c8ba866d2ae84de18d.png" id="9_1xyrg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xn3cf"]
 
@@ -109,7 +110,7 @@ texture = ExtResource("6_1xyrg")
 hframes = 3
 
 [node name="Cap4" type="Sprite2D" parent="fundo"]
-position = Vector2(314, 586)
+position = Vector2(352, 585)
 scale = Vector2(4.79167, 4.79167)
 texture = ExtResource("7_thrbc")
 hframes = 3
@@ -122,12 +123,6 @@ hframes = 3
 
 [node name="Led3" type="Sprite2D" parent="fundo"]
 position = Vector2(901, 591)
-scale = Vector2(2.45833, 2.45833)
-texture = ExtResource("5_nndfb")
-hframes = 3
-
-[node name="Led5" type="Sprite2D" parent="fundo"]
-position = Vector2(133, 584)
 scale = Vector2(2.45833, 2.45833)
 texture = ExtResource("5_nndfb")
 hframes = 3
@@ -232,6 +227,13 @@ libraries = {
 }
 autoplay = "idle"
 speed_scale = 0.875
+
+[node name="Image-842-90Ff92f74e3b87c8Ba866d2Ae84De18d" type="Sprite2D" parent="."]
+texture_filter = 6
+texture_repeat = 2
+position = Vector2(155, 580)
+scale = Vector2(0.451235, 0.451235)
+texture = ExtResource("9_1xyrg")
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/créditos" to="." method="_on_créditos_pressed"]

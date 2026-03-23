@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var levelName: String = "fase_9"
-@export var pathProximaFase: String
+@export var pathProximaFase: String = "res://Cenas/Menu/tela_creditos.tscn"
 @export var chavesNecessarias: int = 1
 @export var alavancasNecessarias: int = 2
 @export var minutosFase: float = 3.0
@@ -67,7 +67,6 @@ func _on_portas_body_entered(body: Node2D) -> void:
 		return
 
 	if not plataforma_logica.visible:
-		hud.show_message("O caminho parece incompleto...")
 		return
 
 	completed = true

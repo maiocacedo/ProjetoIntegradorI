@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dfqbul1lvh0fa"]
+[gd_scene load_steps=24 format=3 uid="uid://dfqbul1lvh0fa"]
 
 [ext_resource type="Script" uid="uid://ggrqwlx6bmh3" path="res://Scripts/fases/fase_7.gd" id="1_3lpi3"]
 [ext_resource type="Texture2D" uid="uid://ka07i47edoni" path="res://Assets/spritesheets/tileset1-02.png" id="1_wp4rd"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cafhbwy8vlr" path="res://Cenas/armadilhas/fire_trap.tscn" id="10_bmiq8"]
 [ext_resource type="PackedScene" uid="uid://cskeghnjtijmk" path="res://Cenas/alavanca/alavanca.tscn" id="11_idn4u"]
 [ext_resource type="PackedScene" uid="uid://bvgaeqs22at0x" path="res://Cenas/plataforma/plataforma.tscn" id="13_acoss"]
-[ext_resource type="PackedScene" uid="uid://durn1jaddvq3j" path="res://Cenas/armadilhas/ghost.tscn" id="15_3lpi3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cb2dt"]
 texture = ExtResource("1_wp4rd")
@@ -443,56 +442,10 @@ libraries = {
 autoplay = "animação"
 
 [node name="Alavanca" parent="." instance=ExtResource("11_idn4u")]
-position = Vector2(71, 109)
+position = Vector2(73, 103)
 scale = Vector2(2, 2)
 
 [node name="Plataformas" type="Node2D" parent="."]
-
-[node name="Ghost" type="Node2D" parent="."]
-position = Vector2(593, -188)
-
-[node name="ghost" parent="Ghost" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("15_3lpi3")]
-position = Vector2(322, 516)
-scale = Vector2(3, 3)
-pointA = NodePath("../pointA")
-pointB = NodePath("../pointB")
-pointC = NodePath("../pointC")
-pointD = NodePath("../pointD")
-
-[node name="pointA" type="Marker2D" parent="Ghost"]
-position = Vector2(275, 518)
-
-[node name="pointB" type="Marker2D" parent="Ghost"]
-position = Vector2(553, 516)
-
-[node name="pointC" type="Marker2D" parent="Ghost"]
-position = Vector2(461, 443)
-
-[node name="pointD" type="Marker2D" parent="Ghost"]
-position = Vector2(452, 542)
-
-[node name="Ghost2" type="Node2D" parent="."]
-position = Vector2(-272, -186)
-
-[node name="ghost" parent="Ghost2" node_paths=PackedStringArray("pointA", "pointB", "pointC", "pointD") instance=ExtResource("15_3lpi3")]
-position = Vector2(322, 516)
-scale = Vector2(3, 3)
-pointA = NodePath("../pointA")
-pointB = NodePath("../pointB")
-pointC = NodePath("../pointC")
-pointD = NodePath("../pointD")
-
-[node name="pointA" type="Marker2D" parent="Ghost2"]
-position = Vector2(275, 518)
-
-[node name="pointB" type="Marker2D" parent="Ghost2"]
-position = Vector2(553, 516)
-
-[node name="pointC" type="Marker2D" parent="Ghost2"]
-position = Vector2(461, 443)
-
-[node name="pointD" type="Marker2D" parent="Ghost2"]
-position = Vector2(452, 542)
 
 [connection signal="body_entered" from="Porta" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="Porta" to="." method="_on_porta_body_exited"]

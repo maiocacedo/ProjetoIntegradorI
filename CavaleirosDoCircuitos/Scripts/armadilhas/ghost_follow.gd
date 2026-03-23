@@ -173,14 +173,20 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func ActivateDamageUpgrade() -> void:
 		if PlayerData.hasDamageUpgrade and not PlayerData.damageUpgradeApplied:
 			PlayerData.damageUpgradeApplied = true
+			if ItemDB == null:
+				push_error("ItemDatabase não está disponível em ActivateDamageUpgrade!")
+				return
 			var inventory = get_tree().get_first_node_in_group("inventory")
 			inventory.removerItem(ItemDB.getItem(5), null)
 			queue_free()
-			
+
 func ActivateProtection() -> void:
 	if PlayerData.hasPergaminho and not PlayerData.pergaminhoUsado:
 		PlayerData.pergaminhoUsado = true
 		state = State.STUN
+		if ItemDB == null:
+			push_error("ItemDatabase não está disponível em ActivateProtection!")
+			return
 		var inventory = get_tree().get_first_node_in_group("inventory")
 		inventory.removerItem(ItemDB.getItem(4), null)
 		

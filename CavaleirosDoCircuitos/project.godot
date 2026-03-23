@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Projeto final"
+config/name="Projeto Integrador I-caiomacedo-completo"
 run/main_scene="uid://05mwbm41y5a1"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
@@ -27,7 +27,7 @@ ItemDB="*res://Scripts/Items/ItemDatabase.gd"
 
 window/size/mode=3
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
+window/stretch/aspect="expand"
 
 [global_group]
 
@@ -58,5 +58,3 @@ pointing/emulate_touch_from_mouse=true
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
-textures/vram_compression/import_etc2_astc=true

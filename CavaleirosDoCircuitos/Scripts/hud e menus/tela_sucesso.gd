@@ -65,6 +65,13 @@ func _ready() -> void:
 			A saída da NAND está quase sempre ligada, e só desliga na única situação em que a porta AND ligaria: quando a entrada 1 E a entrada 2 estão ligadas.\n
 			Você aprendeu que negar o 'tudo ou nada' pode abrir muitas possibilidades!"
 		"fase_7":
+			$fundo_solido4/texto_conclusao.text = "Fase Concluída: Porta NOR (NÃO OU)"
+			$fundo_solido4/texto_fase.text = "Maravilhoso! A Porta NOR foi vencida!"
+			$fundo_solido4/texto_descritivo.text = "
+			A Porta NOR é a 'negação total'. Ela é o contrário da Porta OR. Para a saída dela ficar ligada, todas as entradas precisam estar desligadas. 
+			Se a entrada 1 OU a entrada 2 (ou as duas) estiverem ligadas, a saída será desligada.\n
+			Você descobriu que, às vezes, a única maneira de conseguir um 'sim' é quando não há nenhum outro sinal!"
+		"fase_8":
 			$fundo_solido4/texto_conclusao.text = "Fase Concluída: Porta XOR (OU Exclusivo)"
 			$fundo_solido4/texto_fase.text = "Genial! Você completou o desafio da Porta XOR!"
 			$fundo_solido4/texto_descritivo.text = "
@@ -72,8 +79,7 @@ func _ready() -> void:
 			Ela só liga a saída quando as entradas são diferentes uma da outra. Se uma entrada está ligada e a outra desligada, a saída fica ligada. 
 			Mas se as duas estiverem iguais (ambas ligadas ou ambas desligadas), a saída permanece desligada.\n
 			Você se tornou um especialista em encontrar as diferenças!"
-			
-		"fase_8":
+		"fase_9":
 			$fundo_solido4/texto_conclusao.text = "Fase Concluída: Porta XNOR (NÃO OU Exclusivo)"
 			$fundo_solido4/texto_fase.text = "Espetacular! Você conquistou a Porta XNOR!"
 			$fundo_solido4/texto_descritivo.text = "
@@ -81,18 +87,6 @@ func _ready() -> void:
 			Ela é o oposto da XOR! A saída dela só fica ligada quando as duas entradas são exatamente iguais: ou as duas estão ligadas ou as duas estão desligadas. 
 			Se as entradas forem diferentes, a saída ficará desligada.\n
 			Você provou que sabe reconhecer quando as coisas combinam perfeitamente!"
-		"fase_9":
-			$fundo_solido4/texto_conclusao.text = "Fase Concluída: Porta AND ou OR"
-			$fundo_solido4/texto_fase.text = "Espetacular! Você venceu o desafio extra!"
-			$fundo_solido4/texto_descritivo.text = "
-			A Porta AND é a 'porta da cooperação total'. 
-			A saída dela só liga quando as duas entradas estão ligadas. Se apenas uma estiver desligada, nada feito!  
-			Você mostrou que entende que o trabalho em equipe é essencial para o sucesso!
-
-			Já a Porta OR é a 'porta do pelo menos um'.  
-			Basta uma entrada ligada para a saída funcionar — não é preciso tudo estar perfeito.  
-			Você provou que sabe quando uma faísca já é o suficiente para acender a luz!"
-
 		"fase_10":
 			$fundo_solido2/VBoxContainer/proxima_fase.text = "Continuar"
 			$fundo_solido4/texto_conclusao.text = "Fase Desafio"

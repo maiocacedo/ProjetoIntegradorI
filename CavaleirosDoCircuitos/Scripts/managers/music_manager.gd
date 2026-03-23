@@ -46,7 +46,9 @@ func _on_scene_changed(newScene: Node) -> void:
 # Função para tocar música de acordo com path
 func _play_music(path: String) -> void:
 	if !musica.stream or musica.stream.resource_path != path:
-		
+		if not ResourceLoader.exists(path):
+			push_error("Arquivo de música não encontrado: %s" % path)
+			return
 		musica.stream = load(path)
 		musica.play()
 

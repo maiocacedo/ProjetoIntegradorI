@@ -117,6 +117,9 @@ func updateUI():
 
 # Verifica quais upgrades o player já possui
 func verificarUpgrades():
+	if ItemDB == null:
+		push_error("ItemDatabase não está disponível em verificarUpgrades!")
+		return
 	var player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		var upgrades = []
@@ -240,6 +243,9 @@ func _on_touch_button_slot_2_released() -> void:
 # Quando o botão do slot 3 (chave) for pressionado
 func _on_touch_button_slot_3_pressed() -> void:
 	$HBoxContainer/Slot3/SlotBackground.texture = load("res://Assets/Inventory/slot_inv_chave_pressed.png")
+	if ItemDB == null:
+		push_error("ItemDatabase não está disponível no slot_3_pressed!")
+		return
 	var player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		var drop_offset = player.facingDir.normalized() * 40
