@@ -457,7 +457,6 @@ O processo de registro junto ao **INPI** (Patente Pendente) e a publicação cie
 
 <div align="center">
 
-Desenvolvido com ❤️ e muita lógica digital.
 
 *"Que a lógica esteja com você!"*
 
